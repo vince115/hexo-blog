@@ -7,7 +7,7 @@
 
     
 
-    <title>Git | Vince的學習筆記</title>
+    <title>Category: frontend | Vince的學習筆記</title>
     <meta name="author" content="Vince Lo" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -67,7 +67,7 @@
                 <span class="nav-text">設計</span>
             </a>
         
-            <a class="nav-item" href="/categories/frontend">
+            <a class="nav-item active" href="/categories/frontend">
                 <span class="nav-text">前端</span>
             </a>
         
@@ -95,8 +95,6 @@
     <div id="aside-inner" class="aside-inner">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
 
-        
-        
         
         
 
@@ -214,16 +212,62 @@
 
         <div id="content" class="content">
             <div id="wrapper" class="wrapper" style="max-width: 800px">
-                <article class="article" itemscope itemprop="blogPost">
+                
+    <article class="article" itemscope itemprop="blogPost">
     
     <header class="article-header">
         
         <h1 itemprop="name">
-            Git
+            <a href="/2020/04/16/2020-04-theme/">Hexo Theme 版型更換</a>
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/2020/04/14/2020-04-Git/index.html">
+            <a class="article-date" href="http://yoursite.com/categories/frontend/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-16T02:13:09.000Z" itemprop="datePublished">2020-04-16</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/hexo/" rel="tag">hexo</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="Quick-Start">Quick Start</h2>
+<h3 id="使用-hexo-theme-concise-主题">使用 hexo-theme-concise 主题</h3>
+<p>Concise 主题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git <span class="built_in">clone</span> git@github.com:sanonz/hexo-theme-concise.git themes/concise</span><br></pre></td></tr></table></figure>
+<p>修改 _config.yml 配置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">$</span>  <span class="attr">theme:</span> <span class="string">concise</span></span><br></pre></td></tr></table></figure>
+<p>因为主题使用了 less 編譯，Hexo 默認的編譯器為 hexo-renderer-stylus 要切換為 hexo-renderer-less</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  npm install hexo-renderer-less --save</span><br></pre></td></tr></table></figure>
+<p>如果你不需要 hexo-renderer-stylus 可以把它卸載掉</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  npm uninstall hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+<p>清除緩存數據</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2020/04/14/2020-04-vuejs/">Vue.js</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://yoursite.com/categories/frontend/index.html">
     
     <i class="icon-calendar"></i>
     
@@ -233,7 +277,7 @@
             
 <div class="article-tag-list">
     <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Git/" rel="tag">Git</a>
+    <a class="article-tag-link" href="/tags/vue-js/" rel="tag">vue.js</a>
 </div>
 
 
@@ -242,6 +286,14 @@
     
     <section class="article-body markdown-body">
         
+        <p>Vue.js是一款流行的JavaScript前端框架，旨在更好地組織與簡化Web開發。Vue所關注的核心是MVC模式中的視圖層，同時，它也能方便地取得資料更新，並通過組件內部特定的方法實現視圖與模型的互動。</p>
+        
+        <p class="article-more-link">
+            <a href="/2020/04/14/2020-04-vuejs/#more">
+                <span class="vm">閱讀更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
         
         
     </section>
@@ -249,31 +301,7 @@
 
 
 
-<a id="pagenext" href="/2020/04/14/2020-04-vuejs/" class="article-next" title="Vue.js"><i class="icon-arrow-right"></i></a>
 
-
-<a id="pageprev" href="/2020/04/14/2020-04-f2e/" class="article-prev" title="F2E"><i class="icon-arrow-left"></i></a>
-
-
-
-<div class="comments">
-    <div id="comments"></div>
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
-    new Gitalk({
-        clientID: "7fbe80427f54741e289f",
-        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
-        repo: "sanonz.github.io",
-        owner: "sanonz",
-        admin: ["sanonz"],
-        id: "2020/04/14/2020-04-Git",
-        distractionFreeMode: true,
-        title: "Git",
-        body: "http://yoursite.com/2020/04/14/2020-04-Git/",
-        labels: ["Git"]
-    }).render('comments');
-    </script>
-</div>
 
 
             </div>
@@ -327,33 +355,6 @@
         }
     });
     </script>
-    
-        
-<script src="/js/scrollspy.min.js"></script>
-
-        <script type="text/javascript">
-        $(document.body).scrollspy({target: '#aside-inner'});
-
-        $(window).on('resize', function() {
-            var hw = $('#header').width();
-            var ww = $('#wrapper').width();
-            var space = ($(this).width() - hw - ww) / 2 / 2;
-
-            var pageprev = $('#pageprev');
-            var pagenext = $('#pagenext');
-            var avg = (pageprev.width() + pagenext.width()) / 2
-
-            if(space > avg) {
-                var len = space - avg / 2;
-                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
-                pageprev.css($.extend({left: hw + len}, styles));
-                pagenext.css($.extend({right: len}, styles));
-            } else {
-                pageprev.removeAttr('style');
-                pagenext.removeAttr('style');
-            }
-        }).trigger('resize');
-        </script>
     
 
 </body>

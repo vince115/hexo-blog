@@ -7,7 +7,7 @@
 
     
 
-    <title>Git | Vince的學習筆記</title>
+    <title>Category: design | Vince的學習筆記</title>
     <meta name="author" content="Vince Lo" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -63,7 +63,7 @@
                 <span class="nav-text">首頁</span>
             </a>
         
-            <a class="nav-item" href="/categories/design">
+            <a class="nav-item active" href="/categories/design">
                 <span class="nav-text">設計</span>
             </a>
         
@@ -95,8 +95,6 @@
     <div id="aside-inner" class="aside-inner">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
 
-        
-        
         
         
 
@@ -214,26 +212,27 @@
 
         <div id="content" class="content">
             <div id="wrapper" class="wrapper" style="max-width: 800px">
-                <article class="article" itemscope itemprop="blogPost">
+                
+    <article class="article" itemscope itemprop="blogPost">
     
     <header class="article-header">
         
         <h1 itemprop="name">
-            Git
+            <a href="/2020/04/10/2020-04-UIUX/">UI/UX</a>
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/2020/04/14/2020-04-Git/index.html">
+            <a class="article-date" href="http://yoursite.com/categories/design/index.html">
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2020-04-14T01:37:08.000Z" itemprop="datePublished">2020-04-14</time>
+    <time datetime="2020-04-10T01:37:08.000Z" itemprop="datePublished">2020-04-10</time>
 </a>
 
             
 <div class="article-tag-list">
     <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Git/" rel="tag">Git</a>
+    <a class="article-tag-link" href="/tags/uiux/" rel="tag">uiux</a>
 </div>
 
 
@@ -242,38 +241,16 @@
     
     <section class="article-body markdown-body">
         
-        
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="UIUX">UIUX</h2>
+
         
     </section>
 </article>
 
 
 
-<a id="pagenext" href="/2020/04/14/2020-04-vuejs/" class="article-next" title="Vue.js"><i class="icon-arrow-right"></i></a>
 
-
-<a id="pageprev" href="/2020/04/14/2020-04-f2e/" class="article-prev" title="F2E"><i class="icon-arrow-left"></i></a>
-
-
-
-<div class="comments">
-    <div id="comments"></div>
-    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-    <script>
-    new Gitalk({
-        clientID: "7fbe80427f54741e289f",
-        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
-        repo: "sanonz.github.io",
-        owner: "sanonz",
-        admin: ["sanonz"],
-        id: "2020/04/14/2020-04-Git",
-        distractionFreeMode: true,
-        title: "Git",
-        body: "http://yoursite.com/2020/04/14/2020-04-Git/",
-        labels: ["Git"]
-    }).render('comments');
-    </script>
-</div>
 
 
             </div>
@@ -327,33 +304,6 @@
         }
     });
     </script>
-    
-        
-<script src="/js/scrollspy.min.js"></script>
-
-        <script type="text/javascript">
-        $(document.body).scrollspy({target: '#aside-inner'});
-
-        $(window).on('resize', function() {
-            var hw = $('#header').width();
-            var ww = $('#wrapper').width();
-            var space = ($(this).width() - hw - ww) / 2 / 2;
-
-            var pageprev = $('#pageprev');
-            var pagenext = $('#pagenext');
-            var avg = (pageprev.width() + pagenext.width()) / 2
-
-            if(space > avg) {
-                var len = space - avg / 2;
-                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
-                pageprev.css($.extend({left: hw + len}, styles));
-                pagenext.css($.extend({right: len}, styles));
-            } else {
-                pageprev.removeAttr('style');
-                pagenext.removeAttr('style');
-            }
-        }).trigger('resize');
-        </script>
     
 
 </body>

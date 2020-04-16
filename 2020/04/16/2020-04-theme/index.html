@@ -7,10 +7,10 @@
 
     
 
-    <title>F2E | Vince的學習筆記</title>
+    <title>Hexo Theme 版型更換 | Vince的學習筆記</title>
     <meta name="author" content="Vince Lo" />
     <meta name="keywords" content="" />
-    <meta name="description" content="Quick StartCreate a new F2E1$ hexo new &#34;My New Post&#34;" />
+    <meta name="description" content="Quick Start使用 hexo-theme-concise 主题Concise 主题1$  git clone git@github.com:sanonz/hexo-theme-concise.git themes/concise修改 _config.yml 配置1$  theme: concise因为主题使用了 less 編譯，Hexo 默認的編譯器為 hexo-renderer-stylus 要切換為 hexo-renderer-less1$  npm instal..." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -101,7 +101,7 @@
         
 
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-F2E"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new F2E</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-hexo-theme-concise-主题"><span class="toc-number">1.1.</span> <span class="toc-text">使用 hexo-theme-concise 主题</span></a></li></ol></li></ol>
         
     </div>
 </aside>
@@ -115,15 +115,15 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            F2E
+            Hexo Theme 版型更換
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://yoursite.com/2020/04/14/2020-04-f2e/index.html">
+            <a class="article-date" href="http://yoursite.com/2020/04/16/2020-04-theme/index.html">
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2020-04-14T14:08:23.000Z" itemprop="datePublished">2020-04-14</time>
+    <time datetime="2020-04-16T02:13:09.000Z" itemprop="datePublished">2020-04-16</time>
 </a>
 
             
@@ -139,18 +139,25 @@
     <section class="article-body markdown-body">
         
         <h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-F2E">Create a new F2E</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用-hexo-theme-concise-主题">使用 hexo-theme-concise 主题</h3>
+<p>Concise 主题</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git <span class="built_in">clone</span> git@github.com:sanonz/hexo-theme-concise.git themes/concise</span><br></pre></td></tr></table></figure>
+<p>修改 _config.yml 配置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">$</span>  <span class="attr">theme:</span> <span class="string">concise</span></span><br></pre></td></tr></table></figure>
+<p>因为主题使用了 less 編譯，Hexo 默認的編譯器為 hexo-renderer-stylus 要切換為 hexo-renderer-less</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  npm install hexo-renderer-less --save</span><br></pre></td></tr></table></figure>
+<p>如果你不需要 hexo-renderer-stylus 可以把它卸載掉</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  npm uninstall hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+<p>清除緩存數據</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
         
     </section>
 </article>
 
 
 
-<a id="pagenext" href="/2020/04/14/2020-04-Git/" class="article-next" title="Git"><i class="icon-arrow-right"></i></a>
+<a id="pagenext" href="/2020/04/14/2020-04-f2e/" class="article-next" title="F2E"><i class="icon-arrow-right"></i></a>
 
-
-<a id="pageprev" href="/2020/04/16/2020-04-theme/" class="article-prev" title="Hexo Theme 版型更換"><i class="icon-arrow-left"></i></a>
 
 
 
@@ -164,10 +171,10 @@
         repo: "sanonz.github.io",
         owner: "sanonz",
         admin: ["sanonz"],
-        id: "2020/04/14/2020-04-f2e",
+        id: "2020/04/16/2020-04-theme",
         distractionFreeMode: true,
-        title: "F2E",
-        body: "http://yoursite.com/2020/04/14/2020-04-f2e/",
+        title: "Hexo Theme 版型更換",
+        body: "http://yoursite.com/2020/04/16/2020-04-theme/",
         labels: ["hexo"]
     }).render('comments');
     </script>
