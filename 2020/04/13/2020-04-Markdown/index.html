@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-tw">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Markdown的目標是實現「易讀易寫」。 Markdown的語法有個主要的目的：用來作為一種網路內容的寫作用語言。 不在Markdown涵蓋範圍之外的標籤，都可以直接在文件裡面用HTML撰寫。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Markdown 語法練習">
+<meta property="og:url" content="http://yoursite.com/2020/04/13/2020-04-Markdown/index.html">
+<meta property="og:site_name" content="前端筆記">
+<meta property="og:description" content="Markdown的目標是實現「易讀易寫」。 Markdown的語法有個主要的目的：用來作為一種網路內容的寫作用語言。 不在Markdown涵蓋範圍之外的標籤，都可以直接在文件裡面用HTML撰寫。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-04-13T06:12:54.000Z">
+<meta property="article:modified_time" content="2020-04-15T09:54:52.006Z">
+<meta property="article:author" content="Vince Lo">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/04/13/2020-04-Markdown/"/>
+
+
+
+
+
+  <title>Markdown 語法練習 | 前端筆記</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-tw">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端筆記</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/13/2020-04-Markdown/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vince Lo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/profile.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端筆記">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Markdown 語法練習</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2020-04-13T14:12:54+08:00">
+                2020-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Markdown的目標是實現「易讀易寫」。<br>
+Markdown的語法有個主要的目的：用來作為一種網路內容的寫作用語言。<br>
+不在Markdown涵蓋範圍之外的標籤，都可以直接在文件裡面用HTML撰寫。</p>
+<a id="more"></a>
+<hr>
+<h2 id="標題">標題</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># H1</span></span><br><span class="line"><span class="comment">## H2</span></span><br><span class="line"><span class="comment">### H3</span></span><br><span class="line"><span class="comment">#### H4</span></span><br><span class="line"><span class="comment">##### H5</span></span><br><span class="line"><span class="comment">###### H6</span></span><br></pre></td></tr></table></figure>
+<h1>Alt-H1</h1>
+<h2 id="Alt-H2">Alt-H2</h2>
+<hr>
+<h2 id="強調語法">強調語法</h2>
+<p>義大利斜體  <em>asterisks</em> 或  <em>underscores</em><br>
+粗體  <strong>asterisks</strong> 或  <strong>underscores</strong><br>
+粗斜 <strong>asterisks and <em>underscores</em></strong><br>
+刪除線  <s>Scratch this.</s></p>
+<hr>
+<hr>
+<h2 id="清單">清單</h2>
+<ul>
+<li>可以使用星號建立無序清單</li>
+</ul>
+<ul>
+<li>或是短橫線（負號）</li>
+</ul>
+<ul>
+<li>使用半形加號也可以</li>
+</ul>
+<hr>
+<h2 id="連結設定">連結設定</h2>
+<p><a href="https://www.google.com" target="_blank" rel="noopener">這是一個行內連結</a></p>
+<p><a href="https://www.google.com" target="_blank" rel="noopener" title="Google's Homepage">這是一個帶有標題的行內連結</a></p>
+<p><a href="https://www.mozilla.org" target="_blank" rel="noopener">這是一個參考連結</a></p>
+<p><a href="../blob/master/LICENSE">這是一個對應到 Git 倉儲檔案的相對參考連結</a></p>
+<p><a href="http://slashdot.org" target="_blank" rel="noopener">參考標的物也可以使用數字</a></p>
+<p>直接使用文字對應也可以 <a href="http://www.reddit.com" target="_blank" rel="noopener">這段文字連到參考項目</a></p>
+<p>參考項目可以寫在文檔的最後，有點像書內的註解（註腳）。</p>
+<hr>
+<h2 id="註腳-Footnotes">註腳 Footnotes</h2>
+<p>Here is some text.[^fn]</p>
+<p>[^fn]: And the footnote!</p>
+<h4 id="Hexo-3-8-0-渲染-Markdown-Footnotes-不能问题">Hexo 3.8.0 渲染 Markdown Footnotes 不能问题</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm remove hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-markdown-it-plus --save</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="修改render">修改render</h2>
+<p>修改渲染器參數設定程式碼<br>
+在此只要確定在$hexo/node_modules/hexo-renderer-markdown-it/lib/renderer.js的程式碼</p>
+<p>原來</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (opt.plugins) &#123;</span><br><span class="line">    parser = opt.plugins.reduce((parser, pugs) =&gt; &#123;</span><br><span class="line">      <span class="keyword">if</span> (pugs instanceof Object &amp;&amp; pugs.name) &#123;</span><br><span class="line">        <span class="built_in">return</span> parser.use(require(pugs.name), pugs.options);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">return</span> parser.use(require(pugs));</span><br><span class="line"></span><br><span class="line">    &#125;, parser);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>改為</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(opt.plugins) &#123;</span><br><span class="line">  parser = opt.plugins.reduce(<span class="keyword">function</span> (parser, pugs) &#123;</span><br><span class="line">    <span class="keyword">if</span>(pugs instanceof Object &amp;&amp; pugs.name) &#123;</span><br><span class="line">      <span class="built_in">return</span> parser.use(require(pugs.name), pugs.options);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="built_in">return</span> parser.use(require(pugs));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, parser);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="CheckBox">CheckBox</h2>
+<p>CheckBox 常用在確認事情是否完成，在使用 Checkbox 要注意，中括號中的 x 就代表這個項目是被打勾的，它並不會主動紀錄勾選過的內容，所以使用時要確認勾選過的內容是否有增加 ｘ，避免混亂。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- [x] This is a complete item</span><br><span class="line">- [ ] This is an incomplete item</span><br></pre></td></tr></table></figure>
+<p>顯示畫面</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Time required</th>
+<th>Assigned to</th>
+<th>Current Status</th>
+<th>Finished</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Calendar Cache</td>
+<td>&gt; 5 hours</td>
+<td></td>
+<td>in progress</td>
+<td>- [x] ok?</td>
+</tr>
+<tr>
+<td>Object Cache</td>
+<td>&gt; 5 hours</td>
+<td></td>
+<td>in progress</td>
+<td>[x] item1<br/>[ ] item2</td>
+</tr>
+<tr>
+<td>Object Cache</td>
+<td>&gt; 5 hours</td>
+<td></td>
+<td>in progress</td>
+<td><ul><li>- [x] item1</li><li>- [ ] item2</li></ul></td>
+</tr>
+<tr>
+<td>Object Cache</td>
+<td>&gt; 5 hours</td>
+<td></td>
+<td>in progress</td>
+<td><li>[x] item1</li><li>[ ] item2</li></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>[x] works</li>
+<li>[x] works too</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/11/2020-04-Jekyll/" rel="next" title="Jekyll">
+                <i class="fa fa-chevron-left"></i> Jekyll
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/13/2020-04-hexo/" rel="prev" title="Hexo">
+                Hexo <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/profile.png"
+                alt="Vince Lo" />
+            
+              <p class="site-author-name" itemprop="name">Vince Lo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分類</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">標籤</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#標題"><span class="nav-number">1.</span> <span class="nav-text">標題</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#"><span class="nav-number"></span> <span class="nav-text">Alt-H1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Alt-H2"><span class="nav-number">1.</span> <span class="nav-text">Alt-H2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#強調語法"><span class="nav-number">2.</span> <span class="nav-text">強調語法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清單"><span class="nav-number">3.</span> <span class="nav-text">清單</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#連結設定"><span class="nav-number">4.</span> <span class="nav-text">連結設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#註腳-Footnotes"><span class="nav-number">5.</span> <span class="nav-text">註腳 Footnotes</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hexo-3-8-0-渲染-Markdown-Footnotes-不能问题"><span class="nav-number">5.0.1.</span> <span class="nav-text">Hexo 3.8.0 渲染 Markdown Footnotes 不能问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改render"><span class="nav-number">6.</span> <span class="nav-text">修改render</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CheckBox"><span class="nav-number">7.</span> <span class="nav-text">CheckBox</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vince Lo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 強力驅動</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主題 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
