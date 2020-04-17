@@ -7,10 +7,10 @@
 
     
 
-    <title>Vue.js | Vince的學習筆記</title>
+    <title>2020-04-Laravel | Vince的學習筆記</title>
     <meta name="author" content="Vince Lo" />
     <meta name="keywords" content="" />
-    <meta name="description" content="Vue.js是一款流行的JavaScript前端框架，旨在更好地組織與簡化Web開發。Vue所關注的核心是MVC模式中的視圖層，同時，它也能方便地取得資料更新，並通過組件內部特定的方法實現視圖與模型的互動。 VueVue.use(Vuex)。定義你的 Store。把你的 Vue App 加入 Store 裡面。123456789101112import Vue from &#39;vue&#39;import Vuex from &#39;vuex&#39;Vue.use(Vuex)let store = n..." />
+    <meta name="description" content="Laravel 是一個由Taylor Otwell所建立，免費的開源 PHP Web 框架，旨在實作的Web軟體的MVC架構，並作為CodeIgniter的替代方案。其原始碼代管於GitHub，許可條款為MIT授權條款。Laravel的特色包含：支援用戶身分驗證和授權，具有模組化的套件系統且有專屬的套件庫，提供連接許多種類的關連式資料庫的方式，提供工具來協助應用程式的部署和維持，並且發展出許多語法糖  標題" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -101,7 +101,7 @@
         
 
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue"><span class="toc-number">1.</span> <span class="toc-text"> Vue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vuex"><span class="toc-number">2.</span> <span class="toc-text"> Vuex</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#-more-"><span class="toc-number">1.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#標題"><span class="toc-number">2.</span> <span class="toc-text"> 標題</span></a></li></ol>
         
     </div>
 </aside>
@@ -115,21 +115,21 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            Vue.js
+            2020-04-Laravel
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/2020/04/14/2020-04-vuejs/index.html">
+            <a class="article-date" href="http://vince115.github.io/2020/04/16/2020-04-Laravel/index.html">
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2020-04-14T01:37:08.000Z" itemprop="datePublished">2020-04-14</time>
+    <time datetime="2020-04-16T11:50:52.000Z" itemprop="datePublished">2020-04-16</time>
 </a>
 
             
 <div class="article-tag-list">
     <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/vue-js/" rel="tag">vue.js</a>
+    <a class="article-tag-link" href="/tags/laravel/" rel="tag">laravel</a>
 </div>
 
 
@@ -138,28 +138,9 @@
     
     <section class="article-body markdown-body">
         
-        <p>Vue.js是一款流行的JavaScript前端框架，旨在更好地組織與簡化Web開發。Vue所關注的核心是MVC模式中的視圖層，同時，它也能方便地取得資料更新，並通過組件內部特定的方法實現視圖與模型的互動。</p>
-<a id="more"></a>
-<h2 id="vue"><a class="markdownIt-Anchor" href="#vue"></a> Vue</h2>
-<p>Vue.use(Vuex)。<br />
-定義你的 Store。<br />
-把你的 Vue App 加入 Store 裡面。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import Vue from <span class="string">'vue'</span></span><br><span class="line">import Vuex from <span class="string">'vuex'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Vuex)</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> store = new Vuex.Store(&#123;</span><br><span class="line">  modules: &#123;</span><br><span class="line">    // 這邊就放你要的 Modules</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default store</span><br></pre></td></tr></table></figure>
-<h2 id="vuex"><a class="markdownIt-Anchor" href="#vuex"></a> Vuex</h2>
-<p>Vuex 在這邊所擔任的角色，是屬於共享狀態管理機制（ Shared State Management ），主要的目的是讓你在各種不同的元件中溝通。溝通是個簡單的說法，主要的目的還是用於共享某些資訊，用以達到資訊同步的目的。</p>
-<p>當然，這個並不是訊息溝通的必要手段。官方也說，如果不是大型結構的話，你可以自己製作一個狀態儲存機制，並不一定要使用 Vuex，畢竟這過於冗餘。</p>
-<p>Simple State Management from Scratch</p>
-<p>那麼這個狀態管理機制裡面有什麼東西呢？</p>
-<ul>
-<li>State 狀態儲存的物件，Vuex 使用 單一狀態樹 的方式來存放。</li>
-<li>Getters 取得狀態資料的方法。</li>
-<li>Mutations 更新狀態資料的方法。</li>
-<li>Actions 類似 Mutations，但是 Actions 是呼叫 Mutations，且可支援非同步呼叫。</li>
-<li>Modules 用於分割 Vuex 的區塊。</li>
-</ul>
-<p>有了這寫核心結構概念後，我們來看看新增一個 Vuex 會有哪些屬性可以使用：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const store = new Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    age: 18</span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    incrementAge: <span class="keyword">function</span> (state) &#123;</span><br><span class="line">      state.age++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">    ohMyAge: <span class="keyword">function</span> (commit) &#123;</span><br><span class="line">      commit(<span class="string">'incrementAge'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  getters: &#123;</span><br><span class="line">    getAge: <span class="keyword">function</span> (state) &#123;</span><br><span class="line">      <span class="built_in">return</span> state.age</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>這是一個簡單的 Store 實例，如果在元件當中，你會有幾個方法，可以從 Vuex 裡面提出來使用。</p>
+        <p>Laravel 是一個由Taylor Otwell所建立，免費的開源 PHP Web 框架，旨在實作的Web軟體的MVC架構，並作為CodeIgniter的替代方案。其原始碼代管於GitHub，許可條款為MIT授權條款。Laravel的特色包含：支援用戶身分驗證和授權，具有模組化的套件系統且有專屬的套件庫，提供連接許多種類的關連式資料庫的方式，提供工具來協助應用程式的部署和維持，並且發展出許多語法糖</p>
+<h2 id="-more-"><a class="markdownIt-Anchor" href="#-more-"></a> <a id="more"></a></h2>
+<h2 id="標題"><a class="markdownIt-Anchor" href="#標題"></a> 標題</h2>
 
         
     </section>
@@ -167,10 +148,8 @@
 
 
 
-<a id="pagenext" href="/2020/04/13/2020-04-hexo/" class="article-next" title="Hexo"><i class="icon-arrow-right"></i></a>
+<a id="pagenext" href="/2020/04/16/2020-04-theme/" class="article-next" title="Hexo Theme 版型更換"><i class="icon-arrow-right"></i></a>
 
-
-<a id="pageprev" href="/2020/04/14/2020-04-Git/" class="article-prev" title="Git"><i class="icon-arrow-left"></i></a>
 
 
 
@@ -184,11 +163,11 @@
         repo: "sanonz.github.io",
         owner: "sanonz",
         admin: ["sanonz"],
-        id: "2020/04/14/2020-04-vuejs",
+        id: "2020/04/16/2020-04-Laravel",
         distractionFreeMode: true,
-        title: "Vue.js",
-        body: "http://vince115.github.io/2020/04/14/2020-04-vuejs/",
-        labels: ["vue.js"]
+        title: "2020-04-Laravel",
+        body: "http://vince115.github.io/2020/04/16/2020-04-Laravel/",
+        labels: ["laravel"]
     }).render('comments');
     </script>
 </div>
