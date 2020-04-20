@@ -34,7 +34,7 @@
   font-size: 26px;
 }
 .article-header h1 a {
-  color: #333;
+  color: #336666;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -50,7 +50,7 @@
   color: #999;
 }
 .article-date:hover {
-  color: #333;
+  color: #336666;
 }
 .article-tag-list {
   color: #999;
@@ -125,7 +125,7 @@
   height: 100%;
   line-height: 0;
   font-size: 0;
-  background-color: #333;
+  background-color: #336666;
   display: none\9;
   -webkit-transform: scale(0);
   -ms-transform: scale(0);

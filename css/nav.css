@@ -3,7 +3,7 @@
   z-index: 80;
   width: 80px;
   height: 100%;
-  background-color: #272822;
+  background-color: #004444;
   -webkit-animation: fade-in 1.6s both;
   -moz-animation: fade-in 1.6s both;
   animation: fade-in 1.6s both;
@@ -41,17 +41,17 @@
 }
 .nav-item:hover,
 .nav-item:active {
-  background-color: #464646;
+  background-color: #006666;
 }
 .nav-item:hover .nav-text,
 .nav-item:active .nav-text {
-  background-color: #464646;
+  background-color: #006666;
 }
 .nav-item.active {
-  background-color: #676767;
+  background-color: #009999;
 }
 .nav-item.active .nav-text {
-  background-color: #676767;
+  background-color: #009999;
 }
 .nav-text {
   display: block;
@@ -165,7 +165,7 @@
     height: 44px;
     font-size: 13px;
     line-height: 44px;
-    background-color: #333;
+    background-color: #336666;
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;

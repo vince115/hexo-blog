@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>Web 網頁前端開發指南 | Vince的全端學習筆記</title>
+    <meta name="author" content="Vince Lo" />
+    <meta name="keywords" content="" />
+    <meta name="description" content=" 前端基本知識 HTMLSemantic HTMLHTML5中新增了語意化標籤(Semantic Elements)，目的是為了讓標籤(Tag)更具意義，以加強文件的結構化，讓搜尋引擎更清楚了解。語意標籤的使用時機 / 意義搜尋引擎最佳化(SEO)SEO (Search Engine Optimization)7大免費SEO工具推薦Search Console (Google的網站管理員工具)Google Analytics (簡稱GA，Google分析)..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Vince的全端學習筆記" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Vince的全端學習筆記</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首頁</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/design">
+                <span class="nav-text">設計</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frontend">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/backend">
+                <span class="nav-text">後端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">標籤</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">歸檔</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">關於</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://vince115.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前端基本知識"><span class="toc-number">1.</span> <span class="toc-text"> 前端基本知識</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#html"><span class="toc-number">1.1.</span> <span class="toc-text"> HTML</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#css"><span class="toc-number">1.2.</span> <span class="toc-text"> CSS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#javascript"><span class="toc-number">1.3.</span> <span class="toc-text"> JavaScript</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#開發相關知識"><span class="toc-number">2.</span> <span class="toc-text"> 開發相關知識</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#套件管理系統package-manager"><span class="toc-number">3.</span> <span class="toc-text"> 套件管理系統(Package Manager)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css預設處理器"><span class="toc-number">4.</span> <span class="toc-text"> CSS預設處理器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css框架farmwork"><span class="toc-number">5.</span> <span class="toc-text"> CSS框架(Farmwork)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前端框架"><span class="toc-number">6.</span> <span class="toc-text"> 前端框架</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#測試你的應用程式"><span class="toc-number">7.</span> <span class="toc-text"> 測試你的應用程式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#漸進式網頁應用程式pwa"><span class="toc-number">8.</span> <span class="toc-text"> 漸進式網頁應用程式(PWA*)</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            Web 網頁前端開發指南
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/2020/04/20/2020-04-f2e/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-20T14:08:23.000Z" itemprop="datePublished">2020-04-20</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/frontend/" rel="tag">frontend</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="前端基本知識"><a class="markdownIt-Anchor" href="#前端基本知識"></a> 前端基本知識</h3>
+<h4 id="html"><a class="markdownIt-Anchor" href="#html"></a> HTML</h4>
+<ul>
+<li><strong>Semantic HTML</strong><br />
+HTML5中新增了語意化標籤(Semantic Elements)，目的是為了讓標籤(Tag)更具意義，以加強文件的結構化，讓搜尋引擎更清楚了解。</li>
+<li>語意標籤的使用時機 / 意義</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>搜尋引擎最佳化(<strong>SEO</strong>)<br />
+SEO (Search Engine Optimization)</li>
+</ul>
+<blockquote>
+<p><strong>7大免費SEO工具推薦</strong></p>
+<ul>
+<li><a href="https://search.google.com/search-console/about" target="_blank" rel="noopener">Search Console</a> (Google的網站管理員工具)</li>
+<li><a href="https://analytics.google.com/" target="_blank" rel="noopener">Google Analytics</a> (簡稱GA，Google分析)</li>
+<li><a href="https://www.design-hu.com.tw/wordpress/wordpress-tools/bing-webmaster-tools.html" target="_blank" rel="noopener">Bing</a> 網站管理員工具</li>
+<li><a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank" rel="noopener">PageSpeed Insights</a>(網站測速工具)</li>
+<li><a href="https://trends.google.com/trends/" target="_blank" rel="noopener">Google Trends</a>(Google搜尋趨勢)</li>
+<li><a href="https://search.google.com/structured-data/testing-tool/" target="_blank" rel="noopener">結構化測試工具</a></li>
+</ul>
+</blockquote>
+<ul>
+<li>無障礙網頁</li>
+</ul>
+<h4 id="css"><a class="markdownIt-Anchor" href="#css"></a> CSS</h4>
+<ul>
+<li>版面配置(Layouts)</li>
+<li>媒體查詢(Media Query)</li>
+</ul>
+<h4 id="javascript"><a class="markdownIt-Anchor" href="#javascript"></a> JavaScript</h4>
+<ul>
+<li>JS語法和基本結構</li>
+<li>jQuery DOM操作</li>
+</ul>
+<!-- more -->
+<h3 id="開發相關知識"><a class="markdownIt-Anchor" href="#開發相關知識"></a> 開發相關知識</h3>
+<ul>
+<li>Git - 版本控制</li>
+<li>基本終端機的使用</li>
+<li>資料結構\演算法</li>
+<li>SOLID/KISS/YAGNI</li>
+<li>Github</li>
+<li>授權條款(License)</li>
+<li>語意化版本(Semantic Versioning)</li>
+<li>SSH</li>
+<li>HTTP/HTTPS和API</li>
+<li>設計模式(Design Pattern)</li>
+<li>字元編碼(Character Encoding)</li>
+</ul>
+<h3 id="套件管理系統package-manager"><a class="markdownIt-Anchor" href="#套件管理系統package-manager"></a> 套件管理系統(Package Manager)</h3>
+<ul>
+<li><font color="red">npm</font></li>
+<li>yarn</li>
+</ul>
+<h3 id="css預設處理器"><a class="markdownIt-Anchor" href="#css預設處理器"></a> CSS預設處理器</h3>
+<ul>
+<li>SASS</li>
+<li>PostCSS</li>
+<li>LessDepth</li>
+</ul>
+<h3 id="css框架farmwork"><a class="markdownIt-Anchor" href="#css框架farmwork"></a> CSS框架(Farmwork)</h3>
+<ul>
+<li>Bootstarap</li>
+<li>Material UI</li>
+<li>Tailwind CSS</li>
+</ul>
+<p>CSS架構規範</p>
+<ul>
+<li>BEM<br />
+有了現代前端框架，CSS相關的JS方法越來越多，其實不需這些，但是至少該學習BEM，從長遠來看，它是一定有幫助的。</li>
+<li>OOCSS</li>
+<li>SMACSS</li>
+</ul>
+<p>建構工具(Build Tool)</p>
+<ol>
+<li>任務執行器</li>
+</ol>
+<ul>
+<li>npm script</li>
+</ul>
+<blockquote>
+<p>npm是世界上最大的軟件註冊表。來自各大洲的開源開發人員使用npm共享和借用軟件包，許多組織也使用npm管理私人開發。</p>
+</blockquote>
+<p>[筆記]</p>
+<ul>
+<li>gulp</li>
+</ul>
+<blockquote>
+<p>gulp 就是一個可以把工作流程加強，然後自動化的工具。</p>
+</blockquote>
+<blockquote>
+<p>gulp 是一個前端任務管理工具，它可以做到如Fire.app、Prepros、Grunt等等所能做的事情，簡單內容如下：</p>
+<ul>
+<li>編譯 SASS、Coffeescript</li>
+<li>壓縮 .CSS, .JS, 甚至圖檔</li>
+<li>web server with Livereload</li>
+<li>享受自己動手做Task工具的快感</li>
+<li>others…</li>
+</ul>
+</blockquote>
+<ol start="2">
+<li>模組打包工具</li>
+</ol>
+<ul>
+<li><font color="red">Webpack</font></li>
+</ul>
+<p>官網(<a href="https://webpack.js.org/" target="_blank" rel="noopener">https://webpack.js.org/</a>)首頁圖看到整個webpack的核心概念「注入」。<br />
+它是一個「打包工具」。將眾多模組與資源打包成一包檔案，並編譯我們需要預先處理的內容，變成瀏覽器看得懂的東西，讓我們可以上傳到伺服器。</p>
+<p>以Vue而言，Preprocess可以通過這個進入點的js讓webpack去編譯它，進而打包到dist資料夾。</p>
+<ul>
+<li>Parcel</li>
+<li>Rollup</li>
+</ul>
+<ol start="3">
+<li>Lint工具(Linter)與格式化工具(Formatter)</li>
+</ol>
+<ul>
+<li>Prettier</li>
+<li>ESlint</li>
+<li>JSHint</li>
+<li>JSLint</li>
+<li>StandardJS</li>
+</ul>
+<h3 id="前端框架"><a class="markdownIt-Anchor" href="#前端框架"></a> 前端框架</h3>
+<p>開始之前 ，應了解單頁應用程式(Single Page Application,SPA)，如何運作及優缺點</p>
+<ol>
+<li>React JS</li>
+</ol>
+<ul>
+<li>Redux</li>
+<li>MobX</li>
+</ul>
+<ol start="2">
+<li>Angular</li>
+</ol>
+<ul>
+<li>RxJS</li>
+<li>ngrx</li>
+</ul>
+<ol start="3">
+<li>Vue.js</li>
+</ol>
+<ul>
+<li>Vuex</li>
+</ul>
+<h3 id="測試你的應用程式"><a class="markdownIt-Anchor" href="#測試你的應用程式"></a> 測試你的應用程式</h3>
+<ul>
+<li>Jest</li>
+<li>Enzyme</li>
+<li>Cypress</li>
+</ul>
+<p>了解不同類型的測試，並學習如何用前述工具來撰寫這些測試。</p>
+<ol>
+<li>單元測試(Unit)</li>
+<li>整合測試(Integration)</li>
+<li>功能測試(Functional)</li>
+</ol>
+<h3 id="漸進式網頁應用程式pwa"><a class="markdownIt-Anchor" href="#漸進式網頁應用程式pwa"></a> 漸進式網頁應用程式(PWA*)</h3>
+<ul>
+<li>Storage</li>
+<li>Web Sockets</li>
+<li>Service Workers</li>
+</ul>
+<blockquote>
+<p>Location<br />
+Notifications<br />
+Device orientation<br />
+Payments<br />
+Credentials</p>
+</blockquote>
+
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/04/17/laravel-homestead/" class="article-next" title="laravel homestead 環境快速安裝"><i class="icon-arrow-right"></i></a>
+
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "7fbe80427f54741e289f",
+        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
+        repo: "sanonz.github.io",
+        owner: "sanonz",
+        admin: ["sanonz"],
+        id: "2020/04/20/2020-04-f2e",
+        distractionFreeMode: true,
+        title: "Web 網頁前端開發指南",
+        body: "http://vince115.github.io/2020/04/20/2020-04-f2e/",
+        labels: ["frontend"]
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>

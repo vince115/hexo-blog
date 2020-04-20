@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>laravel homestead 環境快速安裝 | Vince的全端學習筆記</title>
+    <meta name="author" content="Vince Lo" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="Laravel 推出 Homestead 搭配 Vagrant Box，讓初學者不用為環境問題而煩惱，減少浪費時間在架設 Laravel。簡單來說 Laravel Homestead = Vagrant + VirtualBox + Laravel 安裝包。 步驟一：事前準備安裝 Vagrant安裝 Virtual BoxWindows 開發環境，多安裝 Bash Tool完成後透過Vagrant下載封裝包1$ vagrant box add laravel/homes..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Vince的全端學習筆記" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Vince的全端學習筆記</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首頁</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/design">
+                <span class="nav-text">設計</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frontend">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/backend">
+                <span class="nav-text">後端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">標籤</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">歸檔</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">關於</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://vince115.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#步驟一事前準備"><span class="toc-number">1.</span> <span class="toc-text"> 步驟一：事前準備</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#步驟二安裝-homestead-程式碼"><span class="toc-number">2.</span> <span class="toc-text"> 步驟二：安裝 Homestead 程式碼</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#步驟三-設定虛擬目錄"><span class="toc-number">3.</span> <span class="toc-text"> 步驟三 : 設定虛擬目錄</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#步驟四-設定主機名稱"><span class="toc-number">4.</span> <span class="toc-text"> 步驟四: 設定主機名稱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#步驟五-啟動-vagrant-up"><span class="toc-number">5.</span> <span class="toc-text"> 步驟五: 啟動 Vagrant up</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            laravel homestead 環境快速安裝
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/2020/04/17/laravel-homestead/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-17T09:17:55.000Z" itemprop="datePublished">2020-04-17</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/backend/" rel="tag">backend</a>, <a class="article-tag-link" href="/tags/laravel/" rel="tag">laravel</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>Laravel 推出 Homestead 搭配 Vagrant Box，讓初學者不用為環境問題而煩惱，減少浪費時間在架設 Laravel。<br />
+簡單來說 Laravel Homestead = Vagrant + VirtualBox + Laravel 安裝包。</p>
+<a id="more"></a>
+<h3 id="步驟一事前準備"><a class="markdownIt-Anchor" href="#步驟一事前準備"></a> 步驟一：事前準備</h3>
+<ul>
+<li>安裝 <a href="https://www.vagrantup.com/downloads.html" target="_blank" rel="noopener" title="Vagrant">Vagrant</a></li>
+<li>安裝 <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener" title="Virtual Box">Virtual Box</a></li>
+</ul>
+<p>Windows 開發環境，多安裝 <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Bash Tool</a><br />
+完成後透過Vagrant下載封裝包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box add laravel/homestead</span><br></pre></td></tr></table></figure>
+<h3 id="步驟二安裝-homestead-程式碼"><a class="markdownIt-Anchor" href="#步驟二安裝-homestead-程式碼"></a> 步驟二：安裝 Homestead 程式碼</h3>
+<p>直接抓取官方 Homestead 程式碼</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ vagrant box add laravel/homestead</span><br></pre></td></tr></table></figure>
+<h3 id="步驟三-設定虛擬目錄"><a class="markdownIt-Anchor" href="#步驟三-設定虛擬目錄"></a> 步驟三 : 設定虛擬目錄</h3>
+<p>打開 Homestead.yaml<br />
+設定開發虛擬目錄及相對應主機名稱</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">ip: <span class="string">"192.168.10.10"</span></span><br><span class="line">memory: 2048</span><br><span class="line">cpus: 1</span><br><span class="line"> </span><br><span class="line">authorize: ~/.ssh/id_rsa.pub</span><br><span class="line"> </span><br><span class="line">keys:</span><br><span class="line">    - ~/.ssh/id_rsa</span><br><span class="line"> </span><br><span class="line">folders:</span><br><span class="line">    - map: ~/Code</span><br><span class="line">      to: /home/vagrant/Code</span><br><span class="line"> </span><br><span class="line">sites:</span><br><span class="line">    - map: homestead.app</span><br><span class="line">      to: /home/vagrant/Code/Laravel/public</span><br><span class="line"> </span><br><span class="line">variables:</span><br><span class="line">    - key: APP_ENV</span><br><span class="line">      value: <span class="built_in">local</span></span><br></pre></td></tr></table></figure>
+<p>注意 folders 及 sites 兩項設定<br />
+若有兩個 Laravel 網站需要設定，環境相關路徑如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 網站一</span></span><br><span class="line">主目錄: /home/git/laravel_1</span><br><span class="line">public 目錄: /home/git/laravel_1/public</span><br><span class="line">網域名稱: a.com.tw</span><br><span class="line"><span class="comment"># 網站二</span></span><br><span class="line">主目錄: /home/git/laravel_2</span><br><span class="line">public 目錄: /home/git/laravel_2/public</span><br><span class="line">網域名稱: b.com</span><br></pre></td></tr></table></figure>
+<h3 id="步驟四-設定主機名稱"><a class="markdownIt-Anchor" href="#步驟四-設定主機名稱"></a> 步驟四: 設定主機名稱</h3>
+<p>設定連接虛擬目錄的網域名稱，<br />
+/etc/hosts 加入兩行設定</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1 a.com.tw</span><br><span class="line">127.0.0.1 b.com</span><br></pre></td></tr></table></figure>
+<h3 id="步驟五-啟動-vagrant-up"><a class="markdownIt-Anchor" href="#步驟五-啟動-vagrant-up"></a> 步驟五: 啟動 Vagrant up</h3>
+<p>在 Homestead 目錄下執行 vagrant up<br />
+啟動訊息可以發現底下 port mapping</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">default: 80 =&gt; 8088 (adapter 1)</span><br><span class="line">default: 3306 =&gt; 33060 (adapter 1)</span><br><span class="line">default: 5432 =&gt; 54320 (adapter 1)</span><br><span class="line">default: 22 =&gt; 2222 (adapter 1)</span><br></pre></td></tr></table></figure>
+<p>如果 port 已經被佔用，請修改 scripts/homestead.rb</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Configure Port Forwarding To The Box</span></span><br><span class="line">config.vm.network <span class="string">"forwarded_port"</span>, guest: 80, host: 8088</span><br><span class="line">config.vm.network <span class="string">"forwarded_port"</span>, guest: 3306, host: 33060</span><br><span class="line">config.vm.network <span class="string">"forwarded_port"</span>, guest: 5432, host: 54320</span><br></pre></td></tr></table></figure>
+<p>如果你要啟動時更新系統套件及 composer 話請加入底下程式碼</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Copy The Bash Aliases</span></span><br><span class="line">config.vm.provision <span class="string">"shell"</span> <span class="keyword">do</span> |s|</span><br><span class="line">  s.inline = <span class="string">"cp /vagrant/aliases /home/vagrant/.bash_aliases"</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>改成</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Copy The Bash Aliases</span></span><br><span class="line">config.vm.provision <span class="string">"shell"</span> <span class="keyword">do</span> |s|</span><br><span class="line">  s.inline = <span class="string">"cp /vagrant/aliases /home/vagrant/.bash_aliases"</span></span><br><span class="line">  s.inline = <span class="string">"sudo apt-get update"</span></span><br><span class="line">  s.inline = <span class="string">"sudo composer self-update"</span></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>透過 vagrant ssh 可以登入系統，目前系統預設環境已經升級到 PHP 5.6.0 了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PHP 5.6.0-1+deb.sury.org~trusty+1 (cli) (built: Aug 28 2014 14:55:42) </span><br><span class="line">Copyright (c) 1997-2014 The PHP Group</span><br><span class="line">Zend Engine v2.6.0, Copyright (c) 1998-2014 Zend Technologies</span><br><span class="line">    with Zend OPcache v7.0.4-dev, Copyright (c) 1999-2014, by Zend Technologies</span><br><span class="line">    with Xdebug v2.2.5, Copyright (c) 2002-2014, by Derick Rethans</span><br></pre></td></tr></table></figure>
+<p>如果你的 Hoststead 並非是 5.6.0 環境，請直接透過 vagrant box update 更新 Box。</p>
+
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/04/16/2020-04-Laravel/" class="article-next" title="Laravel"><i class="icon-arrow-right"></i></a>
+
+
+<a id="pageprev" href="/2020/04/20/2020-04-f2e/" class="article-prev" title="Web 網頁前端開發指南"><i class="icon-arrow-left"></i></a>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "7fbe80427f54741e289f",
+        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
+        repo: "sanonz.github.io",
+        owner: "sanonz",
+        admin: ["sanonz"],
+        id: "2020/04/17/laravel-homestead",
+        distractionFreeMode: true,
+        title: "laravel homestead 環境快速安裝",
+        body: "http://vince115.github.io/2020/04/17/laravel-homestead/",
+        labels: ["laravel","backend"]
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>

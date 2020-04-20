@@ -1,5 +1,5 @@
 .tags-wrap .tag-list {
-  color: #333;
+  color: #336666;
   line-height: 22px;
   font-size: 0.8em;
   list-style: none;
@@ -21,7 +21,7 @@
 .tags-wrap .tag-list-link {
   display: inline-block;
   padding: 2px 8px 2px 14px;
-  color: #333;
+  color: #336666;
   vertical-align: middle;
 }
 .tags-wrap .tag-list-count {

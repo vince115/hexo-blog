@@ -1950,7 +1950,7 @@ body,
   margin: 0 auto;
 }
 .page-hd {
-  color: #333;
+  color: #336666;
   font-size: 2em;
 }
 .page-hd small {
@@ -2105,7 +2105,7 @@ body,
   z-index: 80;
   width: 80px;
   height: 100%;
-  background-color: #272822;
+  background-color: #004444;
   -webkit-animation: fade-in 1.6s both;
   -moz-animation: fade-in 1.6s both;
   animation: fade-in 1.6s both;
@@ -2143,17 +2143,17 @@ body,
 }
 .nav-item:hover,
 .nav-item:active {
-  background-color: #464646;
+  background-color: #006666;
 }
 .nav-item:hover .nav-text,
 .nav-item:active .nav-text {
-  background-color: #464646;
+  background-color: #006666;
 }
 .nav-item.active {
-  background-color: #676767;
+  background-color: #009999;
 }
 .nav-item.active .nav-text {
-  background-color: #676767;
+  background-color: #009999;
 }
 .nav-text {
   display: block;
@@ -2267,7 +2267,7 @@ body,
     height: 44px;
     font-size: 13px;
     line-height: 44px;
-    background-color: #333;
+    background-color: #336666;
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -2394,7 +2394,7 @@ body,
   top: 50%;
   left: 0;
   width: 100%;
-  color: #333;
+  color: #336666;
   text-align: center;
   line-height: 30px;
   -webkit-transform: translateY(-50%);
@@ -2454,7 +2454,7 @@ body,
   transition: color 0.3s ease;
 }
 .thread-item:hover {
-  color: #333;
+  color: #336666;
 }
 @media screen and (max-height: 588px) {
   .author-meta {
@@ -2596,10 +2596,10 @@ body,
   font-weight: normal;
 }
 .widget a {
-  color: rgba(51, 51, 51, 0.8);
+  color: rgba(51, 102, 102, 0.8);
 }
 .widget a:hover {
-  color: #333;
+  color: #336666;
 }
 .widget ul {
   list-style-type: none;
@@ -2640,7 +2640,7 @@ body,
   font-size: 26px;
 }
 .article-header h1 a {
-  color: #333;
+  color: #336666;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -2656,7 +2656,7 @@ body,
   color: #999;
 }
 .article-date:hover {
-  color: #333;
+  color: #336666;
 }
 .article-tag-list {
   color: #999;
@@ -2731,7 +2731,7 @@ body,
   height: 100%;
   line-height: 0;
   font-size: 0;
-  background-color: #333;
+  background-color: #336666;
   display: none\9;
   -webkit-transform: scale(0);
   -ms-transform: scale(0);
@@ -2860,8 +2860,8 @@ body,
   display: inline-block;
   margin: 0 6px;
   padding: 4px 10px;
-  color: #333;
-  border: 1px solid #464646;
+  color: #336666;
+  border: 1px solid #006666;
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
@@ -2870,13 +2870,13 @@ body,
 .page-nav .page-number:hover,
 .page-nav .extend:hover {
   color: #fff;
-  background-color: #333;
+  background-color: #336666;
 }
 .page-nav .space {
   margin: 0 4px;
 }
 .tags-wrap .tag-list {
-  color: #333;
+  color: #336666;
   line-height: 22px;
   font-size: 0.8em;
   list-style: none;
@@ -2898,7 +2898,7 @@ body,
 .tags-wrap .tag-list-link {
   display: inline-block;
   padding: 2px 8px 2px 14px;
-  color: #333;
+  color: #336666;
   vertical-align: middle;
 }
 .tags-wrap .tag-list-count {

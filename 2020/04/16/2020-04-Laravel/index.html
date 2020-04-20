@@ -7,15 +7,15 @@
 
     
 
-    <title>2020-04-Laravel | Vince的學習筆記</title>
+    <title>Laravel | Vince的全端學習筆記</title>
     <meta name="author" content="Vince Lo" />
     <meta name="keywords" content="" />
-    <meta name="description" content="Laravel 是一個由Taylor Otwell所建立，免費的開源 PHP Web 框架，旨在實作的Web軟體的MVC架構，並作為CodeIgniter的替代方案。其原始碼代管於GitHub，許可條款為MIT授權條款。Laravel的特色包含：支援用戶身分驗證和授權，具有模組化的套件系統且有專屬的套件庫，提供連接許多種類的關連式資料庫的方式，提供工具來協助應用程式的部署和維持，並且發展出許多語法糖  標題" />
+    <meta name="description" content="Laravel 是一個由Taylor Otwell所建立，免費的開源 PHP Web 框架，旨在實作的Web軟體的MVC架構，並作為CodeIgniter的替代方案。其原始碼代管於GitHub，許可條款為MIT授權條款。Laravel的特色包含：支援用戶身分驗證和授權，具有模組化的套件系統且有專屬的套件庫，提供連接許多種類的關連式資料庫的方式，提供工具來協助應用程式的部署和維持，並且發展出許多語法糖  需求環境PHP &amp;gt;= 5.6.4OpenSSL PHP Extensio..." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
     
-    <link rel="alternate" href="/atom.xml" title="Vince的學習筆記" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Vince的全端學習筆記" type="application/atom+xml">
     
     
     <link rel="icon" href="/images/favicon.ico">
@@ -53,7 +53,7 @@
     <div id="nav" class="nav">
     <div class="nav-mobile">
         <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
-        <h1 class="nav-mobile-title nav-mobile-item">Vince的學習筆記</h1>
+        <h1 class="nav-mobile-title nav-mobile-item">Vince的全端學習筆記</h1>
         <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
     </div>
 
@@ -64,7 +64,7 @@
             </a>
         
             <a class="nav-item" href="/categories/design">
-                <span class="nav-text">視設</span>
+                <span class="nav-text">設計</span>
             </a>
         
             <a class="nav-item" href="/categories/frontend">
@@ -101,7 +101,7 @@
         
 
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#-more-"><span class="toc-number">1.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#標題"><span class="toc-number">2.</span> <span class="toc-text"> 標題</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#-more-"><span class="toc-number">1.</span> <span class="toc-text"> </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#需求環境"><span class="toc-number">2.</span> <span class="toc-text"> 需求環境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安裝-laravel"><span class="toc-number">3.</span> <span class="toc-text"> 安裝 Laravel</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安裝xampp"><span class="toc-number">3.1.</span> <span class="toc-text"> 安裝XAMPP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#透過-composer-create-project"><span class="toc-number">3.2.</span> <span class="toc-text"> 透過 Composer Create-Project</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#伺服器環境需求"><span class="toc-number">3.3.</span> <span class="toc-text"> 伺服器環境需求</span></a></li></ol></li></ol>
         
     </div>
 </aside>
@@ -115,7 +115,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            2020-04-Laravel
+            Laravel
         </h1>
         
         <div class="article-meta clearfix">
@@ -129,7 +129,7 @@
             
 <div class="article-tag-list">
     <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/laravel/" rel="tag">laravel</a>
+    <a class="article-tag-link" href="/tags/backend/" rel="tag">backend</a>, <a class="article-tag-link" href="/tags/laravel/" rel="tag">laravel</a>
 </div>
 
 
@@ -140,7 +140,24 @@
         
         <p>Laravel 是一個由Taylor Otwell所建立，免費的開源 PHP Web 框架，旨在實作的Web軟體的MVC架構，並作為CodeIgniter的替代方案。其原始碼代管於GitHub，許可條款為MIT授權條款。Laravel的特色包含：支援用戶身分驗證和授權，具有模組化的套件系統且有專屬的套件庫，提供連接許多種類的關連式資料庫的方式，提供工具來協助應用程式的部署和維持，並且發展出許多語法糖</p>
 <h2 id="-more-"><a class="markdownIt-Anchor" href="#-more-"></a> <a id="more"></a></h2>
-<h2 id="標題"><a class="markdownIt-Anchor" href="#標題"></a> 標題</h2>
+<h2 id="需求環境"><a class="markdownIt-Anchor" href="#需求環境"></a> 需求環境</h2>
+<ul>
+<li>PHP &gt;= 5.6.4</li>
+<li>OpenSSL PHP Extension</li>
+<li>PDO PHP Extension</li>
+<li>Mbstring PHP Extension</li>
+<li>Tokenizer PHP Extension</li>
+<li>XML PHP Extension</li>
+</ul>
+<h2 id="安裝-laravel"><a class="markdownIt-Anchor" href="#安裝-laravel"></a> 安裝 Laravel</h2>
+<p>Laravel 使用 Composer 來管理相依性。所以，在使用 Laravel 之前，你必須確認電腦上是否安裝了 Composer。</p>
+<h3 id="安裝xampp"><a class="markdownIt-Anchor" href="#安裝xampp"></a> 安裝XAMPP</h3>
+<p>使用 Composer 下載 Laravel 安裝包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer global require &quot;laravel&#x2F;installer&#x3D;~1.1&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="透過-composer-create-project"><a class="markdownIt-Anchor" href="#透過-composer-create-project"></a> 透過 Composer Create-Project</h3>
+<p>透過 Composer 在命令列執行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project laravel&#x2F;laravel --prefer-dist</span><br></pre></td></tr></table></figure>
+<h3 id="伺服器環境需求"><a class="markdownIt-Anchor" href="#伺服器環境需求"></a> 伺服器環境需求</h3>
 
         
     </section>
@@ -150,6 +167,8 @@
 
 <a id="pagenext" href="/2020/04/16/2020-04-theme/" class="article-next" title="Hexo Theme 版型更換"><i class="icon-arrow-right"></i></a>
 
+
+<a id="pageprev" href="/2020/04/17/laravel-homestead/" class="article-prev" title="laravel homestead 環境快速安裝"><i class="icon-arrow-left"></i></a>
 
 
 
@@ -165,9 +184,9 @@
         admin: ["sanonz"],
         id: "2020/04/16/2020-04-Laravel",
         distractionFreeMode: true,
-        title: "2020-04-Laravel",
+        title: "Laravel",
         body: "http://vince115.github.io/2020/04/16/2020-04-Laravel/",
-        labels: ["laravel"]
+        labels: ["laravel","backend"]
     }).render('comments');
     </script>
 </div>

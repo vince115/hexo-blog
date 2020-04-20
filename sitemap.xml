@@ -2,16 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://vince115.github.io/2020/04/10/2020-04-UIUX/</loc>
+    <loc>http://vince115.github.io/2020/04/17/laravel-homestead/</loc>
     
-    <lastmod>2020-04-16T14:16:48.183Z</lastmod>
+    <lastmod>2020-04-20T11:28:51.480Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://vince115.github.io/2020/04/16/2020-04-Laravel/</loc>
     
-    <lastmod>2020-04-16T11:53:12.644Z</lastmod>
+    <lastmod>2020-04-20T11:26:17.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/20/2020-04-f2e/</loc>
+    
+    <lastmod>2020-04-20T11:23:02.696Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/about/index.html</loc>
+    
+    <lastmod>2020-04-20T08:05:38.407Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/13/2020-04-hexo/</loc>
+    
+    <lastmod>2020-04-17T08:56:53.448Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/10/2020-04-UIUX/</loc>
+    
+    <lastmod>2020-04-16T14:16:48.183Z</lastmod>
     
   </url>
   
@@ -26,20 +54,6 @@
     <loc>http://vince115.github.io/2020/04/11/2020-04-Jekyll/</loc>
     
     <lastmod>2020-04-16T09:53:45.715Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://vince115.github.io/2020/04/13/2020-04-hexo/</loc>
-    
-    <lastmod>2020-04-16T09:53:40.612Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://vince115.github.io/2020/04/14/2020-04-f2e/</loc>
-    
-    <lastmod>2020-04-16T09:53:35.385Z</lastmod>
     
   </url>
   
@@ -61,13 +75,6 @@
     <loc>http://vince115.github.io/categories/index.html</loc>
     
     <lastmod>2020-04-16T09:40:54.914Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://vince115.github.io/about/index.html</loc>
-    
-    <lastmod>2020-04-16T09:39:45.427Z</lastmod>
     
   </url>
   
