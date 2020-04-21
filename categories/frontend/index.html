@@ -7,7 +7,7 @@
 
     
 
-    <title>Category: frontend | Vince的全端學習筆記</title>
+    <title>Category: frontend | Vince的學習筆記</title>
     <meta name="author" content="Vince Lo" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
     
-    <link rel="alternate" href="/atom.xml" title="Vince的全端學習筆記" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Vince的學習筆記" type="application/atom+xml">
     
     
     <link rel="icon" href="/images/favicon.ico">
@@ -53,7 +53,7 @@
     <div id="nav" class="nav">
     <div class="nav-mobile">
         <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
-        <h1 class="nav-mobile-title nav-mobile-item">Vince的全端學習筆記</h1>
+        <h1 class="nav-mobile-title nav-mobile-item">Vince的學習筆記</h1>
         <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
     </div>
 
@@ -213,6 +213,57 @@
         <div id="content" class="content">
             <div id="wrapper" class="wrapper" style="max-width: 800px">
                 
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2020/04/21/typescript/">Typescript</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/categories/frontend/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-21T01:35:12.000Z" itemprop="datePublished">2020-04-21</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/typescript/" rel="tag">typescript</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>TypeScript 是由 Anders Hejlsberg （C#, TurboPascal 之父）所設計，其實概念很簡單，就是以現有的 JavaScript 為基礎，加上型別、介面等抽象定義，協助你更穩健的開發應用程式。</p>
+<p>主流框架以及大部分套件都已經支援了和 TypeScript 協作。</p>
+<p>由 Microsoft 主打，擁有型別系統（Type System）與介面（Interface）設計的語言，TypeScript 可以想成他是在原生 JS 上包裝上一層新的語法，因此如果在 TypeScript 裡面編譯原生 JS 也是可以動作的，只不過有可能發生錯誤的原因是：TypeScript 會幫你把原生 JS 裡潛藏的 Bug 或者是沒有補清的邏輯拋出警訊（Warning）的動作。</p>
+<h3 id="typescript-本身的優缺點"><a class="markdownIt-Anchor" href="#typescript-本身的優缺點"></a> TypeScript 本身的優缺點</h3>
+<p>主打優勢：型別系統 Type System<br />
+引入 TS 的型別系統的主要目的:</p>
+<blockquote>
+<p>減少 Bug 並使得維護更加容易:</p>
+<ol>
+<li>打錯字（Typo）或寫錯變數、物件性質或方法的名稱。</li>
+<li>避免類別或物件（Class &amp; Object）的性質與方法（Property &amp; Method）格式錯誤。</li>
+<li>藉由 TypeScript 在 IDE 上的 Autocomplete Feature 來協助開發並且防止錯誤。</li>
+</ol>
+</blockquote>
+<h3 id="typescript-可以和-ecmascript-協作"><a class="markdownIt-Anchor" href="#typescript-可以和-ecmascript-協作"></a> Typescript 可以和 ECMAScript 協作</h3>
+<p>TypeScript 是藉由型別系統以及擴充 ECMAScript 正式定義的規範使得我們可以寫出更多漂亮的語法。</p>
+<p>TS 編譯器設定檔中，也可以看到 —— 另一個名為 module 的設定可以讓我們調整編譯器要選擇編譯成 JS 的模組（Module）格式或類型。舉 NodeJS 為例，NodeJS 的模組採用 CommonJS 規範，比如：你會看到在 NodeJS 裡都是用 require 來引用模組：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 引入 File System 模組</span><br><span class="line">const fs &#x3D; require(&#39;fs&#39;);</span><br><span class="line">fs.readFile(&#39;file.txt&#39;, (err, data) &#x3D;&gt; &#123; &#x2F;* 讀取檔案後執行這邊... *&#x2F; &#125;);</span><br></pre></td></tr></table></figure>
+        
+    </section>
+</article>
+
+
     <article class="article" itemscope itemprop="blogPost">
     
     <header class="article-header">

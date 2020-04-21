@@ -7,10 +7,10 @@
 
     
 
-    <title>Hexo Theme 版型更換 | Vince的學習筆記</title>
+    <title>Typescript | Vince的學習筆記</title>
     <meta name="author" content="Vince Lo" />
     <meta name="keywords" content="" />
-    <meta name="description" content=" 更換主題 使用 hexo-theme-concise 主题Concise 主题1$  git clone git@github.com:sanonz/hexo-theme-concise.git themes/concise修改 _config.yml 配置1$  theme: concise因为主题使用了 less 編譯，Hexo 默認的編譯器為 hexo-renderer-stylus 要切換為 hexo-renderer-less1$  npm install he..." />
+    <meta name="description" content="TypeScript 是由 Anders Hejlsberg （C#, TurboPascal 之父）所設計，其實概念很簡單，就是以現有的 JavaScript 為基礎，加上型別、介面等抽象定義，協助你更穩健的開發應用程式。主流框架以及大部分套件都已經支援了和 TypeScript 協作。由 Microsoft 主打，擁有型別系統（Type System）與介面（Interface）設計的語言，TypeScript 可以想成他是在原生 JS 上包裝上一層新的語法，因此如果在 TypeS..." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -101,7 +101,7 @@
         
 
         
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#更換主題"><span class="toc-number">1.</span> <span class="toc-text"> 更換主題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-hexo-theme-concise-主题"><span class="toc-number">1.1.</span> <span class="toc-text"> 使用 hexo-theme-concise 主题</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#typescript-本身的優缺點"><span class="toc-number">1.</span> <span class="toc-text"> TypeScript 本身的優缺點</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#typescript-可以和-ecmascript-協作"><span class="toc-number">2.</span> <span class="toc-text"> Typescript 可以和 ECMAScript 協作</span></a></li></ol>
         
     </div>
 </aside>
@@ -115,21 +115,21 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            Hexo Theme 版型更換
+            Typescript
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/2020/04/16/2020-04-theme/index.html">
+            <a class="article-date" href="http://vince115.github.io/2020/04/21/typescript/index.html">
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2020-04-16T02:13:09.000Z" itemprop="datePublished">2020-04-16</time>
+    <time datetime="2020-04-21T01:35:12.000Z" itemprop="datePublished">2020-04-21</time>
 </a>
 
             
 <div class="article-tag-list">
     <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/hexo/" rel="tag">hexo</a>
+    <a class="article-tag-link" href="/tags/typescript/" rel="tag">typescript</a>
 </div>
 
 
@@ -138,29 +138,34 @@
     
     <section class="article-body markdown-body">
         
-        <h2 id="更換主題"><a class="markdownIt-Anchor" href="#更換主題"></a> 更換主題</h2>
-<h3 id="使用-hexo-theme-concise-主题"><a class="markdownIt-Anchor" href="#使用-hexo-theme-concise-主题"></a> 使用 hexo-theme-concise 主题</h3>
-<p>Concise 主题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git <span class="built_in">clone</span> git@github.com:sanonz/hexo-theme-concise.git themes/concise</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>修改 _config.yml 配置</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">$</span>  <span class="attr">theme:</span> <span class="string">concise</span></span><br></pre></td></tr></table></figure>
-<p>因为主题使用了 less 編譯，Hexo 默認的編譯器為 hexo-renderer-stylus 要切換為 hexo-renderer-less</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  npm install hexo-renderer-less --save</span><br></pre></td></tr></table></figure>
-<p>如果你不需要 hexo-renderer-stylus 可以把它卸載掉</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  npm uninstall hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
-<p>清除緩存數據</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+        <p>TypeScript 是由 Anders Hejlsberg （C#, TurboPascal 之父）所設計，其實概念很簡單，就是以現有的 JavaScript 為基礎，加上型別、介面等抽象定義，協助你更穩健的開發應用程式。</p>
+<p>主流框架以及大部分套件都已經支援了和 TypeScript 協作。</p>
+<p>由 Microsoft 主打，擁有型別系統（Type System）與介面（Interface）設計的語言，TypeScript 可以想成他是在原生 JS 上包裝上一層新的語法，因此如果在 TypeScript 裡面編譯原生 JS 也是可以動作的，只不過有可能發生錯誤的原因是：TypeScript 會幫你把原生 JS 裡潛藏的 Bug 或者是沒有補清的邏輯拋出警訊（Warning）的動作。</p>
+<h3 id="typescript-本身的優缺點"><a class="markdownIt-Anchor" href="#typescript-本身的優缺點"></a> TypeScript 本身的優缺點</h3>
+<p>主打優勢：型別系統 Type System<br />
+引入 TS 的型別系統的主要目的:</p>
+<blockquote>
+<p>減少 Bug 並使得維護更加容易:</p>
+<ol>
+<li>打錯字（Typo）或寫錯變數、物件性質或方法的名稱。</li>
+<li>避免類別或物件（Class &amp; Object）的性質與方法（Property &amp; Method）格式錯誤。</li>
+<li>藉由 TypeScript 在 IDE 上的 Autocomplete Feature 來協助開發並且防止錯誤。</li>
+</ol>
+</blockquote>
+<h3 id="typescript-可以和-ecmascript-協作"><a class="markdownIt-Anchor" href="#typescript-可以和-ecmascript-協作"></a> Typescript 可以和 ECMAScript 協作</h3>
+<p>TypeScript 是藉由型別系統以及擴充 ECMAScript 正式定義的規範使得我們可以寫出更多漂亮的語法。</p>
+<p>TS 編譯器設定檔中，也可以看到 —— 另一個名為 module 的設定可以讓我們調整編譯器要選擇編譯成 JS 的模組（Module）格式或類型。舉 NodeJS 為例，NodeJS 的模組採用 CommonJS 規範，比如：你會看到在 NodeJS 裡都是用 require 來引用模組：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 引入 File System 模組</span><br><span class="line">const fs &#x3D; require(&#39;fs&#39;);</span><br><span class="line">fs.readFile(&#39;file.txt&#39;, (err, data) &#x3D;&gt; &#123; &#x2F;* 讀取檔案後執行這邊... *&#x2F; &#125;);</span><br></pre></td></tr></table></figure>
         
     </section>
 </article>
 
 
 
-<a id="pagenext" href="/2020/04/14/2020-04-Git/" class="article-next" title="Git"><i class="icon-arrow-right"></i></a>
+<a id="pagenext" href="/2020/04/21/angular/" class="article-next" title="angular"><i class="icon-arrow-right"></i></a>
 
 
-<a id="pageprev" href="/2020/04/16/2020-04-Laravel/" class="article-prev" title="Laravel"><i class="icon-arrow-left"></i></a>
+<a id="pageprev" href="/2020/04/21/aspnet/" class="article-prev" title="Asp.Net"><i class="icon-arrow-left"></i></a>
 
 
 
@@ -174,11 +179,11 @@
         repo: "sanonz.github.io",
         owner: "sanonz",
         admin: ["sanonz"],
-        id: "2020/04/16/2020-04-theme",
+        id: "2020/04/21/typescript",
         distractionFreeMode: true,
-        title: "Hexo Theme 版型更換",
-        body: "http://vince115.github.io/2020/04/16/2020-04-theme/",
-        labels: ["hexo"]
+        title: "Typescript",
+        body: "http://vince115.github.io/2020/04/21/typescript/",
+        labels: ["typescript"]
     }).render('comments');
     </script>
 </div>

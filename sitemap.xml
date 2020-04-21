@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://vince115.github.io/2020/04/21/aspnet/</loc>
+    
+    <lastmod>2020-04-21T05:18:59.330Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/21/typescript/</loc>
+    
+    <lastmod>2020-04-21T04:29:46.545Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/21/angular/</loc>
+    
+    <lastmod>2020-04-21T01:33:35.653Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/21/sql/</loc>
+    
+    <lastmod>2020-04-21T01:33:13.989Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/21/java/</loc>
+    
+    <lastmod>2020-04-21T01:32:57.915Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://vince115.github.io/2020/04/17/laravel-homestead/</loc>
     
     <lastmod>2020-04-20T11:28:51.480Z</lastmod>

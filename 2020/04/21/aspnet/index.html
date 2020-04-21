@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>Asp.Net | Vince的學習筆記</title>
+    <meta name="author" content="Vince Lo" />
+    <meta name="keywords" content="" />
+    <meta name="description" content=" ASP.NET 支持三種開發模式：Web PagesMVCWeb Forms單頁面模型模型視圖控制器事件驅動模型Web Pages 是最簡單的ASP.NET 網頁開發編程模型。它提供了一種簡單的方法將HTML、CSS、JavaScript 以及服務器代碼結合起來：易於學習、閱讀和使用圍繞單一網頁進行構建類似PHP 和ASP服務器腳本使用Visual Basic 或C#對HTML、CSS、JavaScript 的完全控制 Web Pages..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Vince的學習筆記" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Vince的學習筆記</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首頁</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/design">
+                <span class="nav-text">設計</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frontend">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/backend">
+                <span class="nav-text">後端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">標籤</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">歸檔</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">關於</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://vince115.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#aspnet"><span class="toc-number">1.</span> <span class="toc-text"> ASP.NET 支持三種開發模式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web-pages-教程"><span class="toc-number">2.</span> <span class="toc-text"> Web Pages 教程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#websecurity-資料庫"><span class="toc-number">2.1.</span> <span class="toc-text"> WebSecurity 資料庫</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#簡單的成員資格配置"><span class="toc-number">2.2.</span> <span class="toc-text"> 簡單的成員資格配置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mvc-教程"><span class="toc-number">3.</span> <span class="toc-text"> MVC 教程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#模型model"><span class="toc-number">3.1.</span> <span class="toc-text"> 模型（Model）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#view視圖"><span class="toc-number">3.2.</span> <span class="toc-text"> View（視圖）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#控制器"><span class="toc-number">3.3.</span> <span class="toc-text"> 控制器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web-forms-教程"><span class="toc-number">4.</span> <span class="toc-text"> Web Forms 教程</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            Asp.Net
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/2020/04/21/aspnet/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-21T01:45:49.000Z" itemprop="datePublished">2020-04-21</time>
+</a>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="aspnet"><a class="markdownIt-Anchor" href="#aspnet"></a> <a href="http://ASP.NET" target="_blank" rel="noopener">ASP.NET</a> 支持三種開發模式：</h3>
+<table>
+<thead>
+<tr>
+<th>Web Pages</th>
+<th>MVC</th>
+<th>Web Forms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>單頁面模型</td>
+<td>模型視圖控制器</td>
+<td>事件驅動模型</td>
+</tr>
+</tbody>
+</table>
+<p>Web Pages <a href="http://xn--ASP-eh5em86e39ap08do5j.NET" target="_blank" rel="noopener">是最簡單的ASP.NET</a> 網頁開發編程模型。它提供了一種簡單的方法將HTML、CSS、JavaScript 以及服務器代碼結合起來：</p>
+<blockquote>
+<p>易於學習、閱讀和使用<br />
+圍繞單一網頁進行構建<br />
+類似PHP 和ASP<br />
+服務器腳本使用Visual Basic 或C#<br />
+對HTML、CSS、JavaScript 的完全控制</p>
+</blockquote>
+<h3 id="web-pages-教程"><a class="markdownIt-Anchor" href="#web-pages-教程"></a> Web Pages 教程</h3>
+<p>初始化 WebSecurity 資料庫<br />
+在web 更目錄中，創建或編輯_AppStart.cshtml 頁面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">WebSecurity.InitializeDatabaseConnection(&quot;Users&quot;, &quot;UserProfile&quot;, &quot;UserId&quot;, &quot;Email&quot;, </span><br><span class="line">true);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>網站每次啟動時都會運行以上代碼。它會對WebSecurity 資料庫進行初始化。</p>
+<blockquote>
+<ul>
+<li>“Users” 是WebSecurity 資料庫的名稱。(Users.sdf)</li>
+<li>“UserProfile” 是包含用戶配置信息的資料庫表的名稱。</li>
+<li>“UserId” 包含用戶ID 的列的名稱（主鍵）。</li>
+<li>“Email” 是包含用戶的列的名稱。</li>
+<li>最後一個參數true 是一個邏輯值，指示應創建用戶配置文件表和成員資格表（如果它們不存在），否則false。</li>
+</ul>
+</blockquote>
+<h4 id="websecurity-資料庫"><a class="markdownIt-Anchor" href="#websecurity-資料庫"></a> WebSecurity 資料庫</h4>
+<p>UserProfile 表中的每條記錄代表一個用戶，其中包括用戶ID （主鍵）和用戶名稱（email）：</p>
+<table>
+<thead>
+<tr>
+<th>UserId</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="mailto:john@johnson.net">john@johnson.net</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="mailto:peter@peterson.com">peter@peterson.com</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="mailto:lars@larson.edu">lars@larson.edu</a></td>
+</tr>
+</tbody>
+</table>
+<p>Membership 表包含會員信息，比如用戶是什麼時候創建的，該會員是否已認證，會員是什麼時候認證的，等等。<br />
+具體如下所示（一些列不顯示）：</p>
+<table>
+<thead>
+<tr>
+<th>UserId</th>
+<th>CreateDate</th>
+<th>Confirmation Token</th>
+<th>Is Confirmed</th>
+<th>LastPassword Failure</th>
+<th>Password</th>
+<th>Password Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>12.04.2012 16:12:17</td>
+<td>NULL</td>
+<td>True</td>
+<td>NULL</td>
+<td>AFNQhWfy…</td>
+<td>12.04.2012 16:12:17</td>
+</tr>
+</tbody>
+</table>
+<h4 id="簡單的成員資格配置"><a class="markdownIt-Anchor" href="#簡單的成員資格配置"></a> 簡單的成員資格配置</h4>
+<p>在您使用 WebSecurity 對象時，如果您的站點沒有配置使用 <a href="http://ASP.NET" target="_blank" rel="noopener">ASP.NET</a> Web Pages 會員系統 SimpleMembership，可能會報錯。</p>
+<p>如果託管服務提供商的伺服器的配置與您本地伺服器的配置不同，也可能會報錯。為了解決這個問題，請在網站的 Web.config 文件中添加以下元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;appSettings&gt;</span><br><span class="line">&lt;add key&#x3D;&quot;enableSimpleMembership&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;appSettings&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="mvc-教程"><a class="markdownIt-Anchor" href="#mvc-教程"></a> MVC 教程</h3>
+<p>MVC 是通過使用MVC (Model View Controller) 設計來構建web 應用程序的一種模型。<br />
+<a href="http://xn--ASP-ob1es61bvvd1pkgrkmheqt2c44ov97ajx0b.NET" target="_blank" rel="noopener">如果您需要相對於傳統ASP.NET</a> 更輕的替代方案，MVC 是很好的選擇。</p>
+<p>MVC 是用於構建web 應用程序的一種框架，使用MVC (Model View Controller) 設計：</p>
+<ul>
+<li>Model（模型）表示應用程序核心（比如資料庫記錄列表）</li>
+<li>View（視圖）對數據（資料庫記錄）進行顯示</li>
+<li>Controller（控制器）處理輸入（寫入資料庫記錄）</li>
+</ul>
+<p>MVC 模型通過三個邏輯層來定義web 應用程序：</p>
+<ul>
+<li>business layer（業務層、模型邏輯）</li>
+<li>display layer（顯示層、視圖邏輯）</li>
+<li>input control（輸入控件、控制器邏輯）</li>
+</ul>
+<h4 id="模型model"><a class="markdownIt-Anchor" href="#模型model"></a> 模型（Model）</h4>
+<p>模型（Model）是應用程序中用於處理應用程序數據邏輯的部分。</p>
+<p>通常模型對像在數據庫中存取數據。</p>
+<h4 id="view視圖"><a class="markdownIt-Anchor" href="#view視圖"></a> View（視圖）</h4>
+<p>View（視圖）是應用程序中處理數據顯示的部分。</p>
+<p>通常從模型數據中創建視圖。</p>
+<h4 id="控制器"><a class="markdownIt-Anchor" href="#控制器"></a> 控制器</h4>
+<p>控制器是應用程序中處理用戶交互的部分。</p>
+<p>通常控制器從視圖讀取數據、控制用戶輸入，並向模型發送數據數據。</p>
+<h3 id="web-forms-教程"><a class="markdownIt-Anchor" href="#web-forms-教程"></a> Web Forms 教程</h3>
+<p>Web Forms <a href="http://xn--ASP-ob1e559g1quuyk.NET" target="_blank" rel="noopener">是傳統的ASP.NET</a> 模型，基於事件驅動的Web Forms 和post backs。<br />
+在過去的數年中，<a href="http://xn--ASP-hb0eo47dx05a66b5sw6kfiy6d.NET" target="_blank" rel="noopener">開發者已經使用ASP.NET</a> Web Forms 創建了全球多個大型網站。</p>
+<style type='text/css'>
+.markdown-body table th { background-color:#3366BB;color:#ffffff;border-color:#225588; }
+</style>
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/04/21/typescript/" class="article-next" title="Typescript"><i class="icon-arrow-right"></i></a>
+
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "7fbe80427f54741e289f",
+        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
+        repo: "sanonz.github.io",
+        owner: "sanonz",
+        admin: ["sanonz"],
+        id: "2020/04/21/aspnet",
+        distractionFreeMode: true,
+        title: "Asp.Net",
+        body: "http://vince115.github.io/2020/04/21/aspnet/",
+        labels: []
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>
