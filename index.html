@@ -218,6 +218,35 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2020/04/23/php/">PHP</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-23T09:19:00.000Z" itemprop="datePublished">2020-04-23</time>
+</a>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2020/04/21/aspnet/">Asp.Net</a>
         </h1>
         
@@ -420,7 +449,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2020/04/21/angular/">angular</a>
+            <a href="/2020/04/21/angular/">Angular</a>
         </h1>
         
         <div class="article-meta clearfix">
@@ -443,7 +472,24 @@
     
     <section class="article-body markdown-body">
         
-        
+        <p>Angular官方　<a href="https://angular.tw/" target="_blank" rel="noopener">https://angular.tw/</a></p>
+<p><a href="https://stackblitz.com/" target="_blank" rel="noopener">StackBlitz 線上開發</a></p>
+<hr />
+<h3 id="建立函式庫"><a class="markdownIt-Anchor" href="#建立函式庫"></a> 建立函式庫</h3>
+<p>範本語法<br />
+StackBlitz 線上開發環境 並選擇 start a new Angular workspace ，你將獲得一個通用的應用骨架。</p>
+<p>使用 Angular CLI，用以下命令產生一個新函式庫的骨架：</p>
+<pre class="highlight"><code class="bash">ng new my-workspace --create-application=<span class="literal">false</span>
+<span class="built_in">cd</span> my-workspace
+ng generate library my-lib
+</code></pre>
+<hr />
+<h3 id="建立一個購物車專案"><a class="markdownIt-Anchor" href="#建立一個購物車專案"></a> 建立一個購物車專案</h3>
+<p><a href="https://angular.tw/start#create-a-new-project" target="_blank" rel="noopener">教程</a></p>
+<p><a href="https://stackblitz.com/edit/angular-vl8msx" target="_blank" rel="noopener">實作</a></p>
+<p><a href="https://angular-vl8msx.stackblitz.io" target="_blank" rel="noopener">展示</a></p>
+<hr />
+
         
     </section>
 </article>
@@ -454,7 +500,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2020/04/21/java/">java</a>
+            <a href="/2020/04/21/java/">Java</a>
         </h1>
         
         <div class="article-meta clearfix">
@@ -477,7 +523,15 @@
     
     <section class="article-body markdown-body">
         
-        
+        <p>開發Java應用程式的工具中,最常見的是由Java的原創公司Sun Micro所出版的JDK(Java Development Kit)。JDK可以免費下載。以Text Editor寫好的Hello.java原始檔:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Hello.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> gvar;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line">        System.out.print(s+x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] argv)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">float</span> y = <span class="number">0</span>;</span><br><span class="line">        say(<span class="string">"Hello, world\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>經過:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac Hello.java</span><br></pre></td></tr></table></figure>
+<p>編譯完成後會產生byte code格式的Hello.class,然後</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java Hello</span><br></pre></td></tr></table></figure>
+<p>就可以利用Java Virtual Machine(此處是java這個執行檔)來執行了。</p>
+<p>程式的C版本</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> gvar;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">say</span><span class="params">(<span class="keyword">char</span>[] s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s%d"</span>, s, x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">float</span> y = <span class="number">0</span>;</span><br><span class="line">    say(<span class="string">"Hello, world\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
     </section>
 </article>
@@ -488,7 +542,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2020/04/21/sql/">sql</a>
+            <a href="/2020/04/21/sql/">SQL</a>
         </h1>
         
         <div class="article-meta clearfix">
@@ -511,7 +565,264 @@
     
     <section class="article-body markdown-body">
         
-        
+        <h3 id="關聯式資料庫relational-database"><a class="markdownIt-Anchor" href="#關聯式資料庫relational-database"></a> 關聯式資料庫（Relational database）</h3>
+<ol>
+<li>SQLite</li>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+<li>MariaDB</li>
+<li>SQL Server</li>
+<li>Oracle Database</li>
+<li>DB2</li>
+</ol>
+<p>SQL語法主要包含3個部分：</p>
+<blockquote>
+<p>「資料定義語言」（DDL : Data Definition Language）<br />
+「資料操縱語言」（DML : Data Manipulation Language）<br />
+「資料控制語言」（DCL : Data Control Language）</p>
+</blockquote>
+<p>SQL 中最重要的 DDL 語句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE -創建新資料庫</span><br><span class="line">ALTER DATABASE -修改資料庫</span><br><span class="line">CREATE TABLE - 創建新表</span><br><span class="line">ALTER TABLE - 變更（改變）資料庫表</span><br><span class="line">DROP TABLE - 刪除表</span><br><span class="line">CREATE INDEX - 創建索引（搜索鍵）</span><br><span class="line">DROP INDEX - 刪除索引</span><br></pre></td></tr></table></figure>
+<p>查詢/更新/插入/刪除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT - 從資料庫表中獲取資料</span><br><span class="line">UPDATE - 更新資料庫表中的資料</span><br><span class="line">DELETE - 從資料庫表中刪除資料</span><br><span class="line">INSERT INTO - 向資料庫表中插入資料</span><br></pre></td></tr></table></figure>
+<p>建立新資料庫</p>
+<blockquote>
+<p>語法：CREATE DATABASE database-name</p>
+</blockquote>
+<p>刪除資料庫</p>
+<blockquote>
+<p>語法：DROP DATABASE database-name</p>
+</blockquote>
+<p>刪除表(Table)</p>
+<blockquote>
+<p>語法：DROP TABLE tabname</p>
+</blockquote>
+<p>增加一個欄位</p>
+<blockquote>
+<p>語法：alter table tabname add column col type</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">member</span> <span class="keyword">add</span> newfield <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">default</span> <span class="string">''</span></span><br></pre></td></tr></table></figure>
+<p>增刪主鍵</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 添加主鍵 */</span> </span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tabname <span class="keyword">add</span> primary <span class="keyword">key</span>(<span class="keyword">col</span>);</span><br><span class="line"><span class="comment">/* 刪除主鍵*/</span> </span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tabname <span class="keyword">drop</span> primary <span class="keyword">key</span>(<span class="keyword">col</span>);</span><br></pre></td></tr></table></figure>
+<p>選取資料</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">member</span> <span class="keyword">where</span> memberid &gt;= <span class="string">'0'</span> <span class="keyword">and</span> memberid &lt;= <span class="string">'0000000100'</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">member</span> <span class="keyword">where</span> memberid <span class="keyword">like</span> <span class="string">'%10%'</span></span><br></pre></td></tr></table></figure>
+<p>新增資料</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">member</span> (memberid,membername) <span class="keyword">values</span>(<span class="string">'m099'</span>,<span class="string">'michael chen'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">member</span>(memberid,membername)</span><br><span class="line"><span class="keyword">select</span> custid,coprcname <span class="keyword">from</span> bascustomer <span class="keyword">where</span> custid <span class="keyword">like</span> <span class="string">'m%'</span></span><br></pre></td></tr></table></figure>
+<p>刪除資料</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">member</span> <span class="keyword">where</span> memberid &gt; <span class="string">'0000000900'</span>;</span><br></pre></td></tr></table></figure>
+<p>更新資料</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">member</span> <span class="keyword">set</span> memberlavel = <span class="string">'00'</span> <span class="keyword">where</span> memberid &lt;= <span class="string">'0000000100;</span></span><br></pre></td></tr></table></figure>
+<p>排序</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">member</span> <span class="keyword">order</span> <span class="keyword">by</span> memberid;</span><br></pre></td></tr></table></figure>
+<p>計算筆數</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">as</span> totalcount <span class="keyword">from</span> <span class="keyword">member</span>;</span><br></pre></td></tr></table></figure>
+<p>合計</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> productid,<span class="keyword">sum</span>(quantity) <span class="keyword">as</span> sumvalue <span class="keyword">from</span> opoorder1_d <span class="keyword">group</span> <span class="keyword">by</span> productid;</span><br></pre></td></tr></table></figure>
+<p>求平均值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> billno,<span class="keyword">avg</span>(totalamount) <span class="keyword">as</span> avgvalue <span class="keyword">from</span> opoorder1_m <span class="keyword">group</span> <span class="keyword">by</span> billno;</span><br></pre></td></tr></table></figure>
+<p>取最大值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> custid,<span class="keyword">max</span>(totalamount) <span class="keyword">as</span> maxvalue <span class="keyword">from</span> opoorder1_m <span class="keyword">group</span> <span class="keyword">by</span> custid;</span><br></pre></td></tr></table></figure>
+<p>取最小值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> custid,<span class="keyword">min</span>(billdate) <span class="keyword">as</span> maxvalue <span class="keyword">from</span> opoorder1_m <span class="keyword">group</span> <span class="keyword">by</span> custid;</span><br></pre></td></tr></table></figure>
+<hr />
+<h4 id="union-及-left-join"><a class="markdownIt-Anchor" href="#union-及-left-join"></a> UNION 及 LEFT JOIN</h4>
+<p>union [all] union 運算子通過組合其他兩個結果表（例如 table1 和 table2）並消去表中任何重複行而派生出一個結果表。當 all 隨 union 一起使用時（即 union all），不消除重複行。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="number">1</span> <span class="keyword">as</span> flag,a.billno,b.billdate,a.subaqmount <span class="keyword">from</span> opoorder1_d a <span class="keyword">left</span> <span class="keyword">join</span> opoorder1_m b <span class="keyword">on</span> a.billno = b.billno <span class="keyword">union</span> <span class="keyword">all</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="number">2</span> <span class="keyword">as</span> flag,a.billno,b.billdate,a.subaqmount <span class="keyword">from</span> opoorder2_d a <span class="keyword">left</span> <span class="keyword">join</span> opoorder2_m b <span class="keyword">on</span> a.billno = b.billno;</span><br></pre></td></tr></table></figure>
+<p>子查詢</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">member</span> <span class="keyword">where</span> memberid <span class="keyword">IN</span> (<span class="keyword">select</span> custid <span class="keyword">from</span> bascustomer <span class="keyword">where</span> custid <span class="keyword">like</span> <span class="string">'M0%'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">member</span> <span class="keyword">where</span> memberid <span class="keyword">IN</span> (<span class="string">'M001'</span>,<span class="string">'M009'</span>,<span class="string">'M012'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> a.title,a.username,b.adddate <span class="keyword">from</span> <span class="keyword">table</span> a,(<span class="keyword">select</span> <span class="keyword">max</span>(adddate) adddate <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> table.title=a.title) b</span><br></pre></td></tr></table></figure>
+<p>動態SQL語法執行</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> @<span class="keyword">start</span> <span class="built_in">int</span>,@<span class="keyword">end</span> <span class="built_in">int</span> </span><br><span class="line">@<span class="keyword">sql</span> <span class="keyword">nvarchar</span>(<span class="number">600</span>) </span><br><span class="line"><span class="keyword">set</span> @<span class="keyword">sql</span>=’<span class="keyword">select</span> top’+<span class="keyword">str</span>(@<span class="keyword">end</span>-@<span class="keyword">start</span>+<span class="number">1</span>)+’+<span class="keyword">from</span> T <span class="keyword">where</span> rid <span class="keyword">not</span> <span class="keyword">in</span>(<span class="keyword">select</span> top’+<span class="keyword">str</span>(@<span class="keyword">str</span><span class="number">-1</span>)+’Rid <span class="keyword">from</span> T <span class="keyword">where</span> Rid&gt;<span class="number">-1</span>)’ </span><br><span class="line">exec sp_executesql @<span class="keyword">sql</span></span><br></pre></td></tr></table></figure>
+<p>資料庫取回分頁資料</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 選擇從10到15的記錄 */</span></span><br><span class="line"><span class="keyword">select</span> top <span class="number">5</span> * <span class="keyword">from</span> (<span class="keyword">select</span> top <span class="number">15</span> * <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span> <span class="keyword">asc</span>) table_別名 <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span> <span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
+<h3 id="預存程序-stored-procedure"><a class="markdownIt-Anchor" href="#預存程序-stored-procedure"></a> 預存程序 (Stored procedure)</h3>
+<p>又稱儲存程序（英語：Stored Procedure），是在資料庫儲存複雜程式，以便外部程式呼叫的資料庫物件，可以視為資料庫的一種函式或子程式。</p>
+<hr />
+<h3 id="sql-語言類別"><a class="markdownIt-Anchor" href="#sql-語言類別"></a> SQL 語言類別</h3>
+<h4 id="data-definition-資料定義-ddl"><a class="markdownIt-Anchor" href="#data-definition-資料定義-ddl"></a> Data definition 資料定義 (DDL)</h4>
+<p>用來定義資料庫、資料表、檢視表、索引、預存程序、觸發程序、函數等資料庫物件。<br />
+<tb>CREATE</tb>: 建立資料庫的物件<br />
+<tb>ALTER</tb>: 變更資料庫的物件<br />
+<tb>DROP</tb>: 刪除資料庫的物件</p>
+<h4 id="data-manipulation-資料操縱-dml"><a class="markdownIt-Anchor" href="#data-manipulation-資料操縱-dml"></a> Data manipulation 資料操縱 (DML)</h4>
+<p>用來處理資料表裡的資料。<br />
+<tb>INSERT</tb>: 新增資料到資料表中<br />
+<tb>UPDATE</tb>: 更改資料表中的資料<br />
+<tb>DELETE</tb>: 刪除資料表中的資料</p>
+<h4 id="queries-資料查詢-dql"><a class="markdownIt-Anchor" href="#queries-資料查詢-dql"></a> Queries 資料查詢 (DQL)</h4>
+<p>用來查詢資料表裡的資料：<br />
+<tb>SELECT</tb>: 選取資料庫中的資料</p>
+<h4 id="data-control-資料控制-dcl"><a class="markdownIt-Anchor" href="#data-control-資料控制-dcl"></a> Data control 資料控制 (DCL)</h4>
+<p>用來控制資料表、檢視表的存取權限<br />
+<tb>GRANT</tb>: 賦予使用者使用權限<br />
+<tb>REVOKE</tb>: 取消使用者的使用權限</p>
+<h4 id="transaction-controls-交易"><a class="markdownIt-Anchor" href="#transaction-controls-交易"></a> Transaction controls 交易</h4>
+<p>交易是單一工作單元。 如果交易成功，便會確定交易期間所修改的所有資料，且會成為資料庫中永久的內容。 如果交易發現錯誤，必須取消或回復，便會清除所有的資料修改。<br />
+<tb>COMMIT</tb>: 完成交易作業<br />
+<tb>ROLLBACK</tb>: 交易作業異常，將已變動的資料回復到交易開始的狀態</p>
+<hr />
+<h3 id="sql-的資料型別-data-types"><a class="markdownIt-Anchor" href="#sql-的資料型別-data-types"></a> SQL 的資料型別 (Data Types)</h3>
+<p>SQL 基本上有下列幾種資料型別，我們必需了解儲存各類型資料值要分別採用何種資料型別欄位以便進行資料庫設計。</p>
+<ul>
+<li>數值資料 (Numeric Types) - 11, 2.5492, -91</li>
+<li>字串資料 (String Types) - ‘學習 SQL 語言’</li>
+<li>空值 (NULL) - (欄位為空)</li>
+<li>布林值 (Boolean) - true / false</li>
+</ul>
+<h4 id="數值資料-numeric-data"><a class="markdownIt-Anchor" href="#數值資料-numeric-data"></a> 數值資料 (Numeric Data)</h4>
+<p>SQL 的數值型態有 integer, float, money 等，使用數值資料有一個好處就是你能搭配內建的數值函數來做資料處理，例如 SUM() 函數即可直接獲得該數值欄位的總合。</p>
+<h4 id="字串元資料-character-strings-data"><a class="markdownIt-Anchor" href="#字串元資料-character-strings-data"></a> 字串(元)資料 (Character &amp; Strings Data)</h4>
+<p>儲存字元或符號之資料型別。</p>
+<h4 id="日期時間資料-date-data"><a class="markdownIt-Anchor" href="#日期時間資料-date-data"></a> 日期/時間資料 (Date Data)</h4>
+<p>用來記錄日期/時間的資料型別，有 date, time, timestamp 等。</p>
+<h4 id="布林值-boolean-data"><a class="markdownIt-Anchor" href="#布林值-boolean-data"></a> 布林值 (Boolean Data)</h4>
+<p>true/false, Yes/No, 1/0。</p>
+<h4 id="空值-null-data"><a class="markdownIt-Anchor" href="#空值-null-data"></a> 空值 (NULL Data)</h4>
+<p>空值，沒有資料存在於欄位。通常在建立資料表時，你可以設定欄位是否允許空值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> customer (</span><br><span class="line">  C_id <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  <span class="keyword">Name</span> <span class="built_in">VARCHAR</span>(<span class="number">10</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  Address <span class="built_in">VARCHAR</span>(<span class="number">255</span>) <span class="literal">NULL</span>,</span><br><span class="line">  Phone <span class="built_in">VARCHAR</span>(<span class="number">10</span>) <span class="literal">NULL</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>NULL 值和一個空字串 ‘’ 是有不一樣意涵的。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> customer (phone) <span class="keyword">VALUES</span> (<span class="literal">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> customer (phone) <span class="keyword">VALUES</span> (<span class="string">''</span>);</span><br></pre></td></tr></table></figure>
+<p>大多的資料庫中，你不能索引允許有 NULL 值的欄位。你必須聲明要索引的欄位為 NOT NULL，此外，你也不能插入 NULL 到具有索引的欄位中。</p>
+<hr />
+<h3 id="sql-運算子-operators"><a class="markdownIt-Anchor" href="#sql-運算子-operators"></a> SQL 運算子 Operators</h3>
+<p>SQL 有 3 種類型的運算子</p>
+<h4 id="算數運算子-arithmetic-operators"><a class="markdownIt-Anchor" href="#算數運算子-arithmetic-operators"></a> 算數運算子 (Arithmetic Operators)</h4>
+<table>
+<thead>
+<tr>
+<th>運算子用途</th>
+<th>用途</th>
+<th>用法</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>加法</td>
+<td>1 + 2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>-</td>
+<td>減法</td>
+<td>5 - 4</td>
+<td>1</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘法</td>
+<td>6 * 6</td>
+<td>36</td>
+</tr>
+<tr>
+<td>/</td>
+<td>商數</td>
+<td>8 / 5</td>
+<td>1.6</td>
+</tr>
+<tr>
+<td>%</td>
+<td>餘數</td>
+<td>8 % 5</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h4 id="邏輯運算子-logical-operators"><a class="markdownIt-Anchor" href="#邏輯運算子-logical-operators"></a> 邏輯運算子 (Logical Operators)</h4>
+<table>
+<thead>
+<tr>
+<th>運算子</th>
+<th>語意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AND</td>
+<td>且</td>
+</tr>
+<tr>
+<td>OR</td>
+<td>或</td>
+</tr>
+<tr>
+<td>NOT</td>
+<td>非</td>
+</tr>
+</tbody>
+</table>
+<h4 id="比較運算子-comparison-operators"><a class="markdownIt-Anchor" href="#比較運算子-comparison-operators"></a> 比較運算子 (Comparison Operators)</h4>
+<table>
+<thead>
+<tr>
+<th>運算子用途</th>
+<th>語意</th>
+<th>用法</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;</td>
+<td>小於</td>
+<td>3 &lt; 5</td>
+<td>True</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大於</td>
+<td>8 &gt; 1</td>
+<td>True</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小於等於</td>
+<td>20 &lt;= 10</td>
+<td>False</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大於等於</td>
+<td>4 &gt;= 6</td>
+<td>False</td>
+</tr>
+<tr>
+<td>=</td>
+<td>等於</td>
+<td>2 = 2</td>
+<td>True</td>
+</tr>
+<tr>
+<td>&lt;&gt;</td>
+<td>不等於</td>
+<td>7 &lt;&gt; 6</td>
+<td>True</td>
+</tr>
+<tr>
+<td>BETWEEN</td>
+<td>在某個範圍內</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LIKE</td>
+<td>符合模式條件</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IN</td>
+<td>值存在於IN集合中</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<style type='text/css'>
+tb { color:#3366CC;}
+.markdown-body table th { background-color:#3366BB;color:#ffffff;border-color:#225588; }
+</style>
         
     </section>
 </article>
@@ -690,40 +1001,6 @@ HTML5中新增了語意化標籤(Semantic Elements)，目的是為了讓標籤(T
                 <i class="icon-arrow-double-right vm"></i>    
             </a>
         </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/04/14/2020-04-Git/">Git</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-04-14T01:37:08.000Z" itemprop="datePublished">2020-04-14</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Git/" rel="tag">Git</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
         
         
     </section>

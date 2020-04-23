@@ -7,10 +7,10 @@
 
     
 
-    <title>java | Vince的學習筆記</title>
+    <title>Java | Vince的學習筆記</title>
     <meta name="author" content="Vince Lo" />
     <meta name="keywords" content="" />
-    <meta name="description" content="" />
+    <meta name="description" content="開發Java應用程式的工具中,最常見的是由Java的原創公司Sun Micro所出版的JDK(Java Development Kit)。JDK可以免費下載。以Text Editor寫好的Hello.java原始檔:123456789101112//Hello.javapublic class Hello &amp;#123;    public static int gvar;    public static void say(String s) &amp;#123;        int x = ..." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -219,7 +219,7 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            java
+            Java
         </h1>
         
         <div class="article-meta clearfix">
@@ -242,17 +242,25 @@
     
     <section class="article-body markdown-body">
         
-        
+        <p>開發Java應用程式的工具中,最常見的是由Java的原創公司Sun Micro所出版的JDK(Java Development Kit)。JDK可以免費下載。以Text Editor寫好的Hello.java原始檔:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Hello.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> gvar;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line">        System.out.print(s+x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] argv)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">float</span> y = <span class="number">0</span>;</span><br><span class="line">        say(<span class="string">"Hello, world\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>經過:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac Hello.java</span><br></pre></td></tr></table></figure>
+<p>編譯完成後會產生byte code格式的Hello.class,然後</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java Hello</span><br></pre></td></tr></table></figure>
+<p>就可以利用Java Virtual Machine(此處是java這個執行檔)來執行了。</p>
+<p>程式的C版本</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> gvar;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">say</span><span class="params">(<span class="keyword">char</span>[] s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s%d"</span>, s, x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">float</span> y = <span class="number">0</span>;</span><br><span class="line">    say(<span class="string">"Hello, world\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         
     </section>
 </article>
 
 
 
-<a id="pagenext" href="/2020/04/21/sql/" class="article-next" title="sql"><i class="icon-arrow-right"></i></a>
+<a id="pagenext" href="/2020/04/21/sql/" class="article-next" title="SQL"><i class="icon-arrow-right"></i></a>
 
 
-<a id="pageprev" href="/2020/04/21/angular/" class="article-prev" title="angular"><i class="icon-arrow-left"></i></a>
+<a id="pageprev" href="/2020/04/21/angular/" class="article-prev" title="Angular"><i class="icon-arrow-left"></i></a>
 
 
 
@@ -268,7 +276,7 @@
         admin: ["sanonz"],
         id: "2020/04/21/java",
         distractionFreeMode: true,
-        title: "java",
+        title: "Java",
         body: "http://vince115.github.io/2020/04/21/java/",
         labels: ["backend","java"]
     }).render('comments');
