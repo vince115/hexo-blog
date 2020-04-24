@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://vince115.github.io/2020/04/23/php/</loc>
+    
+    <lastmod>2020-04-24T17:57:46.685Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/21/typescript/</loc>
+    
+    <lastmod>2020-04-24T09:01:07.429Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/21/angular/</loc>
+    
+    <lastmod>2020-04-24T09:00:20.720Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://vince115.github.io/2020/04/21/java/</loc>
     
     <lastmod>2020-04-23T09:25:30.839Z</lastmod>
@@ -9,23 +30,9 @@
   </url>
   
   <url>
-    <loc>http://vince115.github.io/2020/04/23/php/</loc>
-    
-    <lastmod>2020-04-23T09:25:07.844Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://vince115.github.io/2020/04/10/2020-04-UIUX/</loc>
     
     <lastmod>2020-04-23T09:17:39.015Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://vince115.github.io/2020/04/21/angular/</loc>
-    
-    <lastmod>2020-04-23T09:11:32.194Z</lastmod>
     
   </url>
   
@@ -40,13 +47,6 @@
     <loc>http://vince115.github.io/2020/04/21/aspnet/</loc>
     
     <lastmod>2020-04-21T05:18:59.330Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://vince115.github.io/2020/04/21/typescript/</loc>
-    
-    <lastmod>2020-04-21T04:29:46.545Z</lastmod>
     
   </url>
   
