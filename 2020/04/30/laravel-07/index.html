@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>laravel-07 Artisan 與 Tinker | Vince的學習筆記</title>
+    <meta name="author" content="Vince Lo" />
+    <meta name="keywords" content="" />
+    <meta name="description" content=" Artisan 簡介Artisan 是 Laravel 裡的一個指令列介面的名稱。當你在開發你的應用程式時，它提供了許多有用的指令來幫助你開發。它是基於由強大的 Symfony Console 元件來的。你可以使用 list 指令來列出所有可以使用的 Artisan 指令：1php artisan make:controller PostsController 基本Artisan 命令helpclear-compileddownenvmigrateoptimize..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Vince的學習筆記" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Vince的學習筆記</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首頁</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/design">
+                <span class="nav-text">設計</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frontend">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/backend">
+                <span class="nav-text">後端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">標籤</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">歸檔</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">關於</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://vince115.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#artisan-簡介"><span class="toc-number">1.</span> <span class="toc-text"> Artisan 簡介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本artisan-命令"><span class="toc-number">2.</span> <span class="toc-text"> 基本Artisan 命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#選項"><span class="toc-number">2.1.</span> <span class="toc-text"> 選項</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#群組化的命令"><span class="toc-number">2.2.</span> <span class="toc-text"> 群組化的命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#編寫自訂的-artisan-命令"><span class="toc-number">2.3.</span> <span class="toc-text"> 編寫自訂的 Artisan 命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引數與選項"><span class="toc-number">3.</span> <span class="toc-text"> 引數與選項</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#引數-必要-選用與或-具有預設值"><span class="toc-number">3.1.</span> <span class="toc-text"> 引數、必要、選用與(或) 具有預設值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#選項-必要的值-預設值與快捷方式"><span class="toc-number">3.2.</span> <span class="toc-text"> 選項、必要的值、預設值，與快捷方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#陣列引數與陣列選項"><span class="toc-number">3.3.</span> <span class="toc-text"> 陣列引數與陣列選項</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#輸入說明"><span class="toc-number">3.4.</span> <span class="toc-text"> 輸入說明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用輸入"><span class="toc-number">3.5.</span> <span class="toc-text"> 使用輸入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#thinker"><span class="toc-number">3.6.</span> <span class="toc-text"> Thinker</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#測試"><span class="toc-number">3.7.</span> <span class="toc-text"> 測試</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            laravel-07 Artisan 與 Tinker
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/2020/04/30/laravel-07/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-30T05:25:59.000Z" itemprop="datePublished">2020-04-30</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/backend/" rel="tag">backend</a>, <a class="article-tag-link" href="/tags/laravel/" rel="tag">laravel</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="artisan-簡介"><a class="markdownIt-Anchor" href="#artisan-簡介"></a> Artisan 簡介</h3>
+<p>Artisan 是 Laravel 裡的一個指令列介面的名稱。<br />
+當你在開發你的應用程式時，它提供了許多有用的指令來幫助你開發。它是基於由強大的 Symfony Console 元件來的。你可以使用 list 指令來列出所有可以使用的 Artisan 指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan make:controller PostsController</span><br></pre></td></tr></table></figure>
+<h3 id="基本artisan-命令"><a class="markdownIt-Anchor" href="#基本artisan-命令"></a> 基本Artisan 命令</h3>
+<ul>
+<li>help</li>
+<li>clear-compiled</li>
+<li>down</li>
+<li>env</li>
+<li>migrate</li>
+<li>optimize</li>
+<li>serve</li>
+<li>thinker</li>
+</ul>
+<h4 id="選項"><a class="markdownIt-Anchor" href="#選項"></a> 選項</h4>
+<ul>
+<li>-q</li>
+<li>-v、-vv、-vvv</li>
+<li>–no-interaction</li>
+<li>–php_environment</li>
+<li>–version</li>
+</ul>
+<h4 id="群組化的命令"><a class="markdownIt-Anchor" href="#群組化的命令"></a> 群組化的命令</h4>
+<ul>
+<li>app</li>
+<li>auth</li>
+<li>cache</li>
+<li>config</li>
+<li>db</li>
+<li>event</li>
+<li>key</li>
+<li>make</li>
+<li>migrate</li>
+<li>notifications</li>
+<li>queue</li>
+<li>route</li>
+<li>schedule</li>
+<li>session</li>
+<li>Storage</li>
+<li>vendor</li>
+<li>view</li>
+</ul>
+<h4 id="編寫自訂的-artisan-命令"><a class="markdownIt-Anchor" href="#編寫自訂的-artisan-命令"></a> 編寫自訂的 Artisan 命令</h4>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan make:console WelcaomeNewUsers --command=email:newusers</span><br></pre></td></tr></table></figure>
+<p>7-1 Artisan 命令的預設骨架</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Console</span>\<span class="title">Commands</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Console</span>\<span class="title">Command</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WelcomeNewUsers</span> <span class="keyword">extends</span> <span class="title">Command</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * The name and signature of the console command.</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@var</span> string</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">protected</span> $signature = <span class="string">'email:newusers'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * The console command description.</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@var</span> string</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">protected</span> $description = <span class="string">'Command description'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * Create a new command instance.</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">parent</span>::__construct();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * Execute the console command.</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> mixed</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>7-2 在主控台核心註冊新命令</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Kernel</span> <span class="keyword">extends</span> <span class="title">ConsoleKernel</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * The Artisan commands provided by your application.</span></span><br><span class="line"><span class="comment">    *</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@var</span> array</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">protected</span> $commands = [</span><br><span class="line">        \App\Console\Commands\WelcomeNewUsers::class,</span><br><span class="line">    ];</span><br></pre></td></tr></table></figure>
+<p>7-3 Artisan命令handle()方法範例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WelcomeNewUsers</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        User::signedUpThisWeek()-&gt;each(<span class="function"><span class="keyword">function</span> <span class="params">($user)</span> </span>&#123;</span><br><span class="line">            Mail::send(</span><br><span class="line">            <span class="string">'emails.welcome'</span>,</span><br><span class="line">            [<span class="string">'name'</span> =&gt; $user-&gt;name],</span><br><span class="line">            <span class="function"><span class="keyword">function</span> <span class="params">($m)</span> <span class="title">use</span> <span class="params">($user)</span> </span>&#123;</span><br><span class="line">                $m-&gt;to($user-&gt;email)-&gt;subject(<span class="string">'Welcome!'</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            );</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>7-4 重構一個命令</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WelcomeNewUsers</span> <span class="keyword">extends</span> <span class="title">Command</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(UserMailer $userMailer)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">parent</span>::__construct();</span><br><span class="line">        <span class="keyword">$this</span>-&gt;userMailer = $userMailer</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;userMailer-&gt;welcomeNewUsers();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="引數與選項"><a class="markdownIt-Anchor" href="#引數與選項"></a> 引數與選項</h3>
+<h4 id="引數-必要-選用與或-具有預設值"><a class="markdownIt-Anchor" href="#引數-必要-選用與或-具有預設值"></a> 引數、必要、選用與(或) 具有預設值</h4>
+<p>password:reset {userId}<br />
+password:reset {userId?}<br />
+password:reset {userId=1}</p>
+<h4 id="選項-必要的值-預設值與快捷方式"><a class="markdownIt-Anchor" href="#選項-必要的值-預設值與快捷方式"></a> 選項、必要的值、預設值，與快捷方式</h4>
+<p>password:reset {userId} {–sendEmail}<br />
+password:reset {userId} {–password=}<br />
+password:reset {userId} {–queue=default}</p>
+<h4 id="陣列引數與陣列選項"><a class="markdownIt-Anchor" href="#陣列引數與陣列選項"></a> 陣列引數與陣列選項</h4>
+<p>password:reset {userIds*}<br />
+password:reset {–ids=*}</p>
+<p>7-5 使用Artisan命令與陣列語法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Argument</span></span><br><span class="line">php artisan password:reset <span class="number">1</span> <span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="comment">// Option</span></span><br><span class="line">php artisan password:reset --ids=<span class="number">1</span> --ids=<span class="number">2</span> --ids=<span class="number">3</span></span><br></pre></td></tr></table></figure>
+<h4 id="輸入說明"><a class="markdownIt-Anchor" href="#輸入說明"></a> 輸入說明</h4>
+<p>7-6 為Artisan引數與選項定義說明文字</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> $signature = <span class="string">'password:reset</span></span><br><span class="line"><span class="string">                        &#123;userId : The ID of the user&#125;</span></span><br><span class="line"><span class="string">                        &#123;--sendEmail : Whether to send user an email&#125;'</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="使用輸入"><a class="markdownIt-Anchor" href="#使用輸入"></a> 使用輸入</h4>
+<blockquote>
+<p>argument()</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// with definition "password:reset &#123;userId&#125;":</span></span><br><span class="line">php artisan password:reset <span class="number">5</span></span><br><span class="line"><span class="comment">// $this-&gt;argument() returns this array</span></span><br><span class="line">[</span><br><span class="line">    <span class="string">"command"</span>: <span class="string">"password:reset"</span>,</span><br><span class="line">    <span class="string">"userId': "</span><span class="number">5</span><span class="string">",</span></span><br><span class="line"><span class="string">]</span></span><br><span class="line"><span class="string">// $this-&gt;argument('userId') returns this string</span></span><br><span class="line"><span class="string">"</span><span class="number">5</span><span class="string">"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>option()</p>
+</blockquote>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// with definition "password:reset &#123;--userId=&#125;":</span></span><br><span class="line">php artisan password:reset --userId=<span class="number">5</span></span><br><span class="line"><span class="comment">// $this-&gt;option() returns this array</span></span><br><span class="line">[</span><br><span class="line">    <span class="string">"userId"</span> =&gt; <span class="string">"5"</span></span><br><span class="line">    <span class="string">"help"</span> =&gt; <span class="keyword">false</span></span><br><span class="line">    <span class="string">"quiet"</span> =&gt; <span class="keyword">false</span></span><br><span class="line">    <span class="string">"verbose"</span> =&gt; <span class="keyword">false</span></span><br><span class="line">    <span class="string">"version"</span> =&gt; <span class="keyword">false</span></span><br><span class="line">    <span class="string">"ansi"</span> =&gt; <span class="keyword">false</span></span><br><span class="line">    <span class="string">"no-ansi"</span> =&gt; <span class="keyword">false</span></span><br><span class="line">    <span class="string">"no-interaction"</span> =&gt; <span class="keyword">false</span></span><br><span class="line">    <span class="string">"env"</span> =&gt; <span class="keyword">null</span></span><br><span class="line">]</span><br><span class="line"><span class="comment">// $this-&gt;option('userId') returns this string</span></span><br><span class="line"><span class="string">"5"</span></span><br></pre></td></tr></table></figure>
+<p>7-6 從Artisan命令取得輸入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">// All arguments, including the command name</span></span><br><span class="line">$arguments = <span class="keyword">$this</span>-&gt;argument();</span><br><span class="line"><span class="comment">// Just the 'userId' argument</span></span><br><span class="line">$userid = <span class="keyword">$this</span>-&gt;argument(<span class="string">'userId'</span>);</span><br><span class="line"><span class="comment">// All options, including some defaults like 'no-interaction' and 'env'</span></span><br><span class="line">$options = <span class="keyword">$this</span>-&gt;option();</span><br><span class="line"><span class="comment">// Just the 'sendEmail' option</span></span><br><span class="line">$sendEmail = <span class="keyword">$this</span>-&gt;option(<span class="string">'sendEmail'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>7-7 從 Artisan 命令取得輸入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">// All arguments, including the command name</span></span><br><span class="line">$arguments = <span class="keyword">$this</span>-&gt;argument();</span><br><span class="line"><span class="comment">// Just the 'userId' argument</span></span><br><span class="line">$userid = <span class="keyword">$this</span>-&gt;argument(<span class="string">'userId'</span>);</span><br><span class="line"><span class="comment">// All options, including some defaults like 'no-interaction' and 'env'</span></span><br><span class="line">$options = <span class="keyword">$this</span>-&gt;option();</span><br><span class="line"><span class="comment">// Just the 'sendEmail' option</span></span><br><span class="line">$sendEmail = <span class="keyword">$this</span>-&gt;option(<span class="string">'sendEmail'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>提示</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ask()</span><br><span class="line">secret()</span><br><span class="line">comfirm()</span><br><span class="line">anticipate()</span><br><span class="line">choice()</span><br></pre></td></tr></table></figure>
+<p>輸出</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">$this</span>-&gt;info(<span class="string">'Your command has run successfully.'</span>);</span><br></pre></td></tr></table></figure>
+<p>表格輸出<br />
+7-8 使用 Artisan 命令來輸出表格</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$headers = [<span class="string">'Name'</span>, <span class="string">'Email'</span>];</span><br><span class="line">$data = [</span><br><span class="line">[<span class="string">'Dhriti'</span>, <span class="string">'dhriti@amrit.com'</span>],</span><br><span class="line">[<span class="string">'Moses'</span>, <span class="string">'moses@gutierez.com'</span>]</span><br><span class="line">];</span><br><span class="line"><span class="comment">// Or, you could get similar data from the database:</span></span><br><span class="line"><span class="comment">// 或者，你可以從資料庫取得類似的資料</span></span><br><span class="line"><span class="comment">// $data = App\User::all(['name', 'email'])-&gt;toArray();</span></span><br><span class="line"><span class="keyword">$this</span>-&gt;table($headers, $data);</span><br></pre></td></tr></table></figure>
+<p>7-9 Artisan 表格輸出範例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+---------+--------------------+</span><br><span class="line">| Name | Email |</span><br><span class="line">+---------+--------------------+</span><br><span class="line">| Dhriti | dhriti@amrit.com |</span><br><span class="line">| Moses | moses@gutierez.com |</span><br><span class="line">+---------+--------------------+</span><br></pre></td></tr></table></figure>
+<p>7-10 Artisan 進度列範例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$totalUnits = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">$this</span>-&gt;output-&gt;progressStart($totalUnits);</span><br><span class="line"><span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; $totalUnits; $i++) &#123;</span><br><span class="line">    sleep(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">$this</span>-&gt;output-&gt;progressAdvance();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">$this</span>-&gt;output-&gt;progressFinish();</span><br></pre></td></tr></table></figure>
+<p>在一般模式下呼叫Artisan命令<br />
+7-11 從其他程式碼呼叫Artisan命令</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'test-artisan'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    $exitCode = Artisan::call(<span class="string">'password:reset'</span>, [</span><br><span class="line">        <span class="string">'userId'</span> =&gt; <span class="number">15</span>, <span class="string">'--sendEmail'</span> =&gt; <span class="keyword">true</span></span><br><span class="line">    ]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>7-12 從其他的Artisan命令呼叫Artisan命令</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">$this</span>-&gt;callSilent(<span class="string">'password:reset'</span>, [</span><br><span class="line"><span class="string">'userId'</span> =&gt; <span class="number">15</span></span><br><span class="line">]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="thinker"><a class="markdownIt-Anchor" href="#thinker"></a> Thinker</h4>
+<p>7-13 使用Thinker</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">php artisan tinker</span><br><span class="line">&gt;&gt;&gt; $user = <span class="keyword">new</span> App\User;</span><br><span class="line">=&gt; App\User: &#123;&#125;</span><br><span class="line">&gt;&gt;&gt; $user-&gt;email = <span class="string">'matt@mattstauffer.co'</span>;</span><br><span class="line">=&gt; <span class="string">"matt@mattstauffer.co"</span></span><br><span class="line">&gt;&gt;&gt; $user-&gt;password = bcrypt(<span class="string">'superSecret'</span>);</span><br><span class="line">=&gt; <span class="string">"$2y$10$TWPGBC7e8d1bvJ1q5kv.VDUGfYDnE9gANl4mleuB3htIY2dxcQfQ5"</span></span><br><span class="line">&gt;&gt;&gt; $user-&gt;save();</span><br><span class="line">=&gt; <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+<p><a href="https://psysh.org/" target="_blank" rel="noopener">https://psysh.org/</a></p>
+<h4 id="測試"><a class="markdownIt-Anchor" href="#測試"></a> 測試</h4>
+<p>7-14 在測試程式中呼叫Artisan命令</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test_empty_log_command_empties_logs_table</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">DB::table(<span class="string">'logs'</span>)-&gt;insert([<span class="string">'message'</span> =&gt; <span class="string">'Did something'</span>]);</span><br><span class="line">Artisan::call(<span class="string">'logs:empty'</span>);</span><br><span class="line"><span class="keyword">$this</span>-&gt;assertCount(<span class="number">0</span>, DB::table(<span class="string">'logs'</span>)-&gt;get());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>7-15 注入kernel，而非使用Artisan靜態介面</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">Console</span>\<span class="title">Kernel</span>;</span><br><span class="line">...</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NightlyCleanup</span> <span class="keyword">extends</span> <span class="title">Job</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">handle</span><span class="params">(Kernel $kernel)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// ... do other stuff</span></span><br><span class="line">        $kernel-&gt;call(<span class="string">'logs:empty'</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/04/29/laravel-06/" class="article-next" title="laravel-06 收集與處理用戶資料"><i class="icon-arrow-right"></i></a>
+
+
+<a id="pageprev" href="/2020/05/01/laravel-08/" class="article-prev" title="laravel-08"><i class="icon-arrow-left"></i></a>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "7fbe80427f54741e289f",
+        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
+        repo: "sanonz.github.io",
+        owner: "sanonz",
+        admin: ["sanonz"],
+        id: "2020/04/30/laravel-07",
+        distractionFreeMode: true,
+        title: "laravel-07 Artisan 與 Tinker",
+        body: "http://vince115.github.io/2020/04/30/laravel-07/",
+        labels: ["laravel","backend"]
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>

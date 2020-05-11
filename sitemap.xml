@@ -2,6 +2,76 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://vince115.github.io/2020/05/07/laravel-10/</loc>
+    
+    <lastmod>2020-05-08T04:42:06.377Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/05/06/laravel-09/</loc>
+    
+    <lastmod>2020-05-07T09:05:49.420Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/05/01/laravel-08/</loc>
+    
+    <lastmod>2020-05-06T03:02:33.939Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/30/laravel-07/</loc>
+    
+    <lastmod>2020-05-01T04:31:44.687Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/29/laravel-06/</loc>
+    
+    <lastmod>2020-04-30T05:25:17.828Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/29/laravel-05/</loc>
+    
+    <lastmod>2020-04-29T09:46:31.168Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/28/laravel-04/</loc>
+    
+    <lastmod>2020-04-29T09:46:27.887Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/27/laravel-03/</loc>
+    
+    <lastmod>2020-04-29T09:46:24.315Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/14/2020-04-Git/</loc>
+    
+    <lastmod>2020-04-27T07:01:54.247Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/04/21/angular/</loc>
+    
+    <lastmod>2020-04-24T18:01:28.371Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://vince115.github.io/2020/04/23/php/</loc>
     
     <lastmod>2020-04-24T17:57:46.685Z</lastmod>
@@ -12,13 +82,6 @@
     <loc>http://vince115.github.io/2020/04/21/typescript/</loc>
     
     <lastmod>2020-04-24T09:01:07.429Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://vince115.github.io/2020/04/21/angular/</loc>
-    
-    <lastmod>2020-04-24T09:00:20.720Z</lastmod>
     
   </url>
   
@@ -96,13 +159,6 @@
     <loc>http://vince115.github.io/2020/04/11/2020-04-Jekyll/</loc>
     
     <lastmod>2020-04-16T09:53:45.715Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://vince115.github.io/2020/04/14/2020-04-Git/</loc>
-    
-    <lastmod>2020-04-16T09:53:29.944Z</lastmod>
     
   </url>
   

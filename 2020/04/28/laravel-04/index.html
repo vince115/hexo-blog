@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>laravel-04 板模 | Vince的學習筆記</title>
+    <meta name="author" content="Vince Lo" />
+    <meta name="keywords" content="" />
+    <meta name="description" content=" Blade模版4-1 Blade 範例1234567&amp;lt;h1&amp;gt;&amp;#123;&amp;#123;$group-&amp;gt;title&amp;#125;&amp;#125;&amp;lt;/h1&amp;gt;&amp;#123;!! $group-&amp;gt;heroImageHtml()!!&amp;#125;@forelse($users as $user)??&amp;#123;&amp;#123;$user-&amp;gt;frist_name&amp;#125;&amp;#125;&amp;#123;&amp;#123;$user-&amp;gt;last_name&amp;#125;&amp;#125;..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Vince的學習筆記" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Vince的學習筆記</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首頁</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/design">
+                <span class="nav-text">設計</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frontend">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/backend">
+                <span class="nav-text">後端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">標籤</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">歸檔</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">關於</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://vince115.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#blade模版"><span class="toc-number">1.</span> <span class="toc-text"> Blade模版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回應資料"><span class="toc-number">2.</span> <span class="toc-text"> 回應資料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#控制結構"><span class="toc-number">3.</span> <span class="toc-text"> 控制結構</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#條件"><span class="toc-number">4.</span> <span class="toc-text"> 條件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模板繼承"><span class="toc-number">5.</span> <span class="toc-text"> 模板繼承</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用sectionshow-與-yield-來定義區段"><span class="toc-number">6.</span> <span class="toc-text"> 使用@section&#x2F;@show 與 @yield 來定義區段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#視圖組件與服務注入"><span class="toc-number">7.</span> <span class="toc-text"> 視圖組件與服務注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用視圖組件來將資料綁定視圖"><span class="toc-number">8.</span> <span class="toc-text"> 使用視圖組件來將資料綁定視圖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#全域共用變數"><span class="toc-number">9.</span> <span class="toc-text"> 全域共用變數</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#採用closure的view-composer"><span class="toc-number">10.</span> <span class="toc-text"> 採用Closure的view composer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用類別的view-composer"><span class="toc-number">10.1.</span> <span class="toc-text"> 使用類別的view composer</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#blade服務注入"><span class="toc-number">10.2.</span> <span class="toc-text"> Blade服務注入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自訂blade指令"><span class="toc-number">10.3.</span> <span class="toc-text"> 自訂Blade指令</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            laravel-04 板模
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/2020/04/28/laravel-04/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-28T03:49:25.000Z" itemprop="datePublished">2020-04-28</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/backend/" rel="tag">backend</a>, <a class="article-tag-link" href="/tags/laravel/" rel="tag">laravel</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="blade模版"><a class="markdownIt-Anchor" href="#blade模版"></a> Blade模版</h3>
+<p>4-1 Blade 範例</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;$group-&gt;title&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">&#123;!! $group-&gt;heroImageHtml()!!&#125;</span><br><span class="line">@forelse($users as $user)</span><br><span class="line">??&#123;&#123;$user-&gt;frist_name&#125;&#125;&#123;&#123;$user-&gt;last_name&#125;&#125;<span class="tag">&lt;<span class="name">br</span>&gt;</span> </span><br><span class="line">@empty</span><br><span class="line">No users in this group.</span><br><span class="line">@endforelse</span><br></pre></td></tr></table></figure>
+<h3 id="回應資料"><a class="markdownIt-Anchor" href="#回應資料"></a> 回應資料</h3>
+<h3 id="控制結構"><a class="markdownIt-Anchor" href="#控制結構"></a> 控制結構</h3>
+<h3 id="條件"><a class="markdownIt-Anchor" href="#條件"></a> 條件</h3>
+<p>邏輯控制結構</p>
+<p>@if</p>
+<p>4-2 @if、@else、@elseif與@endif</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">if</span>(count($tasks)===<span class="number">1</span>)</span><br><span class="line"> There is one talk at this time period.</span><br><span class="line">@<span class="keyword">elseif</span>(count($tasks)===<span class="number">0</span>)</span><br><span class="line"> There are no talks at this time period.</span><br><span class="line">@<span class="keyword">else</span></span><br><span class="line"> There are &#123;&#123;count($tasks)&#125;&#125; talks at this time period.</span><br><span class="line">@<span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
+<p>@unless 與 @endunless</p>
+<p>4-3 @unless 與 @endunless<br />
+它是@if的相反</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@unless($user-&gt;hasPaid())</span><br><span class="line">   You can complete your payment by switching to the payment tab.</span><br><span class="line">@endunless</span><br></pre></td></tr></table></figure>
+<p>4-4 @for 與 @endfor</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">for</span>($i=<span class="number">0</span>;$i&lt;$task-&gt;slotsCount();$i++)</span><br><span class="line">    The number is  &#123;&#123;$i&#125;&#125; &lt;br&gt;</span><br><span class="line">@<span class="keyword">endfor</span></span><br></pre></td></tr></table></figure>
+<p>4-5 @foreach 與 @endforeach</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">for</span>($talks <span class="keyword">as</span> $talk)</span><br><span class="line">  &#123;&#123;$talk-&gt;title&#125;&#125; (&#123;&#123;$talk-&gt;length&#125;&#125; minutes) &lt;br&gt; </span><br><span class="line">@<span class="keyword">endfor</span></span><br></pre></td></tr></table></figure>
+<p>4-6 @while 與 @endwhile</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">while</span>($item = array_pop($items))</span><br><span class="line">    &#123;&#123; $item -&gt; orSomething() &#125;&#125; &lt;br&gt;</span><br><span class="line">@<span class="keyword">endwhile</span></span><br></pre></td></tr></table></figure>
+<p>4-7 @forelse</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@forelse($talks <span class="keyword">as</span> $talk)</span><br><span class="line">  * &#123;&#123;$talk-&gt;title&#125;&#125;(&#123;&#123;$talk-&gt;length&#125;&#125; minutes) &lt;br&gt;</span><br><span class="line">@<span class="keyword">empty</span></span><br><span class="line">  No talks this day.</span><br><span class="line">@endforelse</span><br></pre></td></tr></table></figure>
+<p>index<br />
+iteration<br />
+remaining<br />
+count<br />
+first<br />
+last<br />
+depth<br />
+parent</p>
+<h3 id="模板繼承"><a class="markdownIt-Anchor" href="#模板繼承"></a> 模板繼承</h3>
+<h3 id="使用sectionshow-與-yield-來定義區段"><a class="markdownIt-Anchor" href="#使用sectionshow-與-yield-來定義區段"></a> 使用@section/@show 與 @yield 來定義區段</h3>
+<p>4-8 Blade 版面配置</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- resource/views/layouts/master.blade.php --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>My Site | @yield('title','Home Page')<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">   @yield('content')</span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> @section('footerScripts')</span><br><span class="line">   <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"app.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"> @show</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>4-9 擴展Blade配置</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- resource/views/dashboard.blade.php --&gt;</span></span><br><span class="line">@extends('layouts.master')</span><br><span class="line">@section('title','Dashboard')</span><br><span class="line">@section('content')</span><br><span class="line">  Welcome to your application dashboard!</span><br><span class="line">@endsection</span><br><span class="line">@section('footerScripts')</span><br><span class="line">  @parents</span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"dashboard.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">@endsection</span><br></pre></td></tr></table></figure>
+<p>@extends</p>
+<p>@section 與 @endsection</p>
+<p>@parent</p>
+<p>@include<br />
+4-10 使用@include來納入部分的視圖</p>
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- resource/views/home.blade.php --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"content"</span> <span class="attr">data-page-name</span>=<span class="string">"&#123;&#123;$pageName&#125;&#125;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span> Here's why you should sign up for our app:<span class="tag">&lt;<span class="name">strong</span>&gt;</span>It's Great.<span class="tag">&lt;/<span class="name">strong</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">@include('sign-up-button',['text' =&gt; 'See just how great it is'])</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>@each<br />
+4-11 以@each 來使用迴圈中的部分視圖</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- resource/views/sidebar.blade.php --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"sidebar"</span>&gt;</span></span><br><span class="line">@each('partials.module',$modules,'module','partials.empty-module')</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--resource/views/partials/module.blade.php--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"sidebar-module"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123;$module-&gt;title&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--resource/views/partials/empty-module.blade.php--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"sidebar-module"</span>&gt;</span></span><br><span class="line">  No modules :(</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="視圖組件與服務注入"><a class="markdownIt-Anchor" href="#視圖組件與服務注入"></a> 視圖組件與服務注入</h3>
+<p>4-12 複習將資料傳給視圖</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'passing-data-to-views'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">'dashboard'</span>)</span><br><span class="line">    -&gt;with(<span class="string">'key'</span>,<span class="string">'value'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="使用視圖組件來將資料綁定視圖"><a class="markdownIt-Anchor" href="#使用視圖組件來將資料綁定視圖"></a> 使用視圖組件來將資料綁定視圖</h3>
+<p>4-13 從每一個路由傳入資訊看板資料</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'home'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> view(<span class="string">'home'</span>)</span><br><span class="line">      -&gt;with(<span class="string">'posts'</span>,Post::recent());</span><br><span class="line">&#125;)</span><br><span class="line">Route::get(<span class="string">'about'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> view(<span class="string">'about'</span>)</span><br><span class="line">      -&gt;with(<span class="string">'posts'</span>, Post::recent());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="全域共用變數"><a class="markdownIt-Anchor" href="#全域共用變數"></a> 全域共用變數</h3>
+<p>4-14 全域共用變數</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//某個服務提供者</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span><span class="params">()</span></span>&#123;</span><br><span class="line">  ...</span><br><span class="line">  view()-&gt;share(<span class="string">'posts'</span>, Post::recent());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="採用closure的view-composer"><a class="markdownIt-Anchor" href="#採用closure的view-composer"></a> 採用Closure的view composer</h3>
+<p>4-15 建立使用closure的view composer</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">view()-&gt;composer(<span class="string">'partials.sidebar'</span>, <span class="function"><span class="keyword">function</span><span class="params">($view)</span></span>&#123;</span><br><span class="line">  $view-&gt;with(<span class="string">'posts'</span>, Post::recent());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>與多個視圖共用的view composer</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">view()-&gt;composer(</span><br><span class="line">  [<span class="string">'partials.header'</span>,<span class="string">'partials.footer'</span>]</span><br><span class="line">  <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    $view-&gt;with(<span class="string">'posts'</span>, Post::recent());</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  view()-&gt;composer(<span class="string">'partials,*'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    $view-&gt;with(<span class="string">'posts'</span>, Post::recent());</span><br><span class="line">  &#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="使用類別的view-composer"><a class="markdownIt-Anchor" href="#使用類別的view-composer"></a> 使用類別的view composer</h4>
+<p>4-16 view composer</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">ViewComposers</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Post</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Contracts</span>\<span class="title">View</span>\<span class="title">View</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RecentPostsComposer</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">private</span> $posts;</span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">_construct</span><span class="params">(Post $posts)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;posts = $posts;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">compose</span><span class="params">(View $view)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    $view-&gt;with(<span class="string">'posts'</span>, <span class="keyword">$this</span>-&gt;posts-&gt;recent());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>4-17 在AppServiceProvider內註冊一個view composer</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// AppServiceProvider</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  view()-&gt;composer(</span><br><span class="line">    <span class="string">'partials.sidebar'</span>, </span><br><span class="line">    \App\Http\ViewComposers\RecentPostsComposer::class</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="blade服務注入"><a class="markdownIt-Anchor" href="#blade服務注入"></a> Blade服務注入</h4>
+<p>4-18 透過路由定義建構式來將服務注入視圖</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'backend/sales'</span>,<span class="function"><span class="keyword">function</span><span class="params">(AnalyticsService $analytics)</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> view(<span class="string">'backend.sales-graphs'</span>)</span><br><span class="line">  -&gt;with(<span class="string">'analytics'</span>,analytics);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>4-19 在視圖中使用注入的導航服務</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"finances-display"</span>&gt;</span></span><br><span class="line">&#123;&#123; $analytics-&gt;getBalance() &#125;&#125; / &#123;&#123; $analytics-&gt;getBudget() &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>4-20 將服務直接注入視圖</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@inject('analytics', 'App\Services\Analytics')</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"finances-display"</span>&gt;</span></span><br><span class="line">&#123;&#123; $analytics-&gt;getBalance() &#125;&#125; / &#123;&#123; $analytics-&gt;getBudget() &#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="自訂blade指令"><a class="markdownIt-Anchor" href="#自訂blade指令"></a> 自訂Blade指令</h4>
+<p>4-21 綁定自訂的Blade指令</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// AppServiceProvider</span><br><span class="line">public function boot() </span><br><span class="line">&#123;</span><br><span class="line">  Blade::directive('ifGuest',function()&#123;</span><br><span class="line">    return "<span class="php"><span class="meta">&lt;?php</span> <span class="keyword">if</span>(auth()-&gt;guest()): <span class="meta">?&gt;</span></span>";</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4-22 建立有參數的Blade指令</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 綁定</span><br><span class="line">Blade::directive('newlinesToBr',function($expression)&#123;</span><br><span class="line">  return "<span class="php"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> nl2br(&#123;$expression&#125;)<span class="meta">?&gt;</span></span>"</span><br><span class="line">&#125;)</span><br><span class="line">// 使用</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>@newlinesToBr($message-&gt;body)<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>4-23 不使用自訂Blade指令的背景條件</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">if</span> (app(<span class="string">'context'</span>)-&gt;isPublic())</span><br><span class="line">  &amp;copy; Copyright MyApp LLC</span><br><span class="line">@<span class="keyword">else</span></span><br><span class="line">  &amp;copy; Copyright&#123;&#123; app(<span class="string">'context'</span>)-&gt;client-&gt;name &#125;&#125;</span><br><span class="line">@<span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
+<p>4-24 使用自訂Blade指令的環境條件</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//綁定</span></span><br><span class="line">Blade::directive(<span class="string">'ifPublic'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">"&lt;?php if(app('context')-&gt;isPublic()): ?&gt;"</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//使用</span></span><br><span class="line">@ifPublic</span><br><span class="line">  &amp;copy; Copyright MyApp LLC</span><br><span class="line">@<span class="keyword">else</span></span><br><span class="line">  &amp;copy; Copyright &#123;&#123;app(<span class="string">'context'</span>)-&gt;client-&gt;name&#125;&#125;</span><br><span class="line">@<span class="keyword">elseif</span></span><br></pre></td></tr></table></figure>
+<p>4-25 測試視圖可顯示某些內容</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//EventsTest.php</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test_list_page_shows_all_events</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  $event1 = factory (Event::class)-&gt;create();</span><br><span class="line">  $event2 = factory (Event::class)-&gt;create();</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">$this</span>-&gt;visit(<span class="string">'events'</span>) </span><br><span class="line">    -&gt;see($event1-&gt;title)</span><br><span class="line">    -&gt;see($event2-&gt;title);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4-26 測試視圖已被傳入某些內容</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//EventsTest.php</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test_list_page_shows_all_events</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  $event1 = factory (Event::class)-&gt;create();</span><br><span class="line">  $event2 = factory (Event::class)-&gt;create();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">$this</span>-&gt;vist(<span class="string">'events'</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">$this</span>-&gt;assertViewHas(<span class="string">'events'</span>,Event::all());</span><br><span class="line">  <span class="keyword">$this</span>-&gt;assertViewHasAll([</span><br><span class="line">    <span class="string">'events'</span> =&gt; Event::all(),</span><br><span class="line">    <span class="string">'title'</span> =&gt; <span class="string">'Events Page'</span></span><br><span class="line">  ]);</span><br><span class="line">  <span class="keyword">$this</span>-&gt;assertViewMissing(<span class="string">'dogs'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>4-27 將closure 傳入assertViewHas()</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//EventsTest.php</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test_list_page_shows_all_events</span><span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  $event1 = factory(Event::class)-&gt;create();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">$this</span>-&gt;visit(<span class="string">'events/'</span>. $event1 -&gt; id);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">$this</span>-&gt;assertViewHas(<span class="string">'event'</span>,<span class="function"><span class="keyword">function</span><span class="params">($event)</span> <span class="title">use</span><span class="params">($event1)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> $event-&gt;id === $event1-&gt;id;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/04/27/laravel-03/" class="article-next" title="laravel_03 路由與控制器"><i class="icon-arrow-right"></i></a>
+
+
+<a id="pageprev" href="/2020/04/29/laravel-05/" class="article-prev" title="laravel-05 前端元件"><i class="icon-arrow-left"></i></a>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "7fbe80427f54741e289f",
+        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
+        repo: "sanonz.github.io",
+        owner: "sanonz",
+        admin: ["sanonz"],
+        id: "2020/04/28/laravel-04",
+        distractionFreeMode: true,
+        title: "laravel-04 板模",
+        body: "http://vince115.github.io/2020/04/28/laravel-04/",
+        labels: ["laravel","backend"]
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>

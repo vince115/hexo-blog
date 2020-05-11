@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>laravel-05 前端元件 | Vince的學習筆記</title>
+    <meta name="author" content="Vince Lo" />
+    <meta name="keywords" content="" />
+    <meta name="description" content=" ElixirLaravel Elixir 提供了簡潔流暢的 API，讓你能夠為你的 Laravel 應用程式定義基本的 Gulp 任務。Elixir 支援許多常見的 CSS 與 JavaScrtip 預處理器，甚至包含了測試工具。https://laravel.tw/docs/5.0/elixir5-1 在Gulp編輯Sass檔案1234567891011121314151617181920212223var gulp = require(&#39;gulp&#39;),sass = requi..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Vince的學習筆記" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Vince的學習筆記</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首頁</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/design">
+                <span class="nav-text">設計</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frontend">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/backend">
+                <span class="nav-text">後端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">標籤</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">歸檔</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">關於</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://vince115.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#elixir"><span class="toc-number">1.</span> <span class="toc-text"> Elixir</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#elixir-資料夾"><span class="toc-number">1.1.</span> <span class="toc-text"> Elixir 資料夾</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#elixir-資料夾結構"><span class="toc-number">1.2.</span> <span class="toc-text"> Elixir 資料夾結構</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#elixir-提供什麼功能"><span class="toc-number">1.3.</span> <span class="toc-text"> Elixir 提供什麼功能？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#-production-旗標"><span class="toc-number">1.4.</span> <span class="toc-text"> -production 旗標</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#傳遞多個檔案"><span class="toc-number">1.5.</span> <span class="toc-text"> 傳遞多個檔案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#來源對應"><span class="toc-number">1.6.</span> <span class="toc-text"> 來源對應</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#無前置處理的css"><span class="toc-number">1.7.</span> <span class="toc-text"> 無前置處理的CSS</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#串接javascript"><span class="toc-number">1.8.</span> <span class="toc-text"> 串接JavaScript</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#預先處理javascript"><span class="toc-number">1.9.</span> <span class="toc-text"> 預先處理JavaScript</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#版本控制"><span class="toc-number">1.10.</span> <span class="toc-text"> 版本控制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#測試訊息與錯誤袋"><span class="toc-number">1.11.</span> <span class="toc-text"> 測試訊息與錯誤袋</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            laravel-05 前端元件
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/2020/04/29/laravel-05/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-29T00:31:42.000Z" itemprop="datePublished">2020-04-29</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/backend/" rel="tag">backend</a>, <a class="article-tag-link" href="/tags/laravel/" rel="tag">laravel</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="elixir"><a class="markdownIt-Anchor" href="#elixir"></a> Elixir</h3>
+<p>Laravel Elixir 提供了簡潔流暢的 API，讓你能夠為你的 Laravel 應用程式定義基本的 Gulp 任務。Elixir 支援許多常見的 CSS 與 JavaScrtip 預處理器，甚至包含了測試工具。<br />
+<a href="https://laravel.tw/docs/5.0/elixir" target="_blank" rel="noopener">https://laravel.tw/docs/5.0/elixir</a></p>
+<p>5-1 在Gulp編輯Sass檔案</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="keyword">require</span>(<span class="string">'gulp'</span>),</span><br><span class="line">sass = <span class="keyword">require</span>(<span class="string">'gulp-ruby-sass'</span>),</span><br><span class="line">autoprefixer = <span class="keyword">require</span>(<span class="string">'gulp-autoprefixer'</span>),</span><br><span class="line">rename = <span class="keyword">require</span>(<span class="string">'gulp-rename'</span>),</span><br><span class="line">notify = <span class="keyword">require</span>(<span class="string">'gulp-notify'</span>),</span><br><span class="line">livereload = <span class="keyword">require</span>(<span class="string">'gulp-livereload'</span>),</span><br><span class="line">lr = <span class="keyword">require</span>(<span class="string">'tiny-lr'</span>),</span><br><span class="line">server = lr();</span><br><span class="line">gulp.task(<span class="string">'sass'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> gulp.src(<span class="string">'resources/assets/sass/app.scss'</span>)</span><br><span class="line">.pipe(sass(&#123;</span><br><span class="line">style: <span class="string">'compressed'</span>,</span><br><span class="line">sourcemap: <span class="keyword">true</span></span><br><span class="line">&#125;))</span><br><span class="line">.pipe(autoprefixer(<span class="string">'last 2 version'</span>, <span class="string">'ie 9'</span>, <span class="string">'ios 6'</span>))</span><br><span class="line">.pipe(gulp.dest(<span class="string">'public/css'</span>))</span><br><span class="line">.pipe(rename(&#123;suffix: <span class="string">'.min'</span>&#125;))</span><br><span class="line">.pipe(livereload(server))</span><br><span class="line">.pipe(notify(&#123;</span><br><span class="line">title: <span class="string">"Karani"</span>,</span><br><span class="line">message: <span class="string">"Styles task complete."</span></span><br><span class="line">&#125;));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>5-2 用Elixir來編輯Sass檔案</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> elixir = <span class="keyword">require</span>(<span class="string">'laravel-elixir'</span>);</span><br><span class="line">elixir(<span class="function"><span class="keyword">function</span> <span class="params">(mix)</span> </span>&#123;</span><br><span class="line">mix.sass(<span class="string">'app.scss'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>ES6 IN ELIXIR 6</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> elixir = <span class="keyword">require</span>(<span class="string">'laravel-elixir'</span>);</span><br><span class="line">elixir(mix =&gt; &#123;</span><br><span class="line">mix.sass(<span class="string">'app.scss'</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="elixir-資料夾"><a class="markdownIt-Anchor" href="#elixir-資料夾"></a> Elixir 資料夾</h4>
+<h4 id="elixir-資料夾結構"><a class="markdownIt-Anchor" href="#elixir-資料夾結構"></a> Elixir 資料夾結構</h4>
+<h4 id="elixir-提供什麼功能"><a class="markdownIt-Anchor" href="#elixir-提供什麼功能"></a> Elixir 提供什麼功能？</h4>
+<h4 id="-production-旗標"><a class="markdownIt-Anchor" href="#-production-旗標"></a> -production 旗標</h4>
+<h4 id="傳遞多個檔案"><a class="markdownIt-Anchor" href="#傳遞多個檔案"></a> 傳遞多個檔案</h4>
+<p>5-3 用Elixir來編譯多個檔案</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> elixir = <span class="keyword">require</span>(<span class="string">'laravel-elixir'</span>);</span><br><span class="line">elixir(mix =&gt; &#123;</span><br><span class="line">mix.sass([</span><br><span class="line"><span class="string">'app.scss'</span>,</span><br><span class="line"><span class="string">'public.scss'</span></span><br><span class="line">]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="來源對應"><a class="markdownIt-Anchor" href="#來源對應"></a> 來源對應</h4>
+<p>5-4 停用Elixir的來源對應</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> elixir = <span class="keyword">require</span>(<span class="string">'laravel-elixir'</span>);</span><br><span class="line">elixir.config.sourcemaps = <span class="keyword">false</span>;</span><br><span class="line">elixir(mix =&gt; &#123;</span><br><span class="line">mix.sass(<span class="string">'app.scss'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="無前置處理的css"><a class="markdownIt-Anchor" href="#無前置處理的css"></a> 無前置處理的CSS</h4>
+<p>5-5 使用Elixir來結合樣式表</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> elixir = <span class="keyword">require</span>(<span class="string">'laravel-elixir'</span>);</span><br><span class="line"></span><br><span class="line">elixir(mix =&gt; &#123;</span><br><span class="line"><span class="comment">// 結合 resources/assets/css 與子目錄的所有檔案</span></span><br><span class="line">mix.styles();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 結合 resources/assets/css 的檔案</span></span><br><span class="line">mix.styles([</span><br><span class="line"><span class="string">'normalize.css'</span>,</span><br><span class="line"><span class="string">'app.css'</span></span><br><span class="line">]);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 結合其他目錄的所有樣式</span></span><br><span class="line">mix.stylesIn(<span class="string">'resources/some/other/css/directory'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 結合 resources/assets/css 內指定的樣式</span></span><br><span class="line"><span class="comment">// 並輸出置一個自訂的目錄</span></span><br><span class="line">mix.styles([</span><br><span class="line"><span class="string">'normalize.css'</span>,</span><br><span class="line"><span class="string">'app.css'</span></span><br><span class="line">], <span class="string">'public/other/css/output.css'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 結合自訂目錄指定樣式</span></span><br><span class="line"><span class="comment">// 並輸出至一個自訂的目錄</span></span><br><span class="line">mix.styles([</span><br><span class="line"><span class="string">'normalize.css'</span>,</span><br><span class="line"><span class="string">'app.css'</span></span><br><span class="line">], <span class="string">'public/other/css/output.css'</span>, <span class="string">'resources/some/other/css/directory'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="串接javascript"><a class="markdownIt-Anchor" href="#串接javascript"></a> 串接JavaScript</h4>
+<p>5-6 使用Elixir來結合JavaScript檔案</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> elixir = <span class="keyword">require</span>(<span class="string">'laravel-elixir'</span>);</span><br><span class="line">elixir(mix =&gt; &#123;</span><br><span class="line"><span class="comment">// 結合 resources/assets/js　的檔案</span></span><br><span class="line">mix.scripts([</span><br><span class="line"><span class="string">'jquery.js'</span>,</span><br><span class="line"><span class="string">'app.js'</span></span><br><span class="line">]);</span><br><span class="line"><span class="comment">// 結合其他目錄的所有腳本</span></span><br><span class="line">mix.scriptsIn(<span class="string">'resources/some/other/js/directory'</span>);</span><br><span class="line"><span class="comment">// 結合resources/assets/js的指定腳本</span></span><br><span class="line"><span class="comment">// 並輸出至一個自訂的目錄</span></span><br><span class="line">mix.scripts([</span><br><span class="line"><span class="string">'jquery.js'</span>,</span><br><span class="line"><span class="string">'app.js'</span></span><br><span class="line">], <span class="string">'public/other/js/output.js'</span>);</span><br><span class="line"><span class="comment">// 結合自訂目錄的指定腳本</span></span><br><span class="line"><span class="comment">// 並輸出至一個自訂的目錄</span></span><br><span class="line">mix.scripts([</span><br><span class="line"><span class="string">'jquery.js'</span>,</span><br><span class="line"><span class="string">'app.js'</span></span><br><span class="line">], <span class="string">'public/other/js/output.js'</span>, <span class="string">'resources/some/other/js/directory'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="預先處理javascript"><a class="markdownIt-Anchor" href="#預先處理javascript"></a> 預先處理JavaScript</h4>
+<p>5-7 在Elixir中使用Webpack或Rollup來處理JavaScript檔案</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">elixir(<span class="function"><span class="keyword">function</span><span class="params">(mix)</span> </span>&#123;</span><br><span class="line">mix.webpack(<span class="string">'app.js'</span>);</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">mix.rollup(<span class="string">'app.js'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="版本控制"><a class="markdownIt-Anchor" href="#版本控制"></a> 版本控制</h4>
+<p>5-8 mix.version</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> elixir = <span class="keyword">require</span>(<span class="string">'laravel-elixir'</span>);</span><br><span class="line">elixir(mix =&gt; &#123;</span><br><span class="line">mix.version(<span class="string">'public/css/all.css'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>5-9 在視圖中使用elixir()輔助函式</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"&#123;&#123; elixir("</span>css/all.css<span class="string">") &#125;&#125;"</span>&gt;</span><br><span class="line"><span class="comment">// will output something like:</span></span><br><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"/build/css/all-84fa1258.css"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>####　Elixir 擴展</p>
+<p>5-10 在Elixir中使用Gulp工作</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定義工作</span></span><br><span class="line">gulp.task(<span class="string">"log"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">var</span> message = <span class="string">"Something happened"</span>;</span><br><span class="line">gulp.src(<span class="string">""</span>).pipe(shell(<span class="string">'echo "'</span> + message + <span class="string">'" &gt;&gt; file.log'</span>));</span><br><span class="line">&#125;);</span><br><span class="line">elixir(mix =&gt; &#123;</span><br><span class="line"><span class="comment">//在Elixir中使用工作</span></span><br><span class="line">mix.task(<span class="string">'log'</span>);</span><br><span class="line"><span class="comment">// 綁定工作，讓它在每次有某些檔案改變時執行</span></span><br><span class="line">mix.task(<span class="string">'log'</span>, <span class="string">'resources/somefiles/to/watch/**/*'</span>)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>5-11 建立Elixir擴展</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在gulpfile.js內，或在外部檔案require gulpfile.js</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="keyword">require</span>(<span class="string">"gulp"</span>),</span><br><span class="line">shell = <span class="keyword">require</span>(<span class="string">"gulp-shell"</span>),</span><br><span class="line">elixir = <span class="keyword">require</span>(<span class="string">"laravel-elixir"</span>);</span><br><span class="line">elixir.extend(<span class="string">"log"</span>, <span class="function"><span class="keyword">function</span> <span class="params">(message)</span> </span>&#123;</span><br><span class="line"><span class="keyword">new</span> Task(<span class="string">'log'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> gulp.src(<span class="string">''</span>).pipe(shell(<span class="string">'echo "'</span> + message + <span class="string">'" &gt;&gt; file.log'</span>));</span><br><span class="line">&#125;)</span><br><span class="line">.watch(<span class="string">'./resources/some/files/**/*'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>5-12 對查詢產生器的回應進行分頁</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">return</span> view(<span class="string">'posts.index'</span>, [<span class="string">'posts'</span> =&gt; DB::table(<span class="string">'posts'</span>)-&gt;paginate(<span class="number">20</span>)]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5-13 在模板中顯示分頁連結</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;table&gt;</span><br><span class="line">@<span class="keyword">foreach</span> ($posts <span class="keyword">as</span> $post)</span><br><span class="line">&lt;tr&gt;&lt;td&gt;&#123;&#123; $post-&gt;title &#125;&#125;&lt;/td&gt;&lt;/tr&gt;</span><br><span class="line">@<span class="keyword">endforeach</span></span><br><span class="line">&lt;/table&gt;</span><br><span class="line">&#123;&#123; $posts-&gt;links() &#125;&#125;</span><br><span class="line"><span class="comment">// 在預設情況下, $posts-&gt;links() 會輸出如下:</span></span><br><span class="line">&lt;ul class="pagination"&gt;</span><br><span class="line">&lt;li class="disabled"&gt;&lt;span&gt;&amp;laquo;&lt;/span&gt;&lt;/li&gt;</span><br><span class="line">&lt;li class="active"&gt;&lt;span&gt;1&lt;/span&gt;&lt;/li&gt;</span><br><span class="line">&lt;li&gt;&lt;a href=<span class="string">"http://myapp.com/posts?page=2"</span>&gt;<span class="number">2</span>&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;li&gt;&lt;a href=<span class="string">"http://myapp.com/posts?page=3"</span>&gt;<span class="number">3</span>&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;li&gt;&lt;a href=<span class="string">"http://myapp.com/posts?page=2"</span> rel=<span class="string">"next"</span>&gt;&amp;raquo;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br></pre></td></tr></table></figure>
+<p>手動建立分頁器<br />
+5-14 在Laravel 5.2與5.3手動建立分頁器</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Pagination</span>\<span class="title">Paginator</span>;</span><br><span class="line">Route::get(<span class="string">'people'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Request $request)</span> </span>&#123;</span><br><span class="line">$people = [...]; <span class="comment">// huge list of people</span></span><br><span class="line">$perPage = <span class="number">15</span>;</span><br><span class="line">$offsetPages = $request-&gt;input(<span class="string">'page'</span>, <span class="number">1</span>) - <span class="number">1</span>;</span><br><span class="line"><span class="comment">// The Paginator will not slice your array for you</span></span><br><span class="line">$people = array_slice(</span><br><span class="line">$people,</span><br><span class="line">$offsetPages * $perPage,</span><br><span class="line">$perPage</span><br><span class="line">);</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> Paginator(</span><br><span class="line">$people,</span><br><span class="line">$perPage</span><br><span class="line">);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>訊息袋<br />
+5-15 手動建立與使用MessageBag</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$messages = [</span><br><span class="line"><span class="string">'errors'</span> =&gt; [</span><br><span class="line"><span class="string">'Something went wrong with edit 1!'</span></span><br><span class="line">],</span><br><span class="line"><span class="string">'messages'</span> =&gt; [</span><br><span class="line"><span class="string">'Edit 2 was successful.'</span></span><br><span class="line">]</span><br><span class="line">];</span><br><span class="line">$messagebag = <span class="keyword">new</span> \Illuminate\Support\MessageBag($messages);</span><br><span class="line"><span class="comment">// Check for errors; if there are any, decorate and echo</span></span><br><span class="line"><span class="keyword">if</span> ($messagebag-&gt;has(<span class="string">'errors'</span>)) &#123;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;ul id="errors"&gt;'</span>;</span><br><span class="line"><span class="keyword">foreach</span> ($messagebag-&gt;get(<span class="string">'errors'</span>, <span class="string">'&lt;li&gt;&lt;b&gt;:message&lt;/b&gt;&lt;/li&gt;'</span>) <span class="keyword">as</span> $error) &#123;</span><br><span class="line"><span class="keyword">echo</span> $error;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'&lt;/ul&gt;'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>5-16 錯誤袋程式片段</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// partials/errors.blade.php</span></span><br><span class="line">@<span class="keyword">if</span> ($errors-&gt;any())</span><br><span class="line">&lt;div class="alert alert-danger"&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">@<span class="keyword">foreach</span> ($errors <span class="keyword">as</span> $error)</span><br><span class="line">&lt;li&gt;&#123;&#123; $error &#125;&#125;&lt;/li&gt;</span><br><span class="line">@<span class="keyword">endforeach</span></span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">@<span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
+<p>5-17 trans()基本用法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一般的 PHP</span></span><br><span class="line"><span class="meta">&lt;?php</span> <span class="keyword">echo</span> trans(<span class="string">'navigation.back'</span>); <span class="meta">?&gt;</span></span><br><span class="line"><span class="comment">// Blade</span></span><br><span class="line">&#123;&#123; trans(<span class="string">'navigation.back'</span>) &#125;&#125;</span><br><span class="line"><span class="comment">// Blade 指令</span></span><br><span class="line">@lang(<span class="string">'navigation.back'</span>)</span><br></pre></td></tr></table></figure>
+<p>5-18 使用翻譯</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// resources/lang/es/navigation.php</span></span><br><span class="line"><span class="keyword">return</span> [</span><br><span class="line"><span class="string">'back'</span> =&gt; <span class="string">'Volver al panel'</span></span><br><span class="line">];</span><br><span class="line"><span class="comment">// routes/web.php</span></span><br><span class="line">Route::get(<span class="string">'/es/contacts/show/:id'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">// Setting it manually, for this example, instead of in a service provider</span></span><br><span class="line">App::setLocale(<span class="string">'es'</span>);</span><br><span class="line"><span class="keyword">return</span> view(<span class="string">'contacts.show'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// resources/views/contacts/show.blade.php</span></span><br><span class="line">&lt;a href=<span class="string">"/contacts"</span>&gt;&#123;&#123; trans(<span class="string">'navigation.back'</span>) &#125;&#125;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+<p>5-19 翻譯的參數</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// resources/lang/en/navigation.php</span></span><br><span class="line"><span class="keyword">return</span> [</span><br><span class="line"><span class="string">'back'</span> =&gt; <span class="string">'Back to :section dashbaord'</span></span><br><span class="line">];</span><br><span class="line"><span class="comment">// resources/views/contacts/show.blade.php</span></span><br><span class="line">&#123;&#123; trans(<span class="string">'navigation.back'</span>, [<span class="string">'section'</span> =&gt; <span class="string">'contacts'</span>]) &#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>5-20 使用複數化選項來定義簡單的翻譯</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// resources/lang/en/messages.php</span></span><br><span class="line"><span class="keyword">return</span> [</span><br><span class="line"><span class="string">'task-deletion'</span> =&gt; <span class="string">'You have deleted a task|You have successfully deleted tasks'</span></span><br><span class="line">];</span><br><span class="line"><span class="comment">// resources/views/dashboard.blade.php</span></span><br><span class="line">@<span class="keyword">if</span> ($numTasksDeleted &gt; <span class="number">0</span>)</span><br><span class="line">&#123;&#123; trans_choice(<span class="string">'messages.task-deletion'</span>, $numTasksDeleted) &#125;&#125;</span><br><span class="line">@<span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
+<p>5-21 使用Symfony的翻譯元件</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// resources/lang/es/messages.php</span></span><br><span class="line"><span class="keyword">return</span> [</span><br><span class="line"><span class="string">'task-deletion'</span>=&gt;<span class="string">"&#123;0&#125;  You didn't manage to delete any tasks. |"</span> </span><br><span class="line">  <span class="string">"[1,4] You deleted a few tasks.|"</span> . </span><br><span class="line">  <span class="string">"[5,Inf] You deleted a whole ton of tasks."</span></span><br></pre></td></tr></table></figure>
+<h4 id="測試訊息與錯誤袋"><a class="markdownIt-Anchor" href="#測試訊息與錯誤袋"></a> 測試訊息與錯誤袋</h4>
+<p>5-22 判斷session有沒有錯誤</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test_missing_email_field_errors</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;post(<span class="string">'person/create'</span>, [<span class="string">'name'</span> =&gt; <span class="string">'Japheth'</span>]);</span><br><span class="line">    <span class="keyword">$this</span>-&gt;assertSessionHasErrors([<span class="string">'email'</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/04/28/laravel-04/" class="article-next" title="laravel-04 板模"><i class="icon-arrow-right"></i></a>
+
+
+<a id="pageprev" href="/2020/04/29/laravel-06/" class="article-prev" title="laravel-06 收集與處理用戶資料"><i class="icon-arrow-left"></i></a>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "7fbe80427f54741e289f",
+        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
+        repo: "sanonz.github.io",
+        owner: "sanonz",
+        admin: ["sanonz"],
+        id: "2020/04/29/laravel-05",
+        distractionFreeMode: true,
+        title: "laravel-05 前端元件",
+        body: "http://vince115.github.io/2020/04/29/laravel-05/",
+        labels: ["laravel","backend"]
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>

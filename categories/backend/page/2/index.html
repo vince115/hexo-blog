@@ -7,7 +7,7 @@
 
     
 
-    <title>Vince的學習筆記</title>
+    <title>Category: backend | Vince的學習筆記</title>
     <meta name="author" content="Vince Lo" />
     <meta name="keywords" content="" />
     <meta name="description" content="" />
@@ -59,7 +59,7 @@
 
     <nav id="nav-inner" class="nav-inner">
         
-            <a class="nav-item active" href="/">
+            <a class="nav-item" href="/">
                 <span class="nav-text">首頁</span>
             </a>
         
@@ -71,7 +71,7 @@
                 <span class="nav-text">前端</span>
             </a>
         
-            <a class="nav-item" href="/categories/backend">
+            <a class="nav-item active" href="/categories/backend">
                 <span class="nav-text">後端</span>
             </a>
         
@@ -218,152 +218,11 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2020/04/21/typescript/">Typescript</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-04-21T01:35:12.000Z" itemprop="datePublished">2020-04-21</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/typescript/" rel="tag">typescript</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>TypeScript 是由 Anders Hejlsberg （C#, TurboPascal 之父）所設計，其實概念很簡單，就是以現有的 JavaScript 為基礎，加上型別、介面等抽象定義，協助你更穩健的開發應用程式。</p>
-<p>主流框架以及大部分套件都已經支援了和 TypeScript 協作。</p>
-<p>由 Microsoft 主打，擁有型別系統（Type System）與介面（Interface）設計的語言，TypeScript 可以想成他是在原生 JS 上包裝上一層新的語法，因此如果在 TypeScript 裡面編譯原生 JS 也是可以動作的，只不過有可能發生錯誤的原因是：TypeScript 會幫你把原生 JS 裡潛藏的 Bug 或者是沒有補清的邏輯拋出警訊（Warning）的動作。</p>
-<h3 id="typescript-本身的優缺點"><a class="markdownIt-Anchor" href="#typescript-本身的優缺點"></a> TypeScript 本身的優缺點</h3>
-<p>主打優勢：型別系統 Type System<br />
-引入 TS 的型別系統的主要目的:</p>
-<blockquote>
-<p>減少 Bug 並使得維護更加容易:</p>
-<ol>
-<li>打錯字（Typo）或寫錯變數、物件性質或方法的名稱。</li>
-<li>避免類別或物件（Class &amp; Object）的性質與方法（Property &amp; Method）格式錯誤。</li>
-<li>藉由 TypeScript 在 IDE 上的 Autocomplete Feature 來協助開發並且防止錯誤。</li>
-</ol>
-</blockquote>
-<h3 id="typescript-可以和-ecmascript-協作"><a class="markdownIt-Anchor" href="#typescript-可以和-ecmascript-協作"></a> Typescript 可以和 ECMAScript 協作</h3>
-<p>TypeScript 是藉由型別系統以及擴充 ECMAScript 正式定義的規範使得我們可以寫出更多漂亮的語法。</p>
-<p>TS 編譯器設定檔中，也可以看到 —— 另一個名為 module 的設定可以讓我們調整編譯器要選擇編譯成 JS 的模組（Module）格式或類型。舉 NodeJS 為例，NodeJS 的模組採用 CommonJS 規範，比如：你會看到在 NodeJS 裡都是用 require 來引用模組：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 引入 File System 模組</span><br><span class="line">const fs &#x3D; require(&#39;fs&#39;);</span><br><span class="line">fs.readFile(&#39;file.txt&#39;, (err, data) &#x3D;&gt; &#123; &#x2F;* 讀取檔案後執行這邊... *&#x2F; &#125;);</span><br></pre></td></tr></table></figure>
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/04/21/angular/">Angular</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-04-21T01:31:31.000Z" itemprop="datePublished">2020-04-21</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/angular/" rel="tag">angular</a>, <a class="article-tag-link" href="/tags/backend/" rel="tag">backend</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>Angular官方　<a href="https://angular.tw/" target="_blank" rel="noopener">https://angular.tw/</a></p>
-<p><a href="https://stackblitz.com/" target="_blank" rel="noopener">StackBlitz 線上開發</a></p>
-<hr />
-<h3 id="建立函式庫"><a class="markdownIt-Anchor" href="#建立函式庫"></a> 建立函式庫</h3>
-<p>範本語法<br />
-StackBlitz 線上開發環境 並選擇 start a new Angular workspace ，你將獲得一個通用的應用骨架。</p>
-<p>使用 Angular CLI，用以下命令產生一個新函式庫的骨架：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ng new my-workspace --create-application&#x3D;false</span><br><span class="line">cd my-workspace</span><br><span class="line">ng generate library my-lib</span><br></pre></td></tr></table></figure>
-<hr />
-<h3 id="建立一個購物車專案"><a class="markdownIt-Anchor" href="#建立一個購物車專案"></a> 建立一個購物車專案</h3>
-<p><a href="https://angular.tw/start#create-a-new-project" target="_blank" rel="noopener">教程</a></p>
-<p><a href="https://stackblitz.com/edit/angular-vl8msx" target="_blank" rel="noopener">實作</a></p>
-<p><a href="https://angular-vl8msx.stackblitz.io" target="_blank" rel="noopener">展示</a></p>
-<hr />
-
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/04/21/java/">Java</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-04-21T01:31:14.000Z" itemprop="datePublished">2020-04-21</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/backend/" rel="tag">backend</a>, <a class="article-tag-link" href="/tags/java/" rel="tag">java</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>開發Java應用程式的工具中,最常見的是由Java的原創公司Sun Micro所出版的JDK(Java Development Kit)。JDK可以免費下載。以Text Editor寫好的Hello.java原始檔:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Hello.java</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hello</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> gvar;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line">        System.out.print(s+x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] argv)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">float</span> y = <span class="number">0</span>;</span><br><span class="line">        say(<span class="string">"Hello, world\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>經過:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac Hello.java</span><br></pre></td></tr></table></figure>
-<p>編譯完成後會產生byte code格式的Hello.class,然後</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java Hello</span><br></pre></td></tr></table></figure>
-<p>就可以利用Java Virtual Machine(此處是java這個執行檔)來執行了。</p>
-<p>程式的C版本</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> gvar;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">say</span><span class="params">(<span class="keyword">char</span>[] s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s%d"</span>, s, x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">float</span> y = <span class="number">0</span>;</span><br><span class="line">    say(<span class="string">"Hello, world\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
             <a href="/2020/04/21/sql/">SQL</a>
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
+            <a class="article-date" href="http://vince115.github.io/categories/backend/page/2/index.html">
     
     <i class="icon-calendar"></i>
     
@@ -650,59 +509,11 @@ tb { color:#3366CC;}
     <header class="article-header">
         
         <h1 itemprop="name">
-            <a href="/2020/04/20/2020-04-f2e/">Web 網頁前端開發指南</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-04-20T14:08:23.000Z" itemprop="datePublished">2020-04-20</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/frontend/" rel="tag">frontend</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h3 id="前端基本知識"><a class="markdownIt-Anchor" href="#前端基本知識"></a> 前端基本知識</h3>
-<h4 id="html"><a class="markdownIt-Anchor" href="#html"></a> HTML</h4>
-<ul>
-<li><strong>Semantic HTML</strong><br />
-HTML5中新增了語意化標籤(Semantic Elements)，目的是為了讓標籤(Tag)更具意義，以加強文件的結構化，讓搜尋引擎更清楚了解。</li>
-<li>語意標籤的使用時機 / 意義</li>
-</ul>
-        
-        <p class="article-more-link">
-            <a href="/2020/04/20/2020-04-f2e/#more">
-                <span class="vm">閱讀更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
             <a href="/2020/04/17/laravel-homestead/">laravel homestead 環境快速安裝</a>
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
+            <a class="article-date" href="http://vince115.github.io/categories/backend/page/2/index.html">
     
     <i class="icon-calendar"></i>
     
@@ -745,7 +556,7 @@ HTML5中新增了語意化標籤(Semantic Elements)，目的是為了讓標籤(T
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
+            <a class="article-date" href="http://vince115.github.io/categories/backend/page/2/index.html">
     
     <i class="icon-calendar"></i>
     
@@ -779,132 +590,10 @@ HTML5中新增了語意化標籤(Semantic Elements)，目的是為了讓標籤(T
 </article>
 
 
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/04/16/2020-04-theme/">Hexo Theme 版型更換</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-04-16T02:13:09.000Z" itemprop="datePublished">2020-04-16</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/hexo/" rel="tag">hexo</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h2 id="更換主題"><a class="markdownIt-Anchor" href="#更換主題"></a> 更換主題</h2>
-<h3 id="使用-hexo-theme-concise-主题"><a class="markdownIt-Anchor" href="#使用-hexo-theme-concise-主题"></a> 使用 hexo-theme-concise 主题</h3>
-<p>Concise 主题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git <span class="built_in">clone</span> git@github.com:sanonz/hexo-theme-concise.git themes/concise</span><br></pre></td></tr></table></figure>
-        
-        <p class="article-more-link">
-            <a href="/2020/04/16/2020-04-theme/#more">
-                <span class="vm">閱讀更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/04/14/2020-04-Git/">Git</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-04-14T01:37:08.000Z" itemprop="datePublished">2020-04-14</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Git/" rel="tag">Git</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <pre class="highlight"><code class="git"></code></pre>
-
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/04/14/2020-04-vuejs/">Vue.js</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-04-14T01:37:08.000Z" itemprop="datePublished">2020-04-14</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/vue-js/" rel="tag">vue.js</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>Vue.js是一款流行的JavaScript前端框架，旨在更好地組織與簡化Web開發。Vue所關注的核心是MVC模式中的視圖層，同時，它也能方便地取得資料更新，並通過組件內部特定的方法實現視圖與模型的互動。</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/04/14/2020-04-vuejs/#more">
-                <span class="vm">閱讀更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
 
 
 <nav class="page-nav">
-    <a class="extend prev" rel="prev" href="/">« Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next »</a>
+    <a class="extend prev" rel="prev" href="/categories/backend/">« Prev</a><a class="page-number" href="/categories/backend/">1</a><span class="page-number current">2</span>
 </nav>
 
 

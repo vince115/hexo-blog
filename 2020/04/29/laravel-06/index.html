@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>laravel-06 收集與處理用戶資料 | Vince的學習筆記</title>
+    <meta name="author" content="Vince Lo" />
+    <meta name="keywords" content="" />
+    <meta name="description" content=" 注入Request物件6-1 $request-&amp;gt;all()1234567891011121314151617&amp;lt;!-- GET route form view at /get-route --&amp;gt;&amp;lt;form method=&#34;post&#34; action=&#34;/post-route?utm=12345&#34;&amp;gt;    &amp;#123;&amp;#123; csrf_field() &amp;#125;&amp;#125;    &amp;lt;input type=&#34;text&#34; name=&#34;firstNa..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Vince的學習筆記" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Vince的學習筆記</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首頁</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/design">
+                <span class="nav-text">設計</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frontend">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/backend">
+                <span class="nav-text">後端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">標籤</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">歸檔</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">關於</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://vince115.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#注入request物件"><span class="toc-number">1.</span> <span class="toc-text"> 注入Request物件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#request-has-與-request-exists"><span class="toc-number">1.1.</span> <span class="toc-text"> $request-&gt;has() 與 $request-&gt;exists()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#request-input"><span class="toc-number">1.2.</span> <span class="toc-text"> $request-&gt;input()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#request-input-2"><span class="toc-number">1.3.</span> <span class="toc-text"> $request-&gt;input()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#json-輸入與request-json"><span class="toc-number">1.4.</span> <span class="toc-text"> JSON 輸入(與$request-&gt;json())</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#路由資料"><span class="toc-number">2.</span> <span class="toc-text"> 路由資料</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#從request"><span class="toc-number">2.1.</span> <span class="toc-text"> 從Request</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#從路由參數"><span class="toc-number">2.2.</span> <span class="toc-text"> 從路由參數</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#上傳的檔案"><span class="toc-number">3.</span> <span class="toc-text"> 上傳的檔案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#驗證"><span class="toc-number">4.</span> <span class="toc-text"> 驗證</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#在控制器內使用validatesrequests的validate"><span class="toc-number">4.1.</span> <span class="toc-text"> 在控制器內使用ValidatesRequests的validate()</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            laravel-06 收集與處理用戶資料
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/2020/04/29/laravel-06/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-29T09:32:42.000Z" itemprop="datePublished">2020-04-29</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/backend/" rel="tag">backend</a>, <a class="article-tag-link" href="/tags/laravel/" rel="tag">laravel</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="注入request物件"><a class="markdownIt-Anchor" href="#注入request物件"></a> 注入Request物件</h3>
+<p>6-1 $request-&gt;all()</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- GET route form view at /get-route --&gt;</span><br><span class="line">&lt;form method=<span class="string">"post"</span> action=<span class="string">"/post-route?utm=12345"</span>&gt;</span><br><span class="line">    &#123;&#123; csrf_field() &#125;&#125;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"firstName"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">Route::post(<span class="string">'/post-route'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Request $request)</span> </span>&#123;</span><br><span class="line">    var_dump($request-&gt;all());</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 輸出:</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* [</span></span><br><span class="line"><span class="comment">*   '_token' =&gt; 'CSRF token here',</span></span><br><span class="line"><span class="comment">*   'firstName' =&gt; 'value',</span></span><br><span class="line"><span class="comment">*   'utm' =&gt; 12345</span></span><br><span class="line"><span class="comment">* ]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>6-2 $request-&gt;except()</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">'/post-route'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Request $request)</span> </span>&#123;</span><br><span class="line">var_dump($request-&gt;except(<span class="string">'_token'</span>));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// Outputs:</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* [</span></span><br><span class="line"><span class="comment">*   'firstName' =&gt; 'value',</span></span><br><span class="line"><span class="comment">*   'utm' =&gt; 12345</span></span><br><span class="line"><span class="comment">* ]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>6-3 $request-&gt;except()</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">'/post-route'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Request $request)</span> </span>&#123;</span><br><span class="line">var_dump($request-&gt;only([<span class="string">'firstName'</span>, <span class="string">'utm'</span>]));</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// Outputs:</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* [</span></span><br><span class="line"><span class="comment">*   'firstName' =&gt; 'value',</span></span><br><span class="line"><span class="comment">*   'utm' =&gt; 12345</span></span><br><span class="line"><span class="comment">* ]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h4 id="request-has-與-request-exists"><a class="markdownIt-Anchor" href="#request-has-與-request-exists"></a> $request-&gt;has() 與 $request-&gt;exists()</h4>
+<p>6-4 $request-&gt;has()</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// POST route 的post路由</span></span><br><span class="line"><span class="keyword">if</span> ($request-&gt;has(<span class="string">'utm'</span>)) &#123;</span><br><span class="line">    <span class="comment">// 作一些分析工作</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="request-input"><a class="markdownIt-Anchor" href="#request-input"></a> $request-&gt;input()</h4>
+<p>6-5 $request-&gt;input()</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">'/post-route'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Request $request)</span> </span>&#123;</span><br><span class="line">    $userName = $request-&gt;input(<span class="string">'name'</span>, <span class="string">'(anonymous)'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="request-input-2"><a class="markdownIt-Anchor" href="#request-input-2"></a> $request-&gt;input()</h4>
+<p>6-6 取得用戶的陣列值的句點標記法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- GET route form view at /get-route 路由表單視圖--&gt;</span><br><span class="line">&lt;form method=<span class="string">"post"</span> action=<span class="string">"/post-route"</span>&gt;</span><br><span class="line">    &#123;&#123; csrf_field() &#125;&#125;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"employees[0][firstName]"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"employees[0][lastName]"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"employees[1][firstName]"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"employees[1][lastName]"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"><span class="comment">// post-route的POST路由</span></span><br><span class="line">Route::post(<span class="string">'/post-route'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Request $request)</span> </span>&#123;</span><br><span class="line">    $employeeZeroFirstName = $request-&gt;input(<span class="string">'employees.0.firstName'</span>);</span><br><span class="line">    $allLastNames = $request-&gt;input(<span class="string">'employees.*.lastName'</span>);</span><br><span class="line">    $employeeOne = $request-&gt;input(<span class="string">'employees.1'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 如果表單被填為 "Jim" "Smith" "Bob" "Jones":</span></span><br><span class="line"><span class="comment">// $employeeZeroFirstName = 'Jim';</span></span><br><span class="line"><span class="comment">// $allLastNames = ['Smith', 'Jones'];</span></span><br><span class="line"><span class="comment">// $employeeOne = ['firstName' =&gt; 'Bob', 'lastName' =&gt; 'Jones']</span></span><br></pre></td></tr></table></figure>
+<h4 id="json-輸入與request-json"><a class="markdownIt-Anchor" href="#json-輸入與request-json"></a> JSON 輸入(與$request-&gt;json())</h4>
+<p>6-7 使用$request-&gt;input()來從JSON取得資料</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">POST /post-route HTTP/<span class="number">1.1</span></span><br><span class="line">Content-Type: application/json</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"firstName"</span>: <span class="string">"Joe"</span>,</span><br><span class="line">    <span class="string">"lastName"</span>: <span class="string">"Schmoe"</span>,</span><br><span class="line">    <span class="string">"spouse"</span>: &#123;</span><br><span class="line">    <span class="string">"firstName"</span>: <span class="string">"Jill"</span>,</span><br><span class="line">    <span class="string">"lastName"</span>:<span class="string">"Schmoe"</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// post-路由</span></span><br><span class="line">Route::post(<span class="string">'post-route'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Request $request)</span> </span>&#123;</span><br><span class="line">    $firstName = $request-&gt;input(<span class="string">'firstName'</span>);</span><br><span class="line">    $spouseFirstname = $request-&gt;input(<span class="string">'spouse.firstName'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="路由資料"><a class="markdownIt-Anchor" href="#路由資料"></a> 路由資料</h3>
+<h4 id="從request"><a class="markdownIt-Anchor" href="#從request"></a> 從Request</h4>
+<h4 id="從路由參數"><a class="markdownIt-Anchor" href="#從路由參數"></a> 從路由參數</h4>
+<p>6-8 從路由參數取得URL詳細資訊</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// routes/web.php</span></span><br><span class="line">    Route::get(<span class="string">'users/&#123;id&#125;'</span>, <span class="function"><span class="keyword">function</span> <span class="params">($id)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// If the user visits myapp.com/users/15/, $id will equal 15</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="上傳的檔案"><a class="markdownIt-Anchor" href="#上傳的檔案"></a> 上傳的檔案</h3>
+<p>6-9 上傳檔案的表單</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;form method=<span class="string">"post"</span> enctype=<span class="string">"multipart/form-data"</span>&gt;</span><br><span class="line">    &#123;&#123; csrf_field() &#125;&#125;</span><br><span class="line">    &lt;input type=<span class="string">"text"</span> name=<span class="string">"name"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"file"</span> name=<span class="string">"profile_picture"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"submit"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>6-10 提交範例6-9的表單產生的輸出</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">'form'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Request $request)</span> </span>&#123;</span><br><span class="line">    var_dump($request-&gt;all());</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// Output:</span></span><br><span class="line"><span class="comment">// [</span></span><br><span class="line"><span class="comment">// "_token" =&gt; "token here"</span></span><br><span class="line"><span class="comment">// "name" =&gt; "asdf"</span></span><br><span class="line"><span class="comment">// "profile_picture" =&gt; UploadedFile &#123;&#125;</span></span><br><span class="line"><span class="comment">// ]</span></span><br><span class="line">Route::post(<span class="string">'form'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Request $request)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ($request-&gt;hasFile(<span class="string">'profile_picture'</span>)) &#123;</span><br><span class="line">        var_dump($request-&gt;file(<span class="string">'profile_picture'</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// Output:</span></span><br><span class="line"><span class="comment">// UploadedFile (details)</span></span><br></pre></td></tr></table></figure>
+<p>6-11 常見的檔案上傳流程</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ($request-&gt;hasFile(<span class="string">'profile_picture'</span>)) &#123;</span><br><span class="line">    $path = $request-&gt;profile_picture-&gt;store(<span class="string">'profiles'</span>, <span class="string">'s3'</span>);</span><br><span class="line">    auth()-&gt;user()-&gt;profile_picture = $path;</span><br><span class="line">    auth()-&gt;user()-&gt;save();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="驗證"><a class="markdownIt-Anchor" href="#驗證"></a> 驗證</h3>
+<h4 id="在控制器內使用validatesrequests的validate"><a class="markdownIt-Anchor" href="#在控制器內使用validatesrequests的validate"></a> 在控制器內使用ValidatesRequests的validate()</h4>
+<p>6-12 控制器驗證基本用法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//routes/web.php</span></span><br><span class="line">Route::get(<span class="string">'recipes/create'</span>,<span class="string">'RecipesController@create'</span>);</span><br><span class="line">Route::post(<span class="string">'recipes'</span>,<span class="string">'RecipesController@store'</span>);</span><br></pre></td></tr></table></figure>
+<p>6-13 手動驗證</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'recipes/create'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">'recipes.create'</span>);</span><br><span class="line">&#125;);</span><br><span class="line">Route::post(<span class="string">'recipes'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Illuminate\Http\Request $request)</span> </span>&#123;</span><br><span class="line">$validator = Validator::make($request-&gt;all(), [</span><br><span class="line">    <span class="string">'title'</span> =&gt; <span class="string">'required|unique:recipes|max:125'</span>,</span><br><span class="line">    <span class="string">'body'</span> =&gt; <span class="string">'required'</span></span><br><span class="line">]);</span><br><span class="line"><span class="keyword">if</span> ($validator-&gt;fails()) &#123;</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">'recipes/create'</span>)</span><br><span class="line">    -&gt;withErrors($validator)</span><br><span class="line">    -&gt;withInput();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Recipe is valid; proceed to save it</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>6-14 Echo驗證錯誤</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">if</span> ($errors-&gt;any())</span><br><span class="line">    &lt;ul id=<span class="string">"errors"</span>&gt;</span><br><span class="line">        @<span class="keyword">foreach</span> ($errors-&gt;all() <span class="keyword">as</span> $error)</span><br><span class="line">            &lt;li&gt;&#123;&#123; $error &#125;&#125;&lt;/li&gt;</span><br><span class="line">        @<span class="keyword">endforeach</span></span><br><span class="line">    &lt;/ul&gt;</span><br><span class="line">@<span class="keyword">endif</span></span><br></pre></td></tr></table></figure>
+<p>6-15 表單請求範例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Requests</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">BlogPost</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Requests</span>\<span class="title">Request</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CreateCommentRequest</span> <span class="keyword">extends</span> <span class="title">Request</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">rules</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> [</span><br><span class="line">        <span class="string">'body'</span> =&gt; <span class="string">'required|max:1000'</span></span><br><span class="line">        ];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">authorize</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $blogPostId = <span class="keyword">$this</span>-&gt;route(<span class="string">'blogPost'</span>);</span><br><span class="line">        <span class="keyword">return</span> auth()-&gt;check() &amp;&amp; BlogPost::where(<span class="string">'id'</span>, $blogPostId)</span><br><span class="line">            -&gt;where(<span class="string">'user_id'</span>, auth()-&gt;user()-&gt;id)-&gt;exists();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>6-16 使用表單請求</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">'comments'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(App\Http\Requests\CreateCommentRequest $request)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Store comment 儲存評論</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>6-17 將整個表單傳遞給Eloquent模型</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">'posts'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Request $request)</span> </span>&#123;</span><br><span class="line">$newPost = Post::create($request-&gt;all());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>6-18 讓Eloquent模型免於遭受惡意大量賦值</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Post</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">// Disable mass assignment on the author_id field</span></span><br><span class="line">    <span class="keyword">protected</span> $guarded = [<span class="string">'author_id'</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用$request-&gt;only()來雙重保護</p>
+</blockquote>
+<p>6-19 測試被注入的非法輸入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test_input_missing_a_title_is_rejected</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;post(<span class="string">'posts'</span>, [<span class="string">'body'</span> =&gt; <span class="string">'This is the body of my post'</span>]);</span><br><span class="line">    <span class="keyword">$this</span>-&gt;assertRedirectedTo(<span class="string">'posts/create'</span>);</span><br><span class="line">    <span class="keyword">$this</span>-&gt;assertSessionHasErrors();</span><br><span class="line">    <span class="keyword">$this</span>-&gt;assertHasOldInput();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>6-20 測試有效的輸入已被處理</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test_valid_input_should_create_a_post_in_the_database</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;post(<span class="string">'posts'</span>, [<span class="string">'title'</span> =&gt; <span class="string">'Post Title'</span>, <span class="string">'body'</span> =&gt; <span class="string">'This is the body'</span>]);</span><br><span class="line">    <span class="keyword">$this</span>-&gt;seeInDatabase([<span class="string">'title'</span> =&gt; <span class="string">'Post Title'</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/04/29/laravel-05/" class="article-next" title="laravel-05 前端元件"><i class="icon-arrow-right"></i></a>
+
+
+<a id="pageprev" href="/2020/04/30/laravel-07/" class="article-prev" title="laravel-07 Artisan 與 Tinker"><i class="icon-arrow-left"></i></a>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "7fbe80427f54741e289f",
+        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
+        repo: "sanonz.github.io",
+        owner: "sanonz",
+        admin: ["sanonz"],
+        id: "2020/04/29/laravel-06",
+        distractionFreeMode: true,
+        title: "laravel-06 收集與處理用戶資料",
+        body: "http://vince115.github.io/2020/04/29/laravel-06/",
+        labels: ["laravel","backend"]
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>
