@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://vince115.github.io/2020/06/29/laravel-13/</loc>
+    
+    <lastmod>2020-07-03T07:56:48.984Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/06/29/laravel-12/</loc>
+    
+    <lastmod>2020-07-03T07:56:37.244Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://vince115.github.io/2020/06/29/laravel-11/</loc>
+    
+    <lastmod>2020-06-30T07:53:55.564Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://vince115.github.io/2020/05/07/laravel-10/</loc>
     
-    <lastmod>2020-05-08T04:42:06.377Z</lastmod>
+    <lastmod>2020-06-29T03:06:23.774Z</lastmod>
     
   </url>
   

@@ -218,6 +218,427 @@
     <header class="article-header">
         
         <h1 itemprop="name">
+            <a href="/2020/04/27/laravel-03/">laravel_03 路由與控制器</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-27T07:23:21.000Z" itemprop="datePublished">2020-04-27</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/backend/" rel="tag">backend</a>, <a class="article-tag-link" href="/tags/laravel/" rel="tag">laravel</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="路由-closure"><a class="markdownIt-Anchor" href="#路由-closure"></a> 路由 closure</h3>
+<p>任何人造訪/(網域的根目錄)時，Laravel的路由器都會執行這裡定義的closure，並回傳結果。</p>
+<p>3-2 網站</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view (<span class="string">'welcome'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">'about'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view (<span class="string">'about'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">'products'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view (<span class="string">'products'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">'services'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view (<span class="string">'services'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>選用的路由參數</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'/'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view (<span class="string">'services'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="什麼是closure"><a class="markdownIt-Anchor" href="#什麼是closure"></a> 什麼是closure?</h4>
+<p>PHP版的匿名函式，可當物件四處傳遞、指派給變數、當成參數傳給其他函式與方法</p>
+<h3 id="視圖"><a class="markdownIt-Anchor" href="#視圖"></a> 視圖</h3>
+<p>3-18 傳遞變數給視圖</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'tasks'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">'tasks.index'</span>)</span><br><span class="line">        -&gt;(<span class="string">'tasks'</span>,Task::all());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="使用視圖組件來讓所有試圖共用變數"><a class="markdownIt-Anchor" href="#使用視圖組件來讓所有試圖共用變數"></a> 使用視圖組件來讓所有試圖共用變數</h3>
+<p>你可以讓每一個板模或只有一些板模共用某些變數，如下<br />
+view()-&gt;share(‘variableName’,‘variableValue’);</p>
+<h3 id="控制器"><a class="markdownIt-Anchor" href="#控制器"></a> 控制器</h3>
+<p>C(create)、R(read)、U(update)、D(delete)</p>
+<p>我們建立一個控制器，其中一種簡單的方式是使用</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan make:controller TaskController</span><br></pre></td></tr></table></figure>
+<p>3-19 生成的控制器的預設內容</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Requests</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TaskController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3-20 簡單的控制器範例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>\<span class="title">Controller</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TaskController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">home</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'Hello, World!'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3-21 簡單的控制器路由</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//routes/web.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> Route::get(<span class="string">'/'</span>,<span class="string">'TasksController@home'</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>3-22 常見的控制器方法案例</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//TasksController.php</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">'tasks.index'</span>)</span><br><span class="line">    -&gt;with(<span class="string">'tasks'</span>,Task::all());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> Route::get(<span class="string">'tasks/create'</span>,<span class="string">'TasksController@create'</span>);</span><br><span class="line"> Route::post(<span class="string">'tasks'</span>,<span class="string">'TasksController@store'</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="取得用戶輸入"><a class="markdownIt-Anchor" href="#取得用戶輸入"></a> 取得用戶輸入</h3>
+<p>3-23 綁定基本的表單動作</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//routes/web.php</span></span><br><span class="line"> Route::get(<span class="string">'tasks/create'</span>,<span class="string">'TasksController@create'</span>);</span><br><span class="line"> Route::post(<span class="string">'tasks'</span>,<span class="string">'TasksController@store'</span>);</span><br></pre></td></tr></table></figure>
+<p>3-24 常用的表單輸入控制方法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//TasksController.php</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">store</span><span class="params">()</span></span>&#123;</span><br><span class="line">    $tasks = <span class="keyword">new</span> Task;</span><br><span class="line">    $tasks-&gt;title =Input::get(<span class="string">'title'</span>);</span><br><span class="line">    $tasks-&gt;description = Input::get(<span class="string">'description'</span>);</span><br><span class="line">    $tasks-&gt;save();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">'tasks'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Http</span>\<span class="title">Controllers</span>;</span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Support</span>\<span class="title">facades</span>\<span class="title">Input</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TasksController</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">store</span><span class="params">()</span></span>&#123;</span><br><span class="line">        $tasks = <span class="keyword">new</span> Task;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="將相依關係注入控制器"><a class="markdownIt-Anchor" href="#將相依關係注入控制器"></a> 將相依關係注入控制器</h3>
+<p>3-25 藉由型態提示來做控制器方法注入</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//TasksController.php</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">store</span><span class="params">(\Illuminate\Http\Request $request\)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $task = <span class="keyword">new</span> Task;</span><br><span class="line">    $task-&gt;title = $request-&gt;input(<span class="string">'title'</span>);</span><br><span class="line">    $task-&gt;description = $request-&gt;input(<span class="string">'description'</span>);</span><br><span class="line">    $task-&gt;save();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">'task'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="資源控制器"><a class="markdownIt-Anchor" href="#資源控制器"></a> 資源控制器</h3>
+<h3 id="laravel-資源控制器的方法"><a class="markdownIt-Anchor" href="#laravel-資源控制器的方法"></a> Laravel 資源控制器的方法</h3>
+<p>Laravel 資源控制器方法</p>
+<table>
+<thead>
+<tr>
+<th>動詞</th>
+<th>URL</th>
+<th>控制器方法</th>
+<th>名稱</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>tasks</td>
+<td>index()</td>
+<td>tasks.index</td>
+<td>顯示所有工作</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>tasks/create</td>
+<td>create()</td>
+<td>tasks.create</td>
+<td>顯示建立工作表單</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>tasks</td>
+<td>store()</td>
+<td>tasks.store</td>
+<td>從建立工作表單接受表單提交</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>tasks/{task}</td>
+<td>show()</td>
+<td>tasks.show</td>
+<td>顯示一個工作</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>tasks/{task}/edit</td>
+<td>edit()</td>
+<td>tasks.edit</td>
+<td>編輯一個工作</td>
+</tr>
+<tr>
+<td>PUT/PATCH</td>
+<td>tasks/{task}</td>
+<td>update()</td>
+<td>tasks.update</td>
+<td>從編輯工作表單接收表單提交</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>tasks/{task}</td>
+<td>destory()</td>
+<td>tasks.destory</td>
+<td>刪除一個工作</td>
+</tr>
+</tbody>
+</table>
+<h3 id="laravel-綁定資源控制器"><a class="markdownIt-Anchor" href="#laravel-綁定資源控制器"></a> Laravel 綁定資源控制器</h3>
+<p>3-26 資源控制器綁定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;routes&#x2F;web.php</span><br><span class="line">Route::resource(&#39;tasks&#39;,&#39;TasksController&#39;);</span><br></pre></td></tr></table></figure>
+<h3 id="路由模型綁定"><a class="markdownIt-Anchor" href="#路由模型綁定"></a> 路由模型綁定</h3>
+<p>3-27 為每一個路由取得資源</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'conference/&#123;id&#125;'</span>,<span class="function"><span class="keyword">function</span><span class="params">($id)</span>)</span>&#123;</span><br><span class="line">    $conference = Conference::findOrFail($id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="隱式路由模型綁定"><a class="markdownIt-Anchor" href="#隱式路由模型綁定"></a> 隱式路由模型綁定</h3>
+<p>3-28 使用隱式路由模型綁定</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'conference/&#123;conference&#125;'</span>),<span class="function"><span class="keyword">function</span><span class="params">(Conference $conference)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">'conferences.show'</span>)-&gt;with(<span class="string">'conference'</span>,$conference);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="隱式路由模型綁定-2"><a class="markdownIt-Anchor" href="#隱式路由模型綁定-2"></a> 隱式路由模型綁定</h3>
+<p>3-29 自訂路由模型綁定</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">Route</span>::<span class="title">get</span><span class="params">(<span class="string">'conference/&#123;conference&#125;'</span>)</span>,<span class="title">function</span><span class="params">(Conference $conference)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">'conferences.show'</span>)-&gt;with(<span class="string">'conference'</span>,$conference);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3-30 使用顯式路由模型綁定</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'events/&#123;event&#125;'</span>),<span class="function"><span class="keyword">function</span><span class="params">(Conference $event)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">'events.show'</span>)-&gt;with(<span class="string">'event'</span>,$event);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="路由快取"><a class="markdownIt-Anchor" href="#路由快取"></a> 路由快取</h3>
+<p>不使用任何路由closure，可以執行檔案序列化</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan route:cache</span><br></pre></td></tr></table></figure>
+<p>刪除快取</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan route:clear</span><br></pre></td></tr></table></figure>
+<h3 id="表單方法欺騙"><a class="markdownIt-Anchor" href="#表單方法欺騙"></a> 表單方法欺騙</h3>
+<h4 id="http動詞簡介"><a class="markdownIt-Anchor" href="#http動詞簡介"></a> HTTP動詞簡介</h4>
+<h4 id="laravel的http動詞"><a class="markdownIt-Anchor" href="#laravel的http動詞"></a> Laravel的HTTP動詞</h4>
+<h4 id="在html表單內的http方法欺騙"><a class="markdownIt-Anchor" href="#在html表單內的http方法欺騙"></a> 在HTML表單內的HTTP方法欺騙</h4>
+<p>3-31 表單方法欺騙</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">"/tasks/5"</span> method=<span class="string">"POST"</span>&gt;</span><br><span class="line">    &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"_method"</span> value=<span class="string">"DELETE"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="csrf保護"><a class="markdownIt-Anchor" href="#csrf保護"></a> CSRF保護</h3>
+<p>3-32 CSRF權杖</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;form action=<span class="string">"/tasks/5"</span> method=<span class="string">"POST"</span>&gt;</span><br><span class="line">    <span class="meta">&lt;?php</span> <span class="keyword">echo</span> csrf_field(); <span class="meta">?&gt;</span></span><br><span class="line">    &lt;!-- <span class="keyword">or</span>: --&gt;</span><br><span class="line">    &lt;input type=<span class="string">"hidden"</span> name=<span class="string">"_token"</span> value=<span class="string">"&lt;?php echo csrf_token(); ?&gt;"</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<p>對於JavaScript框架的網站，最常見的解決方案就是在每一個網頁的<meta>標籤中儲存權杖。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta name=<span class="string">"csrf-token"</span> content=<span class="string">"&lt;?php echo csrf_token(); ?&gt;"</span> id=<span class="string">"token"</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>3-33 全域綁定標頭以預防CSRF</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//於jQuery</span></span><br><span class="line">$.ajaxSetup(&#123;</span><br><span class="line">    headers:&#123;</span><br><span class="line">        <span class="string">'X-CSRF-Token'</span>:$(<span class="string">'meta[name="csrf-token"]'</span>).a</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//於Vue</span></span><br><span class="line">Vue.http.interceptors.push((request,next))=&gt;&#123;</span><br><span class="line">    request.headers[<span class="string">'X-CSRF-TOKEN'</span>] = document.querySeletor()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3-34 各種轉址回傳方式</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用全域輔助函式來產生轉址回應</span></span><br><span class="line">Route::get(<span class="string">'redirect-with-helper'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redirect()-&gt;to(<span class="string">'login'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//使用全域輔助函式捷徑</span></span><br><span class="line">Route::get(<span class="string">'redirect-with-helper-shortcut'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">'login'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//使用靜態介面來產生轉址回應</span></span><br><span class="line">Route::get(<span class="string">'redirect-with-facade'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redirect::to(<span class="string">'login'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>3-35 redirect()-&gt;to()</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'redirect'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redirect()-&gt;to(<span class="string">'home'</span>);</span><br><span class="line">    <span class="comment">//或者使用捷徑</span></span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">'home'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>3-36 redirect()-&gt;route()</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'redirect'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redirect()-&gt;route(<span class="string">'conferences.index'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//route() 有一個選用的第二參數供路由參數使用。</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">route</span><span class="params">($to = null, $parameters = [], $status = <span class="number">302</span>, $headers = [])</span></span></span><br></pre></td></tr></table></figure>
+<p>3-37 帶參數的redict()-&gt;route()</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'redirect'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redirect()-&gt;route(<span class="string">'conferences.show'</span>,[<span class="string">'conference'</span> =&gt; <span class="number">99</span>]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>redict()-&gt;back()</p>
+<h4 id="其他轉址方法"><a class="markdownIt-Anchor" href="#其他轉址方法"></a> 其他轉址方法</h4>
+<ul>
+<li>home()</li>
+<li>refresh()</li>
+<li>away()</li>
+<li>secure()</li>
+<li>action()</li>
+<li>guest()</li>
+<li>intended()</li>
+</ul>
+<p>3-38 連同資料一起轉址</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'redirect-with-key-value'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">'dashboard'</span>)</span><br><span class="line">    -&gt;route(<span class="string">'error'</span>,<span class="keyword">true</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">'redirect-with-array'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">'dashboard'</span>)</span><br><span class="line">    -&gt;with(<span class="string">'error'</span>=&gt; <span class="keyword">true</span>,<span class="string">'message'</span>=&gt;<span class="string">'Woops!'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>3-39 連同表單輸入一起轉址</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Route::get(<span class="string">'form'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">'form'</span>);    </span><br><span class="line">&#125;);</span><br><span class="line">Route::get(<span class="string">'form'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> redirect(<span class="string">'form'</span>)</span><br><span class="line">    -&gt;withInput()</span><br><span class="line">    -&gt;with(<span class="string">'error'</span>=&gt; <span class="keyword">true</span>,<span class="string">'message'</span>=&gt;<span class="string">'Woops!'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>連同 withInput() 一起傳遞輸入，使用old()輔助函式，取得關鍵值old(‘username’)，第二參數是無舊值的預設值。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input name=<span class="string">"username"</span> value=<span class="string">"&lt;?=old('username','Default username instructions here'); "</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>3-40 連同錯誤一起轉址</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">'form'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    $validator = Validator::make($request-&gt;all()),<span class="keyword">$this</span>-&gt;validationRules);</span><br><span class="line">    <span class="keyword">if</span> ($validator-&gt;fails())&#123;</span><br><span class="line">        <span class="keyword">return</span> redirect(<span class="string">'form'</span>)</span><br><span class="line">        -&gt;withErrors($validator)</span><br><span class="line">        -&gt;withInput();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="中止請求"><a class="markdownIt-Anchor" href="#中止請求"></a> 中止請求</h4>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Route::post(<span class="string">'something-you-cant-do'</span>),<span class="function"><span class="keyword">function</span><span class="params">(Illuminate\Http\Request)</span></span>&#123;</span><br><span class="line">    abort(<span class="number">403</span>,<span class="string">'You cannot do that!'</span>);</span><br><span class="line">    abort_unless($request-&gt;has(<span class="string">'magicToken'</span>),<span class="number">403</span>);</span><br><span class="line">    abort_if($request-&gt;user()-&gt;isBanned,<span class="number">403</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="自訂回應"><a class="markdownIt-Anchor" href="#自訂回應"></a> 自訂回應</h4>
+<ul>
+<li>
+<p>response()-&gt;make()<br />
+資料傳入，第二參數Http狀態碼，第三標頭</p>
+</li>
+<li>
+<p>response()-&gt;json() 與 -&gt;jsonp()<br />
+可以對json()方法，傳遞可編碼為JSON的內容</p>
+</li>
+<li>
+<p>response()-&gt;download() 與 -&gt;file()<br />
+傳遞一個SplFileInfo實例或字串檔名給download()，視情況傳入第二個選用的檔名參數。<br />
+ex. return response()-&gt;download(‘file501751.pdf’,‘myFile.pdf’)。<br />
+在瀏覽器顯示同一檔案response()-&gt;file();</p>
+</li>
+</ul>
+<h3 id="測試"><a class="markdownIt-Anchor" href="#測試"></a> 測試</h3>
+<p>3-42 編寫一個簡單的POST路由測試</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//AssignmentTest.php</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test_post_creates_new_assignment</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   <span class="keyword">$this</span>-&gt;post(<span class="string">'/assignments'</span>,[</span><br><span class="line">       <span class="string">'title'</span> =&gt; <span class="string">'My great assignment'</span></span><br><span class="line">   ]);</span><br><span class="line">   <span class="keyword">$this</span>-&gt;seeInDatabase(<span class="string">'assignments'</span>,[</span><br><span class="line">       <span class="string">'title'</span> =&gt; <span class="string">'My great assignment'</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3-43 編寫一個簡單的GET路由測試</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//AssignmentTest.php</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test_list_page_shows_all_assignments</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   $assignment = Assignment::create([</span><br><span class="line">       <span class="string">'title'</span> =&gt; <span class="string">'My great assignment'</span></span><br><span class="line">   ]);</span><br><span class="line">   <span class="keyword">$this</span> -&gt; visit(<span class="string">'assignments'</span>)</span><br><span class="line">       -&gt; dee([<span class="string">'My great assignment'</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2020/04/23/php/">PHP基礎</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-23T09:19:00.000Z" itemprop="datePublished">2020-04-23</time>
+</a>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="php基礎"><a class="markdownIt-Anchor" href="#php基礎"></a> PHP基礎</h2>
+<p>PHP的全稱為” PHP：Hypertext Preprocessor”(PHP：超文字預處理器)。</p>
+<h2 id="建立php開發環境"><a class="markdownIt-Anchor" href="#建立php開發環境"></a> 建立PHP開發環境</h2>
+<ol>
+<li>
+<p>XAMPP</p>
+</li>
+<li>
+<p><a href="https://www.mamp.info/" target="_blank" rel="noopener">MAMP</a></p>
+</li>
+<li>
+<p>LAMP<br />
+LAMP主打使用在Linux<br />
+<a href="https://magiclen.org/lamp/" target="_blank" rel="noopener">安裝 LAMP Server + phpMyAdmin 在 Linux 系統上輕鬆架設網站</a></p>
+</li>
+</ol>
+        
+        <p class="article-more-link">
+            <a href="/2020/04/23/php/#more">
+                <span class="vm">閱讀更多</span>
+                <i class="icon-arrow-double-right vm"></i>    
+            </a>
+        </p>
+        
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            <a href="/2020/04/21/aspnet/">Asp.Net</a>
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-21T01:45:49.000Z" itemprop="datePublished">2020-04-21</time>
+</a>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="aspnet"><a class="markdownIt-Anchor" href="#aspnet"></a> <a href="http://ASP.NET" target="_blank" rel="noopener">ASP.NET</a> 支持三種開發模式：</h3>
+<table>
+<thead>
+<tr>
+<th>Web Pages</th>
+<th>MVC</th>
+<th>Web Forms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>單頁面模型</td>
+<td>模型視圖控制器</td>
+<td>事件驅動模型</td>
+</tr>
+</tbody>
+</table>
+<p>Web Pages <a href="http://xn--ASP-eh5em86e39ap08do5j.NET" target="_blank" rel="noopener">是最簡單的ASP.NET</a> 網頁開發編程模型。它提供了一種簡單的方法將HTML、CSS、JavaScript 以及服務器代碼結合起來：</p>
+<blockquote>
+<p>易於學習、閱讀和使用<br />
+圍繞單一網頁進行構建<br />
+類似PHP 和ASP<br />
+服務器腳本使用Visual Basic 或C#<br />
+對HTML、CSS、JavaScript 的完全控制</p>
+</blockquote>
+<h3 id="web-pages-教程"><a class="markdownIt-Anchor" href="#web-pages-教程"></a> Web Pages 教程</h3>
+<p>初始化 WebSecurity 資料庫<br />
+在web 更目錄中，創建或編輯_AppStart.cshtml 頁面。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@&#123;</span><br><span class="line">WebSecurity.InitializeDatabaseConnection(&quot;Users&quot;, &quot;UserProfile&quot;, &quot;UserId&quot;, &quot;Email&quot;, </span><br><span class="line">true);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>網站每次啟動時都會運行以上代碼。它會對WebSecurity 資料庫進行初始化。</p>
+<blockquote>
+<ul>
+<li>“Users” 是WebSecurity 資料庫的名稱。(Users.sdf)</li>
+<li>“UserProfile” 是包含用戶配置信息的資料庫表的名稱。</li>
+<li>“UserId” 包含用戶ID 的列的名稱（主鍵）。</li>
+<li>“Email” 是包含用戶的列的名稱。</li>
+<li>最後一個參數true 是一個邏輯值，指示應創建用戶配置文件表和成員資格表（如果它們不存在），否則false。</li>
+</ul>
+</blockquote>
+<h4 id="websecurity-資料庫"><a class="markdownIt-Anchor" href="#websecurity-資料庫"></a> WebSecurity 資料庫</h4>
+<p>UserProfile 表中的每條記錄代表一個用戶，其中包括用戶ID （主鍵）和用戶名稱（email）：</p>
+<table>
+<thead>
+<tr>
+<th>UserId</th>
+<th>Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="mailto:john@johnson.net">john@johnson.net</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="mailto:peter@peterson.com">peter@peterson.com</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="mailto:lars@larson.edu">lars@larson.edu</a></td>
+</tr>
+</tbody>
+</table>
+<p>Membership 表包含會員信息，比如用戶是什麼時候創建的，該會員是否已認證，會員是什麼時候認證的，等等。<br />
+具體如下所示（一些列不顯示）：</p>
+<table>
+<thead>
+<tr>
+<th>UserId</th>
+<th>CreateDate</th>
+<th>Confirmation Token</th>
+<th>Is Confirmed</th>
+<th>LastPassword Failure</th>
+<th>Password</th>
+<th>Password Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>12.04.2012 16:12:17</td>
+<td>NULL</td>
+<td>True</td>
+<td>NULL</td>
+<td>AFNQhWfy…</td>
+<td>12.04.2012 16:12:17</td>
+</tr>
+</tbody>
+</table>
+<h4 id="簡單的成員資格配置"><a class="markdownIt-Anchor" href="#簡單的成員資格配置"></a> 簡單的成員資格配置</h4>
+<p>在您使用 WebSecurity 對象時，如果您的站點沒有配置使用 <a href="http://ASP.NET" target="_blank" rel="noopener">ASP.NET</a> Web Pages 會員系統 SimpleMembership，可能會報錯。</p>
+<p>如果託管服務提供商的伺服器的配置與您本地伺服器的配置不同，也可能會報錯。為了解決這個問題，請在網站的 Web.config 文件中添加以下元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;appSettings&gt;</span><br><span class="line">&lt;add key&#x3D;&quot;enableSimpleMembership&quot; value&#x3D;&quot;true&quot; &#x2F;&gt;</span><br><span class="line">&lt;&#x2F;appSettings&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="mvc-教程"><a class="markdownIt-Anchor" href="#mvc-教程"></a> MVC 教程</h3>
+<p>MVC 是通過使用MVC (Model View Controller) 設計來構建web 應用程序的一種模型。<br />
+<a href="http://xn--ASP-ob1es61bvvd1pkgrkmheqt2c44ov97ajx0b.NET" target="_blank" rel="noopener">如果您需要相對於傳統ASP.NET</a> 更輕的替代方案，MVC 是很好的選擇。</p>
+<p>MVC 是用於構建web 應用程序的一種框架，使用MVC (Model View Controller) 設計：</p>
+<ul>
+<li>Model（模型）表示應用程序核心（比如資料庫記錄列表）</li>
+<li>View（視圖）對數據（資料庫記錄）進行顯示</li>
+<li>Controller（控制器）處理輸入（寫入資料庫記錄）</li>
+</ul>
+<p>MVC 模型通過三個邏輯層來定義web 應用程序：</p>
+<ul>
+<li>business layer（業務層、模型邏輯）</li>
+<li>display layer（顯示層、視圖邏輯）</li>
+<li>input control（輸入控件、控制器邏輯）</li>
+</ul>
+<h4 id="模型model"><a class="markdownIt-Anchor" href="#模型model"></a> 模型（Model）</h4>
+<p>模型（Model）是應用程序中用於處理應用程序數據邏輯的部分。</p>
+<p>通常模型對像在數據庫中存取數據。</p>
+<h4 id="view視圖"><a class="markdownIt-Anchor" href="#view視圖"></a> View（視圖）</h4>
+<p>View（視圖）是應用程序中處理數據顯示的部分。</p>
+<p>通常從模型數據中創建視圖。</p>
+<h4 id="控制器"><a class="markdownIt-Anchor" href="#控制器"></a> 控制器</h4>
+<p>控制器是應用程序中處理用戶交互的部分。</p>
+<p>通常控制器從視圖讀取數據、控制用戶輸入，並向模型發送數據數據。</p>
+<h3 id="web-forms-教程"><a class="markdownIt-Anchor" href="#web-forms-教程"></a> Web Forms 教程</h3>
+<p>Web Forms <a href="http://xn--ASP-ob1e559g1quuyk.NET" target="_blank" rel="noopener">是傳統的ASP.NET</a> 模型，基於事件驅動的Web Forms 和post backs。<br />
+在過去的數年中，<a href="http://xn--ASP-hb0eo47dx05a66b5sw6kfiy6d.NET" target="_blank" rel="noopener">開發者已經使用ASP.NET</a> Web Forms 創建了全球多個大型網站。</p>
+<style type='text/css'>
+.markdown-body table th { background-color:#3366BB;color:#ffffff;border-color:#225588; }
+</style>
+        
+    </section>
+</article>
+
+
+    <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
             <a href="/2020/04/21/typescript/">Typescript</a>
         </h1>
         
@@ -769,128 +1190,6 @@ HTML5中新增了語意化標籤(Semantic Elements)，目的是為了讓標籤(T
         
         <p class="article-more-link">
             <a href="/2020/04/16/2020-04-Laravel/#more">
-                <span class="vm">閱讀更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/04/16/2020-04-theme/">Hexo Theme 版型更換</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-04-16T02:13:09.000Z" itemprop="datePublished">2020-04-16</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/hexo/" rel="tag">hexo</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <h2 id="更換主題"><a class="markdownIt-Anchor" href="#更換主題"></a> 更換主題</h2>
-<h3 id="使用-hexo-theme-concise-主题"><a class="markdownIt-Anchor" href="#使用-hexo-theme-concise-主题"></a> 使用 hexo-theme-concise 主题</h3>
-<p>Concise 主题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git <span class="built_in">clone</span> git@github.com:sanonz/hexo-theme-concise.git themes/concise</span><br></pre></td></tr></table></figure>
-        
-        <p class="article-more-link">
-            <a href="/2020/04/16/2020-04-theme/#more">
-                <span class="vm">閱讀更多</span>
-                <i class="icon-arrow-double-right vm"></i>    
-            </a>
-        </p>
-        
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/04/14/2020-04-Git/">Git</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-04-14T01:37:08.000Z" itemprop="datePublished">2020-04-14</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/Git/" rel="tag">Git</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <pre class="highlight"><code class="git"></code></pre>
-
-        
-    </section>
-</article>
-
-
-    <article class="article" itemscope itemprop="blogPost">
-    
-    <header class="article-header">
-        
-        <h1 itemprop="name">
-            <a href="/2020/04/14/2020-04-vuejs/">Vue.js</a>
-        </h1>
-        
-        <div class="article-meta clearfix">
-            <a class="article-date" href="http://vince115.github.io/page/2/index.html">
-    
-    <i class="icon-calendar"></i>
-    
-    <time datetime="2020-04-14T01:37:08.000Z" itemprop="datePublished">2020-04-14</time>
-</a>
-
-            
-<div class="article-tag-list">
-    <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/vue-js/" rel="tag">vue.js</a>
-</div>
-
-
-        </div>
-    </header>
-    
-    <section class="article-body markdown-body">
-        
-        <p>Vue.js是一款流行的JavaScript前端框架，旨在更好地組織與簡化Web開發。Vue所關注的核心是MVC模式中的視圖層，同時，它也能方便地取得資料更新，並通過組件內部特定的方法實現視圖與模型的互動。</p>
-        
-        <p class="article-more-link">
-            <a href="/2020/04/14/2020-04-vuejs/#more">
                 <span class="vm">閱讀更多</span>
                 <i class="icon-arrow-double-right vm"></i>    
             </a>
