@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="PHP基礎 | Vince的學習筆記                                                                   @font-face {         font-family: &#39;icomoon&#39;;         src: url(&quot;&#x2F;fonts&#x2F;icomoon.eot?q628ml&quot;)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://vince115.github.io/hexo-blog/2020/04/23/php/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="PHP基礎 | Vince的學習筆記                                                                   @font-face {         font-family: &#39;icomoon&#39;;         src: url(&quot;&#x2F;fonts&#x2F;icomoon.eot?q628ml&quot;)">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-03-23T01:03:21.152Z">
+<meta property="article:modified_time" content="2025-03-22T22:33:13.128Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/hexo-blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/hexo-blog/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/hexo-blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/hexo-blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/hexo-blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/hexo-blog/">Home</a>
+        
+          <a class="main-nav-link" href="/hexo-blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/hexo-blog/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://vince115.github.io/hexo-blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/hexo-blog/2020/04/23/php/index.html" class="article-date">
+  <time class="dt-published" datetime="2025-03-23T01:03:21.152Z" itemprop="datePublished">2025-03-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>PHP基礎 | Vince的學習筆記</title>
+    <meta name="author" content="Vince Lo" />
+    <meta name="keywords" content="" />
+    <meta name="description" content=" PHP基礎PHP的全稱為” PHP：Hypertext Preprocessor”(PHP：超文字預處理器)。 建立PHP開發環境XAMPPMAMPLAMPLAMP主打使用在Linux安裝 LAMP Server + phpMyAdmin 在 Linux 系統上輕鬆架設網站 雲端開發測試程式碼WriteCodeOnlinePHP Sandbox 編輯器（IDE）Sublime TextEclipse PDTAtom PHP基礎語法..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Vince的學習筆記" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Vince的學習筆記</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首頁</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/design">
+                <span class="nav-text">設計</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frontend">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/backend">
+                <span class="nav-text">後端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">標籤</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">歸檔</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">關於</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://vince115.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#php基礎"><span class="toc-number">1.</span> <span class="toc-text"> PHP基礎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立php開發環境"><span class="toc-number">2.</span> <span class="toc-text"> 建立PHP開發環境</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#雲端開發測試程式碼"><span class="toc-number">2.1.</span> <span class="toc-text"> 雲端開發測試程式碼</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#編輯器ide"><span class="toc-number">2.2.</span> <span class="toc-text"> 編輯器（IDE）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php基礎語法"><span class="toc-number">3.</span> <span class="toc-text"> PHP基礎語法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#語法結構"><span class="toc-number">3.1.</span> <span class="toc-text"> 語法結構</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#變數"><span class="toc-number">3.2.</span> <span class="toc-text"> 變數</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常數"><span class="toc-number">3.3.</span> <span class="toc-text"> 常數</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#資料型別"><span class="toc-number">3.4.</span> <span class="toc-text"> 資料型別</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#運算子與運算式"><span class="toc-number">3.5.</span> <span class="toc-text"> 運算子與運算式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#表單資料的傳送接收"><span class="toc-number">3.6.</span> <span class="toc-text"> 表單資料的傳送接收</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#程式引入檔"><span class="toc-number">3.7.</span> <span class="toc-text"> 程式引入檔</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php程式流程控制"><span class="toc-number">4.</span> <span class="toc-text"> PHP程式流程控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#認識流程控制"><span class="toc-number">4.1.</span> <span class="toc-text"> 認識流程控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#if-流程控制"><span class="toc-number">4.2.</span> <span class="toc-text"> if 流程控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#switch-條件控制"><span class="toc-number">4.3.</span> <span class="toc-text"> switch 條件控制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#迴圈"><span class="toc-number">4.4.</span> <span class="toc-text"> 迴圈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#while迴圈"><span class="toc-number">4.4.1.</span> <span class="toc-text"> while迴圈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#dowhile迴圈"><span class="toc-number">4.4.2.</span> <span class="toc-text"> do…while迴圈</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for-計次迴圈"><span class="toc-number">4.5.</span> <span class="toc-text"> for 計次迴圈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#流程控制的跳躍指令"><span class="toc-number">4.6.</span> <span class="toc-text"> 流程控制的跳躍指令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函式的使用"><span class="toc-number">5.</span> <span class="toc-text"> 函式的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#認識函式"><span class="toc-number">5.1.</span> <span class="toc-text"> 認識函式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自訂函式"><span class="toc-number">5.2.</span> <span class="toc-text"> 自訂函式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#php的內建函式"><span class="toc-number">5.3.</span> <span class="toc-text"> PHP的內建函式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#數學函式"><span class="toc-number">5.4.</span> <span class="toc-text"> 數學函式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#電子郵件函式"><span class="toc-number">5.5.</span> <span class="toc-text"> 電子郵件函式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他重要函式"><span class="toc-number">5.6.</span> <span class="toc-text"> 其他重要函式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#header"><span class="toc-number">5.6.1.</span> <span class="toc-text"> header()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#die-exit"><span class="toc-number">5.6.2.</span> <span class="toc-text"> die()、exit()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sleep"><span class="toc-number">5.6.3.</span> <span class="toc-text"> sleep()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#isset"><span class="toc-number">5.6.4.</span> <span class="toc-text"> isset()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#unset"><span class="toc-number">5.6.5.</span> <span class="toc-text"> unset()</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#陣列的使用"><span class="toc-number">6.</span> <span class="toc-text"> 陣列的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#認識陣列"><span class="toc-number">6.1.</span> <span class="toc-text"> 認識陣列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一維陣列"><span class="toc-number">6.2.</span> <span class="toc-text"> 一維陣列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二微陣列與多維陣列"><span class="toc-number">6.3.</span> <span class="toc-text"> 二微陣列與多維陣列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#foreach迴圈使用"><span class="toc-number">6.4.</span> <span class="toc-text"> foreach迴圈使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#陣列相關函式使用"><span class="toc-number">6.5.</span> <span class="toc-text"> 陣列相關函式使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#顯示陣列內容函式"><span class="toc-number">6.5.1.</span> <span class="toc-text"> 顯示陣列內容函式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#一般陣列函式"><span class="toc-number">6.5.2.</span> <span class="toc-text"> 一般陣列函式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#陣列的合併與分割"><span class="toc-number">6.5.3.</span> <span class="toc-text"> 陣列的合併與分割</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#指派陣列元素為變數"><span class="toc-number">6.5.4.</span> <span class="toc-text"> 指派陣列元素為變數</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#陣列的排序"><span class="toc-number">6.5.5.</span> <span class="toc-text"> 陣列的排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#陣列的指標"><span class="toc-number">6.5.6.</span> <span class="toc-text"> 陣列的指標</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#陣列的操作"><span class="toc-number">6.5.7.</span> <span class="toc-text"> 陣列的操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#陣列的搜尋"><span class="toc-number">6.5.8.</span> <span class="toc-text"> 陣列的搜尋</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#陣列的比對"><span class="toc-number">6.5.9.</span> <span class="toc-text"> 陣列的比對</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#陣列的篩選"><span class="toc-number">6.5.10.</span> <span class="toc-text"> 陣列的篩選</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字串的使用"><span class="toc-number">7.</span> <span class="toc-text"> 字串的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#字串的輸出與調整"><span class="toc-number">7.1.</span> <span class="toc-text"> 字串的輸出與調整</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字串分割合併"><span class="toc-number">7.2.</span> <span class="toc-text"> 字串分割合併</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字串查詢"><span class="toc-number">7.3.</span> <span class="toc-text"> 字串查詢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字串擷取及取代"><span class="toc-number">7.4.</span> <span class="toc-text"> 字串擷取及取代</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字串格式化"><span class="toc-number">7.5.</span> <span class="toc-text"> 字串格式化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字串分析"><span class="toc-number">7.6.</span> <span class="toc-text"> 字串分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字串轉換"><span class="toc-number">7.7.</span> <span class="toc-text"> 字串轉換</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字串比對"><span class="toc-number">7.8.</span> <span class="toc-text"> 字串比對</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字串加密"><span class="toc-number">7.9.</span> <span class="toc-text"> 字串加密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正規表達式"><span class="toc-number">7.10.</span> <span class="toc-text"> 正規表達式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#php正規表達式的功能"><span class="toc-number">7.10.1.</span> <span class="toc-text"> PHP正規表達式的功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#正規表達式格式"><span class="toc-number">7.10.2.</span> <span class="toc-text"> 正規表達式格式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字串檢查格式preg_match"><span class="toc-number">7.10.3.</span> <span class="toc-text"> 字串檢查格式：preg_match()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字串取代preg_replace"><span class="toc-number">7.10.4.</span> <span class="toc-text"> 字串取代:preg_replace()</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#日期時間的應用"><span class="toc-number">8.</span> <span class="toc-text"> 日期時間的應用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#取得日期時間"><span class="toc-number">8.1.</span> <span class="toc-text"> 取得日期時間</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#設定日期時間格式"><span class="toc-number">8.2.</span> <span class="toc-text"> 設定日期時間格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#設定區域化日期時間格式"><span class="toc-number">8.3.</span> <span class="toc-text"> 設定區域化日期時間格式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#檔案的處理"><span class="toc-number">9.</span> <span class="toc-text"> 檔案的處理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#資料夾-檔案路徑的相關資訊"><span class="toc-number">9.1.</span> <span class="toc-text"> 資料夾、檔案路徑的相關資訊</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#資料夾的處理"><span class="toc-number">9.2.</span> <span class="toc-text"> 資料夾的處理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#檔案的處理-2"><span class="toc-number">9.3.</span> <span class="toc-text"> 檔案的處理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#檔案上傳"><span class="toc-number">9.4.</span> <span class="toc-text"> 檔案上傳</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讀取及寫入檔案的內容"><span class="toc-number">9.5.</span> <span class="toc-text"> 讀取及寫入檔案的內容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#coolkie與session"><span class="toc-number">10.</span> <span class="toc-text"> Coolkie與Session</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#關於cookie與session"><span class="toc-number">10.1.</span> <span class="toc-text"> 關於Cookie與Session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cookie的使用"><span class="toc-number">10.2.</span> <span class="toc-text"> Cookie的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#資料夾的處理-2"><span class="toc-number">10.3.</span> <span class="toc-text"> 資料夾的處理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php提供了三種註解方式"><span class="toc-number">11.</span> <span class="toc-text"> PHP提供了三種註解方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php變數宣告"><span class="toc-number">12.</span> <span class="toc-text"> PHP變數宣告</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#變數的命名規則"><span class="toc-number">12.1.</span> <span class="toc-text"> 變數的命名規則</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#變數的命名與編寫風格"><span class="toc-number">12.2.</span> <span class="toc-text"> 變數的命名與編寫風格</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#php字串string"><span class="toc-number">13.</span> <span class="toc-text"> PHP字串(String)</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            PHP基礎
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/2020/04/23/php/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-23T09:19:00.000Z" itemprop="datePublished">2020-04-23</time>
+</a>
+
+            
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h2 id="php基礎"><a class="markdownIt-Anchor" href="#php基礎"></a> PHP基礎</h2>
+<p>PHP的全稱為” PHP：Hypertext Preprocessor”(PHP：超文字預處理器)。</p>
+<h2 id="建立php開發環境"><a class="markdownIt-Anchor" href="#建立php開發環境"></a> 建立PHP開發環境</h2>
+<ol>
+<li>
+<p>XAMPP</p>
+</li>
+<li>
+<p><a href="https://www.mamp.info/" target="_blank" rel="noopener">MAMP</a></p>
+</li>
+<li>
+<p>LAMP<br />
+LAMP主打使用在Linux<br />
+<a href="https://magiclen.org/lamp/" target="_blank" rel="noopener">安裝 LAMP Server + phpMyAdmin 在 Linux 系統上輕鬆架設網站</a></p>
+</li>
+</ol>
+<a id="more"></a>
+<h3 id="雲端開發測試程式碼"><a class="markdownIt-Anchor" href="#雲端開發測試程式碼"></a> 雲端開發測試程式碼</h3>
+<p><a href="http://www.writephponline.com/" target="_blank" rel="noopener">WriteCodeOnline</a><br />
+<a href="http://sandbox.onlinephpfunctions.com/" target="_blank" rel="noopener">PHP Sandbox</a></p>
+<hr />
+<h3 id="編輯器ide"><a class="markdownIt-Anchor" href="#編輯器ide"></a> 編輯器（IDE）</h3>
+<ul>
+<li><a href="http://www.sublimetext.com/" target="_blank" rel="noopener">Sublime Text</a></li>
+<li><a href="https://eclipse.org/pdt" target="_blank" rel="noopener">Eclipse PDT</a></li>
+<li><a href="https://atom.io" target="_blank" rel="noopener">Atom</a></li>
+</ul>
+<hr />
+<h2 id="php基礎語法"><a class="markdownIt-Anchor" href="#php基礎語法"></a> PHP基礎語法</h2>
+<h3 id="語法結構"><a class="markdownIt-Anchor" href="#語法結構"></a> 語法結構</h3>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//phpinfo1.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//顯示目前php環境設定</span></span><br><span class="line">phpinfo();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//phpinfo2.php</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">#顯示目前php環境設定</span></span><br><span class="line">phpinfo();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="變數"><a class="markdownIt-Anchor" href="#變數"></a> 變數</h3>
+<h3 id="常數"><a class="markdownIt-Anchor" href="#常數"></a> 常數</h3>
+<h3 id="資料型別"><a class="markdownIt-Anchor" href="#資料型別"></a> 資料型別</h3>
+<h3 id="運算子與運算式"><a class="markdownIt-Anchor" href="#運算子與運算式"></a> 運算子與運算式</h3>
+<h3 id="表單資料的傳送接收"><a class="markdownIt-Anchor" href="#表單資料的傳送接收"></a> 表單資料的傳送接收</h3>
+<h3 id="程式引入檔"><a class="markdownIt-Anchor" href="#程式引入檔"></a> 程式引入檔</h3>
+<hr />
+<h2 id="php程式流程控制"><a class="markdownIt-Anchor" href="#php程式流程控制"></a> PHP程式流程控制</h2>
+<h3 id="認識流程控制"><a class="markdownIt-Anchor" href="#認識流程控制"></a> 認識流程控制</h3>
+<h3 id="if-流程控制"><a class="markdownIt-Anchor" href="#if-流程控制"></a> if 流程控制</h3>
+<h3 id="switch-條件控制"><a class="markdownIt-Anchor" href="#switch-條件控制"></a> switch 條件控制</h3>
+<h3 id="迴圈"><a class="markdownIt-Anchor" href="#迴圈"></a> 迴圈</h3>
+<h4 id="while迴圈"><a class="markdownIt-Anchor" href="#while迴圈"></a> while迴圈</h4>
+<h4 id="dowhile迴圈"><a class="markdownIt-Anchor" href="#dowhile迴圈"></a> do…while迴圈</h4>
+<h3 id="for-計次迴圈"><a class="markdownIt-Anchor" href="#for-計次迴圈"></a> for 計次迴圈</h3>
+<h3 id="流程控制的跳躍指令"><a class="markdownIt-Anchor" href="#流程控制的跳躍指令"></a> 流程控制的跳躍指令</h3>
+<hr />
+<h2 id="函式的使用"><a class="markdownIt-Anchor" href="#函式的使用"></a> 函式的使用</h2>
+<h3 id="認識函式"><a class="markdownIt-Anchor" href="#認識函式"></a> 認識函式</h3>
+<h3 id="自訂函式"><a class="markdownIt-Anchor" href="#自訂函式"></a> 自訂函式</h3>
+<h3 id="php的內建函式"><a class="markdownIt-Anchor" href="#php的內建函式"></a> PHP的內建函式</h3>
+<h3 id="數學函式"><a class="markdownIt-Anchor" href="#數學函式"></a> 數學函式</h3>
+<h3 id="電子郵件函式"><a class="markdownIt-Anchor" href="#電子郵件函式"></a> 電子郵件函式</h3>
+<h3 id="其他重要函式"><a class="markdownIt-Anchor" href="#其他重要函式"></a> 其他重要函式</h3>
+<h4 id="header"><a class="markdownIt-Anchor" href="#header"></a> header()</h4>
+<h4 id="die-exit"><a class="markdownIt-Anchor" href="#die-exit"></a> die()、exit()</h4>
+<h4 id="sleep"><a class="markdownIt-Anchor" href="#sleep"></a> sleep()</h4>
+<h4 id="isset"><a class="markdownIt-Anchor" href="#isset"></a> isset()</h4>
+<h4 id="unset"><a class="markdownIt-Anchor" href="#unset"></a> unset()</h4>
+<hr />
+<h2 id="陣列的使用"><a class="markdownIt-Anchor" href="#陣列的使用"></a> 陣列的使用</h2>
+<h3 id="認識陣列"><a class="markdownIt-Anchor" href="#認識陣列"></a> 認識陣列</h3>
+<h3 id="一維陣列"><a class="markdownIt-Anchor" href="#一維陣列"></a> 一維陣列</h3>
+<h3 id="二微陣列與多維陣列"><a class="markdownIt-Anchor" href="#二微陣列與多維陣列"></a> 二微陣列與多維陣列</h3>
+<h3 id="foreach迴圈使用"><a class="markdownIt-Anchor" href="#foreach迴圈使用"></a> foreach迴圈使用</h3>
+<h3 id="陣列相關函式使用"><a class="markdownIt-Anchor" href="#陣列相關函式使用"></a> 陣列相關函式使用</h3>
+<h4 id="顯示陣列內容函式"><a class="markdownIt-Anchor" href="#顯示陣列內容函式"></a> 顯示陣列內容函式</h4>
+<p>1.print_r()<br />
+可以顯示指定的陣列或物件的內容，但是只能指定一個變數，其格式為 print_r(變數);<br />
+2.var_dump()<br />
+可以顯示指定的陣列或物件的資料型別、大小及內容，而且能指定多個變數，對於程式測試與偵錯時特別有用。<br />
+其格式為 var_dump(變數１[,變數2][…, 變數n]);<br />
+3.var_export()<br />
+可以將指定的陣列或物件內容以PHP的合法程式碼返回，其格式為：var_export(變數)</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$testArray = <span class="keyword">array</span>(<span class="string">"甲"</span>,<span class="string">"乙"</span>,<span class="string">"丙"</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"print_r()的結果:"</span>;</span><br><span class="line">print_r($testArray);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br/&gt;var_dump()的結果："</span>;</span><br><span class="line">var_dump($testArray);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;br/&gt;var_export()的結果："</span>;</span><br><span class="line">var_export($testArray);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>print_r()的結果:Array ( [0] =&gt; 甲 [1] =&gt; 乙 [2] =&gt; 丙 )<br />
+var_dump()的結果：array(3) { [0]=&gt;string(3) “甲” [1]=&gt;string(3) “乙” [2]=&gt;string(3) “丙” }<br />
+var_export()的結果：array ( 0 =&gt;‘甲’, 1 =&gt;‘乙’, 2 =&gt;‘丙’, )</p>
+</blockquote>
+<hr />
+<h4 id="一般陣列函式"><a class="markdownIt-Anchor" href="#一般陣列函式"></a> 一般陣列函式</h4>
+<h4 id="陣列的合併與分割"><a class="markdownIt-Anchor" href="#陣列的合併與分割"></a> 陣列的合併與分割</h4>
+<h4 id="指派陣列元素為變數"><a class="markdownIt-Anchor" href="#指派陣列元素為變數"></a> 指派陣列元素為變數</h4>
+<h4 id="陣列的排序"><a class="markdownIt-Anchor" href="#陣列的排序"></a> 陣列的排序</h4>
+<h4 id="陣列的指標"><a class="markdownIt-Anchor" href="#陣列的指標"></a> 陣列的指標</h4>
+<h4 id="陣列的操作"><a class="markdownIt-Anchor" href="#陣列的操作"></a> 陣列的操作</h4>
+<h4 id="陣列的搜尋"><a class="markdownIt-Anchor" href="#陣列的搜尋"></a> 陣列的搜尋</h4>
+<h4 id="陣列的比對"><a class="markdownIt-Anchor" href="#陣列的比對"></a> 陣列的比對</h4>
+<h4 id="陣列的篩選"><a class="markdownIt-Anchor" href="#陣列的篩選"></a> 陣列的篩選</h4>
+<hr />
+<h2 id="字串的使用"><a class="markdownIt-Anchor" href="#字串的使用"></a> 字串的使用</h2>
+<h3 id="字串的輸出與調整"><a class="markdownIt-Anchor" href="#字串的輸出與調整"></a> 字串的輸出與調整</h3>
+<h3 id="字串分割合併"><a class="markdownIt-Anchor" href="#字串分割合併"></a> 字串分割合併</h3>
+<h3 id="字串查詢"><a class="markdownIt-Anchor" href="#字串查詢"></a> 字串查詢</h3>
+<h3 id="字串擷取及取代"><a class="markdownIt-Anchor" href="#字串擷取及取代"></a> 字串擷取及取代</h3>
+<h3 id="字串格式化"><a class="markdownIt-Anchor" href="#字串格式化"></a> 字串格式化</h3>
+<h3 id="字串分析"><a class="markdownIt-Anchor" href="#字串分析"></a> 字串分析</h3>
+<h3 id="字串轉換"><a class="markdownIt-Anchor" href="#字串轉換"></a> 字串轉換</h3>
+<h3 id="字串比對"><a class="markdownIt-Anchor" href="#字串比對"></a> 字串比對</h3>
+<h3 id="字串加密"><a class="markdownIt-Anchor" href="#字串加密"></a> 字串加密</h3>
+<h3 id="正規表達式"><a class="markdownIt-Anchor" href="#正規表達式"></a> 正規表達式</h3>
+<h4 id="php正規表達式的功能"><a class="markdownIt-Anchor" href="#php正規表達式的功能"></a> PHP正規表達式的功能</h4>
+<h4 id="正規表達式格式"><a class="markdownIt-Anchor" href="#正規表達式格式"></a> 正規表達式格式</h4>
+<h4 id="字串檢查格式preg_match"><a class="markdownIt-Anchor" href="#字串檢查格式preg_match"></a> 字串檢查格式：preg_match()</h4>
+<h4 id="字串取代preg_replace"><a class="markdownIt-Anchor" href="#字串取代preg_replace"></a> 字串取代:preg_replace()</h4>
+<hr />
+<h2 id="日期時間的應用"><a class="markdownIt-Anchor" href="#日期時間的應用"></a> 日期時間的應用</h2>
+<h3 id="取得日期時間"><a class="markdownIt-Anchor" href="#取得日期時間"></a> 取得日期時間</h3>
+<h3 id="設定日期時間格式"><a class="markdownIt-Anchor" href="#設定日期時間格式"></a> 設定日期時間格式</h3>
+<h3 id="設定區域化日期時間格式"><a class="markdownIt-Anchor" href="#設定區域化日期時間格式"></a> 設定區域化日期時間格式</h3>
+<hr />
+<h2 id="檔案的處理"><a class="markdownIt-Anchor" href="#檔案的處理"></a> 檔案的處理</h2>
+<h3 id="資料夾-檔案路徑的相關資訊"><a class="markdownIt-Anchor" href="#資料夾-檔案路徑的相關資訊"></a> 資料夾、檔案路徑的相關資訊</h3>
+<h3 id="資料夾的處理"><a class="markdownIt-Anchor" href="#資料夾的處理"></a> 資料夾的處理</h3>
+<h3 id="檔案的處理-2"><a class="markdownIt-Anchor" href="#檔案的處理-2"></a> 檔案的處理</h3>
+<h3 id="檔案上傳"><a class="markdownIt-Anchor" href="#檔案上傳"></a> 檔案上傳</h3>
+<h3 id="讀取及寫入檔案的內容"><a class="markdownIt-Anchor" href="#讀取及寫入檔案的內容"></a> 讀取及寫入檔案的內容</h3>
+<hr />
+<h2 id="coolkie與session"><a class="markdownIt-Anchor" href="#coolkie與session"></a> Coolkie與Session</h2>
+<h3 id="關於cookie與session"><a class="markdownIt-Anchor" href="#關於cookie與session"></a> 關於Cookie與Session</h3>
+<h3 id="cookie的使用"><a class="markdownIt-Anchor" href="#cookie的使用"></a> Cookie的使用</h3>
+<h3 id="資料夾的處理-2"><a class="markdownIt-Anchor" href="#資料夾的處理-2"></a> 資料夾的處理</h3>
+<hr />
+<hr />
+<h2 id="php提供了三種註解方式"><a class="markdownIt-Anchor" href="#php提供了三種註解方式"></a> PHP提供了三種註解方式</h2>
+<p>一、單行註解  //<br />
+二、多行註解   /*    */<br />
+三、同樣是單行註解  #</p>
+<h2 id="php變數宣告"><a class="markdownIt-Anchor" href="#php變數宣告"></a> PHP變數宣告</h2>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> <span class="keyword">echo</span> <span class="string">"直接顯示"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//錢字符號 dollar sign</span></span><br><span class="line">    $string = <span class="string">"這是變數&lt;br/&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> $string;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="變數的命名規則"><a class="markdownIt-Anchor" href="#變數的命名規則"></a> 變數的命名規則</h3>
+<ol>
+<li>可以加底線</li>
+<li>英文命名與語意化命名</li>
+<li>大小寫不同視為不同變數</li>
+</ol>
+<h3 id="變數的命名與編寫風格"><a class="markdownIt-Anchor" href="#變數的命名與編寫風格"></a> 變數的命名與編寫風格</h3>
+<ul>
+<li>駝峰式大小寫（Camel-Case）</li>
+</ul>
+<blockquote>
+<ul>
+<li>小駝峰式命名法（lower camel case）<br />
+例如：$progressBarTitle。</li>
+<li>大駝峰式命名法（upper camel case）<br />
+例如：$ProgressBarTitle。</li>
+</ul>
+</blockquote>
+<ul>
+<li>蛇型命名法(Snake case)<br />
+蛇型命名法(Snake case)在各單字中間以底線區隔。例如：$progress_bar_title</li>
+</ul>
+<h2 id="php字串string"><a class="markdownIt-Anchor" href="#php字串string"></a> PHP字串(String)</h2>
+<ul>
+<li>串聯運算子(Concatenation Operator)</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?</span> php</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"Progress"</span>.<span class="string">" "</span>.<span class="string">"Bar"</span>.<span class="string">"&lt;br /&gt;"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<hr />
+<p>(原文網址：<a href="https://www.w3school.com" target="_blank" rel="noopener">https://www.w3school.com</a>)<br />
+(原文網址：<a href="http://tw.gitbook.net/php/php_environment.html" target="_blank" rel="noopener">http://tw.gitbook.net/php/php_environment.html</a>)<br />
+(原文網址：<a href="https://kknews.cc/code/ynxxkgk.html" target="_blank" rel="noopener">https://kknews.cc/code/ynxxkgk.html</a>)</p>
+
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/04/21/aspnet/" class="article-next" title="Asp.Net"><i class="icon-arrow-right"></i></a>
+
+
+<a id="pageprev" href="/2020/04/27/laravel-03/" class="article-prev" title="laravel_03 路由與控制器"><i class="icon-arrow-left"></i></a>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "7fbe80427f54741e289f",
+        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
+        repo: "sanonz.github.io",
+        owner: "sanonz",
+        admin: ["sanonz"],
+        id: "2020/04/23/php",
+        distractionFreeMode: true,
+        title: "PHP基礎",
+        body: "http://vince115.github.io/2020/04/23/php/",
+        labels: []
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://vince115.github.io/hexo-blog/2020/04/23/php/index.html" data-id="cm8l0jpo0001vi5ob7o5894yt" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 Hexo<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/hexo-blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/hexo-blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/hexo-blog/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/hexo-blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/hexo-blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

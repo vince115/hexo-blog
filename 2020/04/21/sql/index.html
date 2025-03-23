@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="SQL | Vince的學習筆記                                                                   @font-face {         font-family: &#39;icomoon&#39;;         src: url(&quot;&#x2F;fonts&#x2F;icomoon.eot?q628ml&quot;);">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://vince115.github.io/hexo-blog/2020/04/21/sql/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="SQL | Vince的學習筆記                                                                   @font-face {         font-family: &#39;icomoon&#39;;         src: url(&quot;&#x2F;fonts&#x2F;icomoon.eot?q628ml&quot;);">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-03-23T01:03:21.151Z">
+<meta property="article:modified_time" content="2025-03-22T22:33:13.128Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/hexo-blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/hexo-blog/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/hexo-blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/hexo-blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/hexo-blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/hexo-blog/">Home</a>
+        
+          <a class="main-nav-link" href="/hexo-blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/hexo-blog/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://vince115.github.io/hexo-blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/hexo-blog/2020/04/21/sql/index.html" class="article-date">
+  <time class="dt-published" datetime="2025-03-23T01:03:21.151Z" itemprop="datePublished">2025-03-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>SQL | Vince的學習筆記</title>
+    <meta name="author" content="Vince Lo" />
+    <meta name="keywords" content="" />
+    <meta name="description" content=" 關聯式資料庫（Relational database）SQLiteMySQLPostgreSQLMariaDBSQL ServerOracle DatabaseDB2SQL語法主要包含3個部分：「資料定義語言」（DDL : Data Definition Language）「資料操縱語言」（DML : Data Manipulation Language）「資料控制語言」（DCL : Data Control Language）SQL 中最重要的 DDL ..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Vince的學習筆記" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Vince的學習筆記</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首頁</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/design">
+                <span class="nav-text">設計</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frontend">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/backend">
+                <span class="nav-text">後端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">標籤</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">歸檔</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">關於</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://vince115.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#關聯式資料庫relational-database"><span class="toc-number">1.</span> <span class="toc-text"> 關聯式資料庫（Relational database）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#union-及-left-join"><span class="toc-number">1.1.</span> <span class="toc-text"> UNION 及 LEFT JOIN</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#預存程序-stored-procedure"><span class="toc-number">2.</span> <span class="toc-text"> 預存程序 (Stored procedure)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sql-語言類別"><span class="toc-number">3.</span> <span class="toc-text"> SQL 語言類別</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#data-definition-資料定義-ddl"><span class="toc-number">3.1.</span> <span class="toc-text"> Data definition 資料定義 (DDL)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#data-manipulation-資料操縱-dml"><span class="toc-number">3.2.</span> <span class="toc-text"> Data manipulation 資料操縱 (DML)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#queries-資料查詢-dql"><span class="toc-number">3.3.</span> <span class="toc-text"> Queries 資料查詢 (DQL)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#data-control-資料控制-dcl"><span class="toc-number">3.4.</span> <span class="toc-text"> Data control 資料控制 (DCL)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#transaction-controls-交易"><span class="toc-number">3.5.</span> <span class="toc-text"> Transaction controls 交易</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sql-的資料型別-data-types"><span class="toc-number">4.</span> <span class="toc-text"> SQL 的資料型別 (Data Types)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#數值資料-numeric-data"><span class="toc-number">4.1.</span> <span class="toc-text"> 數值資料 (Numeric Data)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#字串元資料-character-strings-data"><span class="toc-number">4.2.</span> <span class="toc-text"> 字串(元)資料 (Character &amp; Strings Data)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#日期時間資料-date-data"><span class="toc-number">4.3.</span> <span class="toc-text"> 日期&#x2F;時間資料 (Date Data)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#布林值-boolean-data"><span class="toc-number">4.4.</span> <span class="toc-text"> 布林值 (Boolean Data)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#空值-null-data"><span class="toc-number">4.5.</span> <span class="toc-text"> 空值 (NULL Data)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sql-運算子-operators"><span class="toc-number">5.</span> <span class="toc-text"> SQL 運算子 Operators</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#算數運算子-arithmetic-operators"><span class="toc-number">5.1.</span> <span class="toc-text"> 算數運算子 (Arithmetic Operators)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#邏輯運算子-logical-operators"><span class="toc-number">5.2.</span> <span class="toc-text"> 邏輯運算子 (Logical Operators)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#比較運算子-comparison-operators"><span class="toc-number">5.3.</span> <span class="toc-text"> 比較運算子 (Comparison Operators)</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            SQL
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/2020/04/21/sql/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-21T01:30:37.000Z" itemprop="datePublished">2020-04-21</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/backend/" rel="tag">backend</a>, <a class="article-tag-link" href="/tags/sql/" rel="tag">sql</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="關聯式資料庫relational-database"><a class="markdownIt-Anchor" href="#關聯式資料庫relational-database"></a> 關聯式資料庫（Relational database）</h3>
+<ol>
+<li>SQLite</li>
+<li>MySQL</li>
+<li>PostgreSQL</li>
+<li>MariaDB</li>
+<li>SQL Server</li>
+<li>Oracle Database</li>
+<li>DB2</li>
+</ol>
+<p>SQL語法主要包含3個部分：</p>
+<blockquote>
+<p>「資料定義語言」（DDL : Data Definition Language）<br />
+「資料操縱語言」（DML : Data Manipulation Language）<br />
+「資料控制語言」（DCL : Data Control Language）</p>
+</blockquote>
+<p>SQL 中最重要的 DDL 語句：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE -創建新資料庫</span><br><span class="line">ALTER DATABASE -修改資料庫</span><br><span class="line">CREATE TABLE - 創建新表</span><br><span class="line">ALTER TABLE - 變更（改變）資料庫表</span><br><span class="line">DROP TABLE - 刪除表</span><br><span class="line">CREATE INDEX - 創建索引（搜索鍵）</span><br><span class="line">DROP INDEX - 刪除索引</span><br></pre></td></tr></table></figure>
+<p>查詢/更新/插入/刪除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT - 從資料庫表中獲取資料</span><br><span class="line">UPDATE - 更新資料庫表中的資料</span><br><span class="line">DELETE - 從資料庫表中刪除資料</span><br><span class="line">INSERT INTO - 向資料庫表中插入資料</span><br></pre></td></tr></table></figure>
+<p>建立新資料庫</p>
+<blockquote>
+<p>語法：CREATE DATABASE database-name</p>
+</blockquote>
+<p>刪除資料庫</p>
+<blockquote>
+<p>語法：DROP DATABASE database-name</p>
+</blockquote>
+<p>刪除表(Table)</p>
+<blockquote>
+<p>語法：DROP TABLE tabname</p>
+</blockquote>
+<p>增加一個欄位</p>
+<blockquote>
+<p>語法：alter table tabname add column col type</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> <span class="keyword">member</span> <span class="keyword">add</span> newfield <span class="built_in">varchar</span>(<span class="number">20</span>) <span class="keyword">default</span> <span class="string">''</span></span><br></pre></td></tr></table></figure>
+<p>增刪主鍵</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 添加主鍵 */</span> </span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tabname <span class="keyword">add</span> primary <span class="keyword">key</span>(<span class="keyword">col</span>);</span><br><span class="line"><span class="comment">/* 刪除主鍵*/</span> </span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> tabname <span class="keyword">drop</span> primary <span class="keyword">key</span>(<span class="keyword">col</span>);</span><br></pre></td></tr></table></figure>
+<p>選取資料</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">member</span> <span class="keyword">where</span> memberid &gt;= <span class="string">'0'</span> <span class="keyword">and</span> memberid &lt;= <span class="string">'0000000100'</span></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">member</span> <span class="keyword">where</span> memberid <span class="keyword">like</span> <span class="string">'%10%'</span></span><br></pre></td></tr></table></figure>
+<p>新增資料</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">member</span> (memberid,membername) <span class="keyword">values</span>(<span class="string">'m099'</span>,<span class="string">'michael chen'</span>);</span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">member</span>(memberid,membername)</span><br><span class="line"><span class="keyword">select</span> custid,coprcname <span class="keyword">from</span> bascustomer <span class="keyword">where</span> custid <span class="keyword">like</span> <span class="string">'m%'</span></span><br></pre></td></tr></table></figure>
+<p>刪除資料</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">member</span> <span class="keyword">where</span> memberid &gt; <span class="string">'0000000900'</span>;</span><br></pre></td></tr></table></figure>
+<p>更新資料</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">update</span> <span class="keyword">member</span> <span class="keyword">set</span> memberlavel = <span class="string">'00'</span> <span class="keyword">where</span> memberid &lt;= <span class="string">'0000000100;</span></span><br></pre></td></tr></table></figure>
+<p>排序</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">member</span> <span class="keyword">order</span> <span class="keyword">by</span> memberid;</span><br></pre></td></tr></table></figure>
+<p>計算筆數</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">as</span> totalcount <span class="keyword">from</span> <span class="keyword">member</span>;</span><br></pre></td></tr></table></figure>
+<p>合計</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> productid,<span class="keyword">sum</span>(quantity) <span class="keyword">as</span> sumvalue <span class="keyword">from</span> opoorder1_d <span class="keyword">group</span> <span class="keyword">by</span> productid;</span><br></pre></td></tr></table></figure>
+<p>求平均值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> billno,<span class="keyword">avg</span>(totalamount) <span class="keyword">as</span> avgvalue <span class="keyword">from</span> opoorder1_m <span class="keyword">group</span> <span class="keyword">by</span> billno;</span><br></pre></td></tr></table></figure>
+<p>取最大值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> custid,<span class="keyword">max</span>(totalamount) <span class="keyword">as</span> maxvalue <span class="keyword">from</span> opoorder1_m <span class="keyword">group</span> <span class="keyword">by</span> custid;</span><br></pre></td></tr></table></figure>
+<p>取最小值</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> custid,<span class="keyword">min</span>(billdate) <span class="keyword">as</span> maxvalue <span class="keyword">from</span> opoorder1_m <span class="keyword">group</span> <span class="keyword">by</span> custid;</span><br></pre></td></tr></table></figure>
+<hr />
+<h4 id="union-及-left-join"><a class="markdownIt-Anchor" href="#union-及-left-join"></a> UNION 及 LEFT JOIN</h4>
+<p>union [all] union 運算子通過組合其他兩個結果表（例如 table1 和 table2）並消去表中任何重複行而派生出一個結果表。當 all 隨 union 一起使用時（即 union all），不消除重複行。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="number">1</span> <span class="keyword">as</span> flag,a.billno,b.billdate,a.subaqmount <span class="keyword">from</span> opoorder1_d a <span class="keyword">left</span> <span class="keyword">join</span> opoorder1_m b <span class="keyword">on</span> a.billno = b.billno <span class="keyword">union</span> <span class="keyword">all</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="number">2</span> <span class="keyword">as</span> flag,a.billno,b.billdate,a.subaqmount <span class="keyword">from</span> opoorder2_d a <span class="keyword">left</span> <span class="keyword">join</span> opoorder2_m b <span class="keyword">on</span> a.billno = b.billno;</span><br></pre></td></tr></table></figure>
+<p>子查詢</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">member</span> <span class="keyword">where</span> memberid <span class="keyword">IN</span> (<span class="keyword">select</span> custid <span class="keyword">from</span> bascustomer <span class="keyword">where</span> custid <span class="keyword">like</span> <span class="string">'M0%'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">member</span> <span class="keyword">where</span> memberid <span class="keyword">IN</span> (<span class="string">'M001'</span>,<span class="string">'M009'</span>,<span class="string">'M012'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> a.title,a.username,b.adddate <span class="keyword">from</span> <span class="keyword">table</span> a,(<span class="keyword">select</span> <span class="keyword">max</span>(adddate) adddate <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> table.title=a.title) b</span><br></pre></td></tr></table></figure>
+<p>動態SQL語法執行</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> @<span class="keyword">start</span> <span class="built_in">int</span>,@<span class="keyword">end</span> <span class="built_in">int</span> </span><br><span class="line">@<span class="keyword">sql</span> <span class="keyword">nvarchar</span>(<span class="number">600</span>) </span><br><span class="line"><span class="keyword">set</span> @<span class="keyword">sql</span>=’<span class="keyword">select</span> top’+<span class="keyword">str</span>(@<span class="keyword">end</span>-@<span class="keyword">start</span>+<span class="number">1</span>)+’+<span class="keyword">from</span> T <span class="keyword">where</span> rid <span class="keyword">not</span> <span class="keyword">in</span>(<span class="keyword">select</span> top’+<span class="keyword">str</span>(@<span class="keyword">str</span><span class="number">-1</span>)+’Rid <span class="keyword">from</span> T <span class="keyword">where</span> Rid&gt;<span class="number">-1</span>)’ </span><br><span class="line">exec sp_executesql @<span class="keyword">sql</span></span><br></pre></td></tr></table></figure>
+<p>資料庫取回分頁資料</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 選擇從10到15的記錄 */</span></span><br><span class="line"><span class="keyword">select</span> top <span class="number">5</span> * <span class="keyword">from</span> (<span class="keyword">select</span> top <span class="number">15</span> * <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span> <span class="keyword">asc</span>) table_別名 <span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">id</span> <span class="keyword">desc</span></span><br></pre></td></tr></table></figure>
+<h3 id="預存程序-stored-procedure"><a class="markdownIt-Anchor" href="#預存程序-stored-procedure"></a> 預存程序 (Stored procedure)</h3>
+<p>又稱儲存程序（英語：Stored Procedure），是在資料庫儲存複雜程式，以便外部程式呼叫的資料庫物件，可以視為資料庫的一種函式或子程式。</p>
+<hr />
+<h3 id="sql-語言類別"><a class="markdownIt-Anchor" href="#sql-語言類別"></a> SQL 語言類別</h3>
+<h4 id="data-definition-資料定義-ddl"><a class="markdownIt-Anchor" href="#data-definition-資料定義-ddl"></a> Data definition 資料定義 (DDL)</h4>
+<p>用來定義資料庫、資料表、檢視表、索引、預存程序、觸發程序、函數等資料庫物件。<br />
+<tb>CREATE</tb>: 建立資料庫的物件<br />
+<tb>ALTER</tb>: 變更資料庫的物件<br />
+<tb>DROP</tb>: 刪除資料庫的物件</p>
+<h4 id="data-manipulation-資料操縱-dml"><a class="markdownIt-Anchor" href="#data-manipulation-資料操縱-dml"></a> Data manipulation 資料操縱 (DML)</h4>
+<p>用來處理資料表裡的資料。<br />
+<tb>INSERT</tb>: 新增資料到資料表中<br />
+<tb>UPDATE</tb>: 更改資料表中的資料<br />
+<tb>DELETE</tb>: 刪除資料表中的資料</p>
+<h4 id="queries-資料查詢-dql"><a class="markdownIt-Anchor" href="#queries-資料查詢-dql"></a> Queries 資料查詢 (DQL)</h4>
+<p>用來查詢資料表裡的資料：<br />
+<tb>SELECT</tb>: 選取資料庫中的資料</p>
+<h4 id="data-control-資料控制-dcl"><a class="markdownIt-Anchor" href="#data-control-資料控制-dcl"></a> Data control 資料控制 (DCL)</h4>
+<p>用來控制資料表、檢視表的存取權限<br />
+<tb>GRANT</tb>: 賦予使用者使用權限<br />
+<tb>REVOKE</tb>: 取消使用者的使用權限</p>
+<h4 id="transaction-controls-交易"><a class="markdownIt-Anchor" href="#transaction-controls-交易"></a> Transaction controls 交易</h4>
+<p>交易是單一工作單元。 如果交易成功，便會確定交易期間所修改的所有資料，且會成為資料庫中永久的內容。 如果交易發現錯誤，必須取消或回復，便會清除所有的資料修改。<br />
+<tb>COMMIT</tb>: 完成交易作業<br />
+<tb>ROLLBACK</tb>: 交易作業異常，將已變動的資料回復到交易開始的狀態</p>
+<hr />
+<h3 id="sql-的資料型別-data-types"><a class="markdownIt-Anchor" href="#sql-的資料型別-data-types"></a> SQL 的資料型別 (Data Types)</h3>
+<p>SQL 基本上有下列幾種資料型別，我們必需了解儲存各類型資料值要分別採用何種資料型別欄位以便進行資料庫設計。</p>
+<ul>
+<li>數值資料 (Numeric Types) - 11, 2.5492, -91</li>
+<li>字串資料 (String Types) - ‘學習 SQL 語言’</li>
+<li>空值 (NULL) - (欄位為空)</li>
+<li>布林值 (Boolean) - true / false</li>
+</ul>
+<h4 id="數值資料-numeric-data"><a class="markdownIt-Anchor" href="#數值資料-numeric-data"></a> 數值資料 (Numeric Data)</h4>
+<p>SQL 的數值型態有 integer, float, money 等，使用數值資料有一個好處就是你能搭配內建的數值函數來做資料處理，例如 SUM() 函數即可直接獲得該數值欄位的總合。</p>
+<h4 id="字串元資料-character-strings-data"><a class="markdownIt-Anchor" href="#字串元資料-character-strings-data"></a> 字串(元)資料 (Character &amp; Strings Data)</h4>
+<p>儲存字元或符號之資料型別。</p>
+<h4 id="日期時間資料-date-data"><a class="markdownIt-Anchor" href="#日期時間資料-date-data"></a> 日期/時間資料 (Date Data)</h4>
+<p>用來記錄日期/時間的資料型別，有 date, time, timestamp 等。</p>
+<h4 id="布林值-boolean-data"><a class="markdownIt-Anchor" href="#布林值-boolean-data"></a> 布林值 (Boolean Data)</h4>
+<p>true/false, Yes/No, 1/0。</p>
+<h4 id="空值-null-data"><a class="markdownIt-Anchor" href="#空值-null-data"></a> 空值 (NULL Data)</h4>
+<p>空值，沒有資料存在於欄位。通常在建立資料表時，你可以設定欄位是否允許空值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> customer (</span><br><span class="line">  C_id <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span>,</span><br><span class="line">  <span class="keyword">Name</span> <span class="built_in">VARCHAR</span>(<span class="number">10</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span>,</span><br><span class="line">  Address <span class="built_in">VARCHAR</span>(<span class="number">255</span>) <span class="literal">NULL</span>,</span><br><span class="line">  Phone <span class="built_in">VARCHAR</span>(<span class="number">10</span>) <span class="literal">NULL</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>NULL 值和一個空字串 ‘’ 是有不一樣意涵的。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> customer (phone) <span class="keyword">VALUES</span> (<span class="literal">NULL</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> customer (phone) <span class="keyword">VALUES</span> (<span class="string">''</span>);</span><br></pre></td></tr></table></figure>
+<p>大多的資料庫中，你不能索引允許有 NULL 值的欄位。你必須聲明要索引的欄位為 NOT NULL，此外，你也不能插入 NULL 到具有索引的欄位中。</p>
+<hr />
+<h3 id="sql-運算子-operators"><a class="markdownIt-Anchor" href="#sql-運算子-operators"></a> SQL 運算子 Operators</h3>
+<p>SQL 有 3 種類型的運算子</p>
+<h4 id="算數運算子-arithmetic-operators"><a class="markdownIt-Anchor" href="#算數運算子-arithmetic-operators"></a> 算數運算子 (Arithmetic Operators)</h4>
+<table>
+<thead>
+<tr>
+<th>運算子用途</th>
+<th>用途</th>
+<th>用法</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>加法</td>
+<td>1 + 2</td>
+<td>3</td>
+</tr>
+<tr>
+<td>-</td>
+<td>減法</td>
+<td>5 - 4</td>
+<td>1</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘法</td>
+<td>6 * 6</td>
+<td>36</td>
+</tr>
+<tr>
+<td>/</td>
+<td>商數</td>
+<td>8 / 5</td>
+<td>1.6</td>
+</tr>
+<tr>
+<td>%</td>
+<td>餘數</td>
+<td>8 % 5</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<h4 id="邏輯運算子-logical-operators"><a class="markdownIt-Anchor" href="#邏輯運算子-logical-operators"></a> 邏輯運算子 (Logical Operators)</h4>
+<table>
+<thead>
+<tr>
+<th>運算子</th>
+<th>語意</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AND</td>
+<td>且</td>
+</tr>
+<tr>
+<td>OR</td>
+<td>或</td>
+</tr>
+<tr>
+<td>NOT</td>
+<td>非</td>
+</tr>
+</tbody>
+</table>
+<h4 id="比較運算子-comparison-operators"><a class="markdownIt-Anchor" href="#比較運算子-comparison-operators"></a> 比較運算子 (Comparison Operators)</h4>
+<table>
+<thead>
+<tr>
+<th>運算子用途</th>
+<th>語意</th>
+<th>用法</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;</td>
+<td>小於</td>
+<td>3 &lt; 5</td>
+<td>True</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>大於</td>
+<td>8 &gt; 1</td>
+<td>True</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>小於等於</td>
+<td>20 &lt;= 10</td>
+<td>False</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>大於等於</td>
+<td>4 &gt;= 6</td>
+<td>False</td>
+</tr>
+<tr>
+<td>=</td>
+<td>等於</td>
+<td>2 = 2</td>
+<td>True</td>
+</tr>
+<tr>
+<td>&lt;&gt;</td>
+<td>不等於</td>
+<td>7 &lt;&gt; 6</td>
+<td>True</td>
+</tr>
+<tr>
+<td>BETWEEN</td>
+<td>在某個範圍內</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LIKE</td>
+<td>符合模式條件</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IN</td>
+<td>值存在於IN集合中</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<style type='text/css'>
+tb { color:#3366CC;}
+.markdown-body table th { background-color:#3366BB;color:#ffffff;border-color:#225588; }
+</style>
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/04/20/2020-04-f2e/" class="article-next" title="Web 網頁前端開發指南"><i class="icon-arrow-right"></i></a>
+
+
+<a id="pageprev" href="/2020/04/21/java/" class="article-prev" title="Java"><i class="icon-arrow-left"></i></a>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "7fbe80427f54741e289f",
+        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
+        repo: "sanonz.github.io",
+        owner: "sanonz",
+        admin: ["sanonz"],
+        id: "2020/04/21/sql",
+        distractionFreeMode: true,
+        title: "SQL",
+        body: "http://vince115.github.io/2020/04/21/sql/",
+        labels: ["backend","sql"]
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://vince115.github.io/hexo-blog/2020/04/21/sql/index.html" data-id="cm8l0jpnz001ri5ob9jra9zrg" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 Hexo<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/hexo-blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/hexo-blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/hexo-blog/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/hexo-blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/hexo-blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

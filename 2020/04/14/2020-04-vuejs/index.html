@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Vue.js | Vince的學習筆記                                                                   @font-face {         font-family: &#39;icomoon&#39;;         src: url(&quot;&#x2F;fonts&#x2F;icomoon.eot?q628ml&quot;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://vince115.github.io/hexo-blog/2020/04/14/2020-04-vuejs/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Vue.js | Vince的學習筆記                                                                   @font-face {         font-family: &#39;icomoon&#39;;         src: url(&quot;&#x2F;fonts&#x2F;icomoon.eot?q628ml&quot;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-03-23T01:03:21.153Z">
+<meta property="article:modified_time" content="2025-03-22T22:33:13.126Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/hexo-blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/hexo-blog/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/hexo-blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/hexo-blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/hexo-blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/hexo-blog/">Home</a>
+        
+          <a class="main-nav-link" href="/hexo-blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/hexo-blog/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://vince115.github.io/hexo-blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/hexo-blog/2020/04/14/2020-04-vuejs/index.html" class="article-date">
+  <time class="dt-published" datetime="2025-03-23T01:03:21.153Z" itemprop="datePublished">2025-03-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>Vue.js | Vince的學習筆記</title>
+    <meta name="author" content="Vince Lo" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="Vue.js是一款流行的JavaScript前端框架，旨在更好地組織與簡化Web開發。Vue所關注的核心是MVC模式中的視圖層，同時，它也能方便地取得資料更新，並通過組件內部特定的方法實現視圖與模型的互動。 VueVue.use(Vuex)。定義你的 Store。把你的 Vue App 加入 Store 裡面。123456789101112import Vue from &#39;vue&#39;import Vuex from &#39;vuex&#39;Vue.use(Vuex)let store = n..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Vince的學習筆記" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Vince的學習筆記</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首頁</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/design">
+                <span class="nav-text">設計</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frontend">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/backend">
+                <span class="nav-text">後端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">標籤</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">歸檔</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">關於</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://vince115.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vue"><span class="toc-number">1.</span> <span class="toc-text"> Vue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vuex"><span class="toc-number">2.</span> <span class="toc-text"> Vuex</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            Vue.js
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/2020/04/14/2020-04-vuejs/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-14T01:37:08.000Z" itemprop="datePublished">2020-04-14</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/vue-js/" rel="tag">vue.js</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>Vue.js是一款流行的JavaScript前端框架，旨在更好地組織與簡化Web開發。Vue所關注的核心是MVC模式中的視圖層，同時，它也能方便地取得資料更新，並通過組件內部特定的方法實現視圖與模型的互動。</p>
+<a id="more"></a>
+<h2 id="vue"><a class="markdownIt-Anchor" href="#vue"></a> Vue</h2>
+<p>Vue.use(Vuex)。<br />
+定義你的 Store。<br />
+把你的 Vue App 加入 Store 裡面。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import Vue from <span class="string">'vue'</span></span><br><span class="line">import Vuex from <span class="string">'vuex'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Vuex)</span><br><span class="line"></span><br><span class="line"><span class="built_in">let</span> store = new Vuex.Store(&#123;</span><br><span class="line">  modules: &#123;</span><br><span class="line">    // 這邊就放你要的 Modules</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> default store</span><br></pre></td></tr></table></figure>
+<h2 id="vuex"><a class="markdownIt-Anchor" href="#vuex"></a> Vuex</h2>
+<p>Vuex 在這邊所擔任的角色，是屬於共享狀態管理機制（ Shared State Management ），主要的目的是讓你在各種不同的元件中溝通。溝通是個簡單的說法，主要的目的還是用於共享某些資訊，用以達到資訊同步的目的。</p>
+<p>當然，這個並不是訊息溝通的必要手段。官方也說，如果不是大型結構的話，你可以自己製作一個狀態儲存機制，並不一定要使用 Vuex，畢竟這過於冗餘。</p>
+<p>Simple State Management from Scratch</p>
+<p>那麼這個狀態管理機制裡面有什麼東西呢？</p>
+<ul>
+<li>State 狀態儲存的物件，Vuex 使用 單一狀態樹 的方式來存放。</li>
+<li>Getters 取得狀態資料的方法。</li>
+<li>Mutations 更新狀態資料的方法。</li>
+<li>Actions 類似 Mutations，但是 Actions 是呼叫 Mutations，且可支援非同步呼叫。</li>
+<li>Modules 用於分割 Vuex 的區塊。</li>
+</ul>
+<p>有了這寫核心結構概念後，我們來看看新增一個 Vuex 會有哪些屬性可以使用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">const store = new Vuex.Store(&#123;</span><br><span class="line">  state: &#123;</span><br><span class="line">    age: 18</span><br><span class="line">  &#125;,</span><br><span class="line">  mutations: &#123;</span><br><span class="line">    incrementAge: <span class="keyword">function</span> (state) &#123;</span><br><span class="line">      state.age++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  actions: &#123;</span><br><span class="line">    ohMyAge: <span class="keyword">function</span> (commit) &#123;</span><br><span class="line">      commit(<span class="string">'incrementAge'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  getters: &#123;</span><br><span class="line">    getAge: <span class="keyword">function</span> (state) &#123;</span><br><span class="line">      <span class="built_in">return</span> state.age</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>這是一個簡單的 Store 實例，如果在元件當中，你會有幾個方法，可以從 Vuex 裡面提出來使用。</p>
+
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/04/13/2020-04-hexo/" class="article-next" title="Hexo"><i class="icon-arrow-right"></i></a>
+
+
+<a id="pageprev" href="/2020/04/14/2020-04-Git/" class="article-prev" title="Git"><i class="icon-arrow-left"></i></a>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "7fbe80427f54741e289f",
+        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
+        repo: "sanonz.github.io",
+        owner: "sanonz",
+        admin: ["sanonz"],
+        id: "2020/04/14/2020-04-vuejs",
+        distractionFreeMode: true,
+        title: "Vue.js",
+        body: "http://vince115.github.io/2020/04/14/2020-04-vuejs/",
+        labels: ["vue.js"]
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://vince115.github.io/hexo-blog/2020/04/14/2020-04-vuejs/index.html" data-id="cm8l0jpnz001ki5ob3zhacsoc" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 Hexo<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/hexo-blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/hexo-blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/hexo-blog/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/hexo-blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/hexo-blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

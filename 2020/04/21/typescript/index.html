@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Typescript | Vince的學習筆記                                                                   @font-face {         font-family: &#39;icomoon&#39;;         src: url(&quot;&#x2F;fonts&#x2F;icomoon.eot?q62">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://vince115.github.io/hexo-blog/2020/04/21/typescript/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Typescript | Vince的學習筆記                                                                   @font-face {         font-family: &#39;icomoon&#39;;         src: url(&quot;&#x2F;fonts&#x2F;icomoon.eot?q62">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-03-23T01:03:21.149Z">
+<meta property="article:modified_time" content="2025-03-22T22:33:13.128Z">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/hexo-blog/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/hexo-blog/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/hexo-blog/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/hexo-blog/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/hexo-blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/hexo-blog/">Home</a>
+        
+          <a class="main-nav-link" href="/hexo-blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/hexo-blog/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://vince115.github.io/hexo-blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/hexo-blog/2020/04/21/typescript/index.html" class="article-date">
+  <time class="dt-published" datetime="2025-03-23T01:03:21.149Z" itemprop="datePublished">2025-03-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>Typescript | Vince的學習筆記</title>
+    <meta name="author" content="Vince Lo" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="TypeScript 是由 Anders Hejlsberg （C#, TurboPascal 之父）所設計，其實概念很簡單，就是以現有的 JavaScript 為基礎，加上型別、介面等抽象定義，協助你更穩健的開發應用程式。主流框架以及大部分套件都已經支援了和 TypeScript 協作。由 Microsoft 主打，擁有型別系統（Type System）與介面（Interface）設計的語言，TypeScript 可以想成他是在原生 JS 上包裝上一層新的語法，因此如果在 TypeS..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Vince的學習筆記" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+<meta name="generator" content="Hexo 4.2.0"></head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Vince的學習筆記</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首頁</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/design">
+                <span class="nav-text">設計</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/frontend">
+                <span class="nav-text">前端</span>
+            </a>
+        
+            <a class="nav-item" href="/categories/backend">
+                <span class="nav-text">後端</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">標籤</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">歸檔</span>
+            </a>
+        
+            <a class="nav-item" href="/about">
+                <span class="nav-text">關於</span>
+            </a>
+        
+    </nav>
+</div>
+
+    <aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="http://vince115.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#typescript-本身的優缺點"><span class="toc-number">1.</span> <span class="toc-text"> TypeScript 本身的優缺點</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#typescript-可以和-ecmascript-協作"><span class="toc-number">2.</span> <span class="toc-text"> Typescript 可以和 ECMAScript 協作</span></a></li></ol>
+        
+    </div>
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            Typescript
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="http://vince115.github.io/2020/04/21/typescript/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2020-04-21T01:35:12.000Z" itemprop="datePublished">2020-04-21</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/typescript/" rel="tag">typescript</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <p>TypeScript 是由 Anders Hejlsberg （C#, TurboPascal 之父）所設計，其實概念很簡單，就是以現有的 JavaScript 為基礎，加上型別、介面等抽象定義，協助你更穩健的開發應用程式。</p>
+<p>主流框架以及大部分套件都已經支援了和 TypeScript 協作。</p>
+<p>由 Microsoft 主打，擁有型別系統（Type System）與介面（Interface）設計的語言，TypeScript 可以想成他是在原生 JS 上包裝上一層新的語法，因此如果在 TypeScript 裡面編譯原生 JS 也是可以動作的，只不過有可能發生錯誤的原因是：TypeScript 會幫你把原生 JS 裡潛藏的 Bug 或者是沒有補清的邏輯拋出警訊（Warning）的動作。</p>
+<h3 id="typescript-本身的優缺點"><a class="markdownIt-Anchor" href="#typescript-本身的優缺點"></a> TypeScript 本身的優缺點</h3>
+<p>主打優勢：型別系統 Type System<br />
+引入 TS 的型別系統的主要目的:</p>
+<blockquote>
+<p>減少 Bug 並使得維護更加容易:</p>
+<ol>
+<li>打錯字（Typo）或寫錯變數、物件性質或方法的名稱。</li>
+<li>避免類別或物件（Class &amp; Object）的性質與方法（Property &amp; Method）格式錯誤。</li>
+<li>藉由 TypeScript 在 IDE 上的 Autocomplete Feature 來協助開發並且防止錯誤。</li>
+</ol>
+</blockquote>
+<h3 id="typescript-可以和-ecmascript-協作"><a class="markdownIt-Anchor" href="#typescript-可以和-ecmascript-協作"></a> Typescript 可以和 ECMAScript 協作</h3>
+<p>TypeScript 是藉由型別系統以及擴充 ECMAScript 正式定義的規範使得我們可以寫出更多漂亮的語法。</p>
+<p>TS 編譯器設定檔中，也可以看到 —— 另一個名為 module 的設定可以讓我們調整編譯器要選擇編譯成 JS 的模組（Module）格式或類型。舉 NodeJS 為例，NodeJS 的模組採用 CommonJS 規範，比如：你會看到在 NodeJS 裡都是用 require 來引用模組：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 引入 File System 模組</span><br><span class="line">const fs &#x3D; require(&#39;fs&#39;);</span><br><span class="line">fs.readFile(&#39;file.txt&#39;, (err, data) &#x3D;&gt; &#123; &#x2F;* 讀取檔案後執行這邊... *&#x2F; &#125;);</span><br></pre></td></tr></table></figure>
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2020/04/21/angular/" class="article-next" title="Angular"><i class="icon-arrow-right"></i></a>
+
+
+<a id="pageprev" href="/2020/04/21/aspnet/" class="article-prev" title="Asp.Net"><i class="icon-arrow-left"></i></a>
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "7fbe80427f54741e289f",
+        clientSecret: "f34ed5fd92e54c9000bd37ba951948cb939deff5",
+        repo: "sanonz.github.io",
+        owner: "sanonz",
+        admin: ["sanonz"],
+        id: "2020/04/21/typescript",
+        distractionFreeMode: true,
+        title: "Typescript",
+        body: "http://vince115.github.io/2020/04/21/typescript/",
+        labels: ["typescript"]
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, Theme by <a href="https://github.com/sanonz/hexo-theme-concise" target="_blank">Concise</a>
+
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        
+<script src="/js/scrollspy.min.js"></script>
+
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://vince115.github.io/hexo-blog/2020/04/21/typescript/index.html" data-id="cm8l0jpnz001li5ob5jvf1v8x" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+
+  
+    
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 Hexo<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/hexo-blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/hexo-blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/hexo-blog/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/hexo-blog/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/hexo-blog/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
